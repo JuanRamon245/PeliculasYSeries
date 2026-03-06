@@ -1,0 +1,80 @@
+.contenedor {
+    height: auto;
+    width: 400px;
+    margin: 20px;
+    border: solid 2px var(--marron);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cabecera {
+    height: 40px;
+    width: 100%;
+    border-bottom: solid 1px var(--marron);
+    background-color: var(--rojo);
+    display: flex;
+    flex-direction: row;
+}
+
+.nombre {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--marron);
+    padding-left: 20px;
+}
+
+.decoracion {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.icono {
+    height: 30px;
+    aspect-ratio: 1/1;
+    background-color: var(--marron);
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+.contenedorDatos {
+    height: 25px;
+    width: calc(100% - 60px);
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--marron);
+    background-color: var(--blanco);
+    border: solid 2px var(--marron);
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin: 20px;
+}
+
+.cuerpo {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blanco);
+    padding: 20px;
+}
+
+.signoEvento {
+    height: 80px;
+    aspect-ratio: 1/1;
+    background-color: var(--rojo);
+    border-radius: 50%;
+    margin-bottom: 30px;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}

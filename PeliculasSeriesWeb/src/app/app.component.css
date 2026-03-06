@@ -1,0 +1,50 @@
+.cabecera {
+    width: 100%;
+    height: 120px;
+}
+
+.cuerpo {
+    width: 100%;
+    height: calc(100% - 120px);
+}
+
+.menu {
+    width: 100%;
+    height: 100px;
+}
+
+.contenedorCards {
+    width: 100%;
+    height: calc(100% - 100px);
+    background-color: var(--blanco);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-y: scroll;
+}
+
+/* Esta incompleto falla un poco */
+
+.contenedorCards::-webkit-scrollbar {
+    width: 10px;
+}
+
+.contenedorCards::-webkit-scrollbar-track {
+    background: var(--blanco);
+    border-left: solid 2px var(--marron);
+    z-index: 20;
+}
+
+.contenedorCards::-webkit-scrollbar-thumb {
+    background-color: var(--morado);
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.modales {
+    height: 100%;
+    width: 100%;
+    background-color: var(--gris);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

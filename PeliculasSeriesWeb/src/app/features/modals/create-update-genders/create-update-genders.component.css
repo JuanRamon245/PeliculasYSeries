@@ -1,0 +1,121 @@
+.contenedor {
+    height: auto;
+    width: 400px;
+    margin: 20px;
+    border: solid 2px var(--marron);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cabecera {
+    height: 40px;
+    width: 100%;
+    border-bottom: solid 1px var(--marron);
+    background-color: var(--morado);
+    display: flex;
+    flex-direction: row;
+}
+
+.nombre {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--marron);
+    padding-left: 20px;
+}
+
+.decoracion {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.icono {
+    height: 30px;
+    aspect-ratio: 1/1;
+    background-color: var(--marron);
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+.eliminar:hover {
+    transition: all ease-in-out 0.3s;
+    background-color: var(--rojo);
+}
+
+.contenedorDatos {
+    height: 25px;
+    width: calc(100% - 60px);
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--marron);
+    background-color: var(--blanco);
+    border: solid 2px var(--marron);
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin: 20px;
+}
+
+.pie {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--amarillo);
+    padding-top: 20px;
+}
+
+.contenedorBoton {
+    height: 50px;
+    width: 80px;
+    border: solid 3px var(--marron);
+    background-color: var(--gris);
+    border-radius: 8px;
+    margin: 10px;
+    display: flex;
+    align-self: end;
+}
+
+.botonPulsar {
+    height: 100%;
+    width: 100%;
+    padding: 5px 10px;
+    border: solid 0.5px var(--marron);
+    background-color: var(--blanco);
+    color: var(--marron);
+    border-radius: 5px;
+    transform: translateY(-10px);
+    transition: all ease-in-out 0.14s;
+    font-weight: 700;
+}
+
+.botonPulsar:active {
+    transform: translateY(0px);
+}
+
+.contenedorDecoracion {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-self: start;
+    width: 80px;
+    height: 80px;
+    background-color: var(--azul);
+    border-radius: 10px;
+    left: -10px;
+    bottom: -10px;
+}
+
+.margen {
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+}

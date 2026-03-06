@@ -4,7 +4,7 @@ import { appConfig } from './app.config';
 
 const serverConfig: ApplicationConfig = {
   providers: [
-    provideServerRendering(),
+    provideServerRendering() // ESTO es lo que le da la "Plataforma" que el error dice que falta
   ]
 };
 

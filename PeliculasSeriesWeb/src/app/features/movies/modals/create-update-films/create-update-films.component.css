@@ -1,0 +1,372 @@
+.contenedor {
+    height: auto;
+    width: 400px;
+    margin: 20px;
+    border: solid 2px var(--marron);
+    box-shadow: 0.4rem 0.4rem 0 var(--marron);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cabecera {
+    height: 40px;
+    width: 100%;
+    border-bottom: solid 1px var(--marron);
+    background-color: var(--morado);
+    display: flex;
+    flex-direction: row;
+}
+
+.nombre {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--marron);
+    padding-left: 20px;
+}
+
+.decoracion {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.icono {
+    height: 30px;
+    aspect-ratio: 1/1;
+    color: var(--marron);
+    
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px; 
+    cursor: pointer;
+    user-select: none;
+    transition: all ease-in-out 0.2s;
+}
+
+.invertir {
+    border-radius: 50px;
+    color: var(--blanco);
+    background-color: var(--marron);
+}
+
+.eliminar:hover {
+    color: var(--rojo);
+    transform: scale(1.1);
+}
+
+.cuerpo {
+    height: auto;
+    max-height: 400px;
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blanco);
+    overflow-y: scroll;
+}
+
+.cuerpo::-webkit-scrollbar {
+    width: 12px;
+}
+
+.cuerpo::-webkit-scrollbar-track {
+    background: var(--blanco);
+    border-left: solid 2px var(--marron);
+}
+
+.cuerpo::-webkit-scrollbar-thumb {
+    background-color: var(--morado);
+    border: 2px solid var(--marron);
+    border-radius: 20px;
+}
+
+.cuerpo::-webkit-scrollbar-button:single-button {
+    background-color: var(--blanco);
+    display: block;
+    border-left: solid 2px var(--marron);
+    height: 20px;
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cuerpo::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-bottom: solid 2px var(--marron);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><polygon points='50,20 90,80 10,80' fill='%23635444'/></svg>");
+}
+
+.cuerpo::-webkit-scrollbar-button:single-button:vertical:increment {
+    border-top: solid 2px var(--marron);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><polygon points='50,80 90,20 10,20' fill='%23635444'/></svg>");
+}
+
+.horizontal {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.titulo {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: start;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--marron);
+    padding-left: 20px;
+}
+
+.tipo {
+    height: auto;
+    width: calc(100% -20px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.contenedorTiposEstados {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--marron);
+    background-color: var(--blanco);
+    border: solid 2px var(--marron);
+    box-shadow: 0.4rem 0.4rem 0 var(--marron);
+    border-radius: 8px;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.generos {
+    height: 200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: var(--blanco);
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.contenedorGeneros {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--marron);
+    background-color: var(--blanco);
+    border: solid 2px var(--marron);
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+.contenedorDatos {
+    height: 45px;
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--marron);
+    background-color: var(--blanco);
+    border: solid 2px var(--marron);
+    border-radius: 8px;
+    padding: 10px 10px;
+    margin: 10px 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.pie {
+    height: auto;
+    width: 100%;
+    border-top: solid 1px var(--marron);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: var(--amarillo);
+}
+
+.decoracionPie {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.superior {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.barra {
+    width: 100%;
+    height: 10px;
+    margin: 20px;
+    border-radius: 100px;
+    border: solid 2px var(--marron);
+    background-color: var(--blanco);
+    overflow: hidden;
+}
+
+.cantidad {
+    width: 67%;
+    height: 100%;
+    background-color: var(--morado);
+}
+
+.inferior {
+    width: 100%;
+    height: 50%;
+    display: grid;
+    align-items: end;
+    padding-left: 40px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.contenedorBoton {
+    height: 50px;
+    width: 80px;
+    border: solid 3px var(--marron);
+    background-color: var(--gris);
+    border-radius: 8px;
+    margin: 10px;
+    margin-right: 20px;
+}
+
+.contenedorBotonAncho {
+    width: 100px;
+}
+
+.contenedorBotonDelgado {
+    width: 60px;
+}
+
+.botonPulsar {
+    height: 100%;
+    width: 100%;
+    padding: 5px 10px;
+    border: solid 0.5px var(--marron);
+    background-color: var(--blanco);
+    color: var(--marron);
+    border-radius: 5px;
+    transform: translateY(-10px);
+    transition: all ease-in-out 0.14s;
+    font-weight: 700;
+}
+
+.botonPulsar:active {
+    transform: translateY(0px);
+}
+
+.contenedorDecoracionArriba {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-self: start;
+    width: 80px;
+    height: 80px;
+    background-color: var(--azul);
+    border-radius: 10px;
+    right: -10px;
+    top: -10px;
+    z-index: 0;
+}
+
+.margen {
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-form {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--marron);
+    display: flex;
+    align-items: center;
+}
+
+input[type="radio"]:checked + .contenedorTiposEstados {
+    background-color: var(--morado);
+    color: var(--blanco);
+    border-color: var(--marron);
+}
+
+.contenedorTiposEstados {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.contenedorTiposEstados:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.custom-select-container {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+select.input-form {
+    appearance: none; /* Quita la flecha fea por defecto */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    padding-right: 30px; /* Espacio para nuestra propia flecha */
+}
+
+/* Añadimos una flecha personalizada al contenedor del select */
+.custom-select-container::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--marron); /* Flecha de color marrón */
+    pointer-events: none; /* Para que al hacer clic en la flecha, se abra el select */
+}
+
+/* 4. Ajuste para los números (quitar flechitas internas) */
+.input-form[type="number"]::-webkit-inner-spin-button,
+.input-form[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

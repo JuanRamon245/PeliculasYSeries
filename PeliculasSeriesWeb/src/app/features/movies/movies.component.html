@@ -1,0 +1,43 @@
+<!-- ── Header ─────────────────────────────────────────────────── -->
+<app-header (searchChange)="onSearch($event)" />
+
+<!-- ── Layout principal ──────────────────────────────────────── -->
+<div class="layoutPrincipal">
+
+    <!-- ── Menú de filtros (columna izquierda / lateral) ──────── -->
+    <aside class="lateral">
+        <app-menu-filters (filtersApplied)="onFiltersApplied($event)" />
+    </aside>
+
+    <!-- ── Área de contenido ─────────────────────────────────── -->
+    <main class="contenido">
+
+        <!-- Resultado info -->
+        <div class="infoResultados">
+            <p>{{ filteredMovies().length }} título(s) encontrado(s)</p>
+        </div>
+
+        <!-- Grid de cards -->
+        @if (pagedMovies().length > 0) {
+            <div class="gridCards">
+                @for (movie of pagedMovies(); track trackByNombre($index, movie)) {
+                    <app-series-peliculas-cards [movie]="movie" />
+                }
+            </div>
+        } @else {
+            <div class="sinResultados">
+                <span class="material-symbols-outlined">movie_filter</span>
+                <p>No se encontraron resultados.</p>
+            </div>
+        }
+
+        <!-- Paginación -->
+        <app-paginations
+            [currentPage]="currentPage()"
+            [totalPages]="totalPages()"
+            (pageChange)="onPageChange($event)"
+        />
+
+    </main>
+
+</div>

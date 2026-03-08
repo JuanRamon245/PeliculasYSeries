@@ -1,0 +1,52 @@
+<div class="contenedor">
+    <div class="cabecera">
+        <div class="nombre"><p>{{ movie().nombre }}</p></div>
+        <div class="decoracion">
+            <!-- Iconos de acción — solo visibles si hay sesión iniciada -->
+            @if (usuariosService.isLoggedIn()) {
+                <div class="icono" (click)="editar()" title="Editar">
+                    <span class="material-symbols-outlined">edit</span>
+                </div>
+                <div class="icono eliminar" (click)="eliminar()" title="Eliminar">
+                    <span class="material-symbols-outlined">delete</span>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="cuerpo">
+        <div class="datos">
+            <div class="contenedorDatos">
+                <div class="titulo"><p>Género:</p></div>
+                <div class="texto"><p>{{ movie().genero }}</p></div>
+            </div>
+            <div class="contenedorDatos">
+                <div class="titulo"><p>Fecha:</p></div>
+                <div class="texto"><p>{{ fechaFormateada }}</p></div>
+            </div>
+            <div class="contenedorDatos">
+                <div class="titulo"><p>Estado:</p></div>
+                <div class="texto"><p>{{ movie().estado }}</p></div>
+            </div>
+            <div class="contenedorDatos">
+                <div class="titulo"><p>Visto:</p></div>
+                <div class="texto"><p>{{ vistoTexto }}</p></div>
+            </div>
+        </div>
+
+        <div class="clasificacion">
+            <div class="contenedorClasificacion">
+                <p>{{ tipoTexto }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón actualizar solo con sesión -->
+    @if (usuariosService.isLoggedIn()) {
+        <div class="pie">
+            <div class="contenedorBoton">
+                <button class="botonPulsar" (click)="editar()">Actualizar</button>
+            </div>
+        </div>
+    }
+</div>

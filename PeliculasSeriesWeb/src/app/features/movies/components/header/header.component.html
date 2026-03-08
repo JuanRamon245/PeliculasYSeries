@@ -1,0 +1,46 @@
+<div class="contenedorCabecera">
+
+    <div class="barraBusqueda">
+        <div class="buscador">
+            <div class="icono">
+                <span class="material-symbols-outlined">search</span>
+            </div>
+            <div class="busqueda">
+                <input
+                    type="text"
+                    placeholder="Buscar..."
+                    [(ngModel)]="searchValue"
+                    (ngModelChange)="onSearch($event)"
+                    aria-label="Buscar película o serie"
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="botones">
+
+        <!-- Botón de géneros (siempre visible) -->
+        <div class="contenedorBoton">
+            <button class="botonPulsar" (click)="abrirGeneros()">Géneros</button>
+        </div>
+
+        <!-- Si NO hay sesión → mostrar "Acceder" -->
+        @if (!usuariosService.isLoggedIn()) {
+            <div class="contenedorBoton">
+                <button class="botonPulsar" (click)="abrirLogin()">Acceder</button>
+            </div>
+        }
+
+        <!-- Si HAY sesión → mostrar "Añadir" y "Salir" -->
+        @if (usuariosService.isLoggedIn()) {
+            <div class="contenedorBoton">
+                <button class="botonPulsar" (click)="abrirCrearPelicula()">Añadir</button>
+            </div>
+            <div class="contenedorBoton">
+                <button class="botonPulsar" (click)="cerrarSesion()">Salir</button>
+            </div>
+        }
+
+    </div>
+
+</div>

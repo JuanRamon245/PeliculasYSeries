@@ -1,0 +1,270 @@
+/* ══════════════════════════════════════════
+   Wrapper externo — ocupa todo el ancho
+   El menú flotante sale desde aquí
+══════════════════════════════════════════ */
+.wrapperFiltro {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: end;  /* centra el .margen horizontalmente */
+    padding: 16px 20px 0;
+    z-index: 10;
+}
+
+/* ══════════════════════════════════════════
+   .margen — igual que el patrón de modales:
+   posición relative para el .contenedorDecoracion
+══════════════════════════════════════════ */
+.margen {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    margin-right: 50px;
+}
+
+/* ══════════════════════════════════════════
+   .contenedor — la "ventana" del filtro
+   mismo estilo que los modales
+══════════════════════════════════════════ */
+.contenedor {
+    width: 100%;
+    border: solid 2px var(--marron);
+    border-radius: 10px;
+    overflow: visible;   /* necesario para que el .cuerpo absolute se vea */
+    position: relative;
+    z-index: 10;
+    transition: border-radius 0.2s;
+}
+
+.contenedor.abierto {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* ══════════════════════════════════════════
+   Cabecera — toggle del desplegable
+══════════════════════════════════════════ */
+.cabecera {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    background-color: var(--morado);
+    border-radius: 9px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    user-select: none;
+    z-index: 100;
+    border-bottom: solid 2px transparent; /* ← siempre está, no añade altura al abrirse */
+}
+
+/* ── Al expandirse solo cambia el color, el espacio ya estaba reservado */
+.cabecera.expandida {
+    border-radius: 9px 9px 0 0;
+    border-bottom-color: var(--marron); /* ← solo cambia el color, no el tamaño */
+}
+
+.nombre {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--marron);
+    padding-left: 20px;
+}
+
+.decoracion {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    gap: 4px;
+}
+
+.icono {
+    height: 30px;
+    aspect-ratio: 1/1;
+    color: var(--marron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform ease-in-out 0.2s;
+}
+
+/* La flecha gira cuando está abierto */
+.icono.abierto {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════
+   Cuerpo desplegable — ABSOLUTE
+   sale del flujo y tapa las cards de abajo
+══════════════════════════════════════════ */
+.cuerpo {
+    position: absolute;
+    top: calc(100% - 20px);         /* ← justo al final de la cabecera, sin offset */
+    left: -1px;
+    width: calc(100%);
+    max-height: 70vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--amarillo);
+    border: solid 2px var(--marron);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    z-index: 50;
+    padding-top: 10px;
+    animation: desplegar 0.2s ease-out both;
+}
+
+.margenArriba {
+    margin-top: 20px;
+}
+
+@keyframes desplegar {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════
+   Contenido interno del cuerpo
+══════════════════════════════════════════ */
+.horizontal {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.titulo {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--marron);
+    padding-left: 20px;
+    flex-shrink: 0;
+}
+
+.contenedorDatos {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--marron);
+    background-color: var(--blanco);
+    border: solid 2px var(--marron);
+    border-radius: 8px;
+    padding: 4px 8px;
+    margin: 0 20px;
+    min-height: 34px;
+    align-items: center;
+}
+
+.tipo {
+    width: calc(100% - 40px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 20px 10px;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.estado {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.generosFiltro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 100%;
+    min-height: 0;
+}
+
+.contenedorTiposEstados {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--marron);
+    background-color: var(--blanco);
+    border: solid 2px var(--marron);
+    border-radius: 8px;
+    padding: 6px 0;
+    cursor: pointer;
+    transition: background-color ease-in-out 0.14s, color ease-in-out 0.14s;
+}
+
+.contenedorTiposEstados.activo {
+    background-color: var(--marron);
+    color: var(--blanco);
+}
+
+.contenedorBoton {
+    height: 50px;
+    width: 80px;
+    border: solid 3px var(--marron);
+    background-color: var(--gris);
+    border-radius: 8px;
+    margin: 10px 20px 16px;
+    display: flex;
+    align-self: flex-end;  /* alineado a la derecha igual que en los modales */
+}
+
+.botonPulsar {
+    height: 100%;
+    width: 100%;
+    padding: 5px 10px;
+    border: solid 0.5px var(--marron);
+    background-color: var(--blanco);
+    color: var(--marron);
+    border-radius: 5px;
+    transform: translateY(-10px);
+    transition: all ease-in-out 0.14s;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.botonPulsar:active { transform: translateY(0); }
+
+.input-form {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--marron);
+}
+
+.sinGeneros {
+    font-size: 13px;
+    color: var(--marron);
+    opacity: 0.5;
+    padding: 4px 8px;
+}
+
+.cuerpo::-webkit-scrollbar       { width: 8px; }
+.cuerpo::-webkit-scrollbar-track { background: var(--amarillo); }
+.cuerpo::-webkit-scrollbar-thumb { background-color: var(--marron); border-radius: 20px; }

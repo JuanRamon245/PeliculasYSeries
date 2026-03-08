@@ -1,0 +1,29 @@
+<!-- Pendiente de diseño según la maqueta final -->
+<!-- Por ahora se muestra una paginación funcional básica -->
+
+@if (totalPages() > 1) {
+    <div class="paginacion">
+        <button
+            class="botonPulsar"
+            [disabled]="currentPage() === 1"
+            (click)="goTo(currentPage() - 1)">
+            ‹
+        </button>
+
+        @for (page of pages; track page) {
+            <button
+                class="botonPulsar"
+                [class.activo]="page === currentPage()"
+                (click)="goTo(page)">
+                {{ page }}
+            </button>
+        }
+
+        <button
+            class="botonPulsar"
+            [disabled]="currentPage() === totalPages()"
+            (click)="goTo(currentPage() + 1)">
+            ›
+        </button>
+    </div>
+}

@@ -1,0 +1,72 @@
+.contenedorCabecera {
+    height: 100%;
+    height: 80px;
+    background-color: var(--morado);
+    border-bottom: solid 1px var(--azul);
+    display: flex;
+    flex-direction: row;
+}
+
+.barraBusqueda {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.buscador {
+    height: 40px;
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--blanco);
+    border-radius: 10px;
+    margin-left: 10%;
+    border: solid 1px var(--marron);
+}
+
+.icono {
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--azul);
+    border-right: solid 1px var(--marron);
+    border-radius: 10px;
+}
+
+.busqueda {
+    height: 100%;
+    width: 100%;
+}
+
+.botones {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.contenedorBoton {
+    height: 50px;
+    width: 80px;
+    border: solid 3px var(--marron);
+    background-color: var(--gris);
+    border-radius: 8px;
+    margin: 10%;
+}
+
+.botonPulsar {
+    height: 100%;
+    width: 100%;
+    padding: 5px 10px;
+    border: solid 0.5px var(--marron);
+    background-color: var(--blanco);
+    color: var(--marron);
+    border-radius: 5px;
+    transform: translateY(-10px);
+    transition: all ease-in-out 0.14s;
+    font-weight: 700;
+}
+
+.botonPulsar:active {
+    transform: translateY(0px);
+}

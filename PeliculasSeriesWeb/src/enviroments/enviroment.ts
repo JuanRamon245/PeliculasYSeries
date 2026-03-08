@@ -1,11 +1,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey:            'AIzaSy...',
-    authDomain:        'cinemateca-xxxxx.firebaseapp.com',
-    projectId:         'cinemateca-xxxxx',
-    storageBucket:     'cinemateca-xxxxx.appspot.com',
-    messagingSenderId: '123456789',
-    appId:             '1:123456789:web:abcdef',
-  },
+    apiKey: "AIzaSyCLmYbqxy602TSkOGbB4yI6VHgRDcypEhU",
+    authDomain: "peliculasseriesweb-29c7d.firebaseapp.com",
+    projectId: "peliculasseriesweb-29c7d",
+    storageBucket: "peliculasseriesweb-29c7d.firebasestorage.app",
+    messagingSenderId: "517693129020",
+    appId: "1:517693129020:web:9af714c21e8f73edf65e39"
+  }
 };

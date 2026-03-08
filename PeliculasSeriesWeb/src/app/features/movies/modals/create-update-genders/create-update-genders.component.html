@@ -1,0 +1,34 @@
+<div class="margen">
+    <div class="contenedor">
+        <div class="cabecera">
+            <div class="nombre"><p>{{ titulo }}</p></div>
+            <div class="decoracion">
+                <span class="material-symbols-outlined icono">remove</span>
+                <span class="material-symbols-outlined icono">select_window</span>
+                <span class="material-symbols-outlined icono eliminar" (click)="cerrar()">close</span>
+            </div>
+        </div>
+        <div class="pie">
+            <div class="nombre"><p>Nombre</p></div>
+            <div class="contenedorDatos">
+                <input
+                    type="text"
+                    placeholder="Escribe el nombre..."
+                    class="input-form"
+                    [(ngModel)]="nombre"
+                    (keydown.enter)="guardar()"
+                    maxlength="50"
+                />
+            </div>
+            <div class="contenedorBoton">
+                <button
+                    class="botonPulsar"
+                    (click)="guardar()"
+                    [disabled]="loading() || !nombre.trim()">
+                    {{ loading() ? 'Guardando...' : btnLabel }}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="contenedorDecoracion"></div>
+</div>

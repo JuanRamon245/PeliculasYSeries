@@ -1,0 +1,107 @@
+<div class="margen">
+    <div class="contenedorDecoracionArriba"></div>
+    <div class="contenedor">
+        <div class="cabecera">
+            <div class="nombre"><p>{{ titulo }}</p></div>
+            <div class="decoracion">
+                <span class="material-symbols-outlined icono">remove</span>
+                <span class="material-symbols-outlined icono">select_window</span>
+                <span class="material-symbols-outlined icono eliminar" (click)="cerrar()">close</span>
+            </div>
+        </div>
+
+        <div class="cuerpo">
+
+            <!-- Nombre -->
+            <div class="nombre"><p>Nombre</p></div>
+            <div class="contenedorDatos">
+                <input
+                    type="text"
+                    placeholder="Escribe el nombre..."
+                    class="input-form"
+                    [(ngModel)]="nombre"
+                    maxlength="120"
+                />
+            </div>
+
+            <!-- Tipo (Animación y Formato) -->
+            <div class="nombre"><p>Tipo</p></div>
+            <div class="tipo">
+                <!-- Animación -->
+                <input type="radio" name="formato" id="normal" [checked]="formato === 'Normal'" hidden>
+                <label for="normal" class="contenedorTiposEstados" (click)="formato = 'Normal'">Normal</label>
+
+                <input type="radio" name="formato" id="anime" [checked]="formato === 'Anime'" hidden>
+                <label for="anime" class="contenedorTiposEstados" (click)="formato = 'Anime'">Anime</label>
+
+                <!-- Categoría -->
+                <input type="radio" name="categoria" id="pelicula" [checked]="categoria === 'Pelicula'" hidden>
+                <label for="pelicula" class="contenedorTiposEstados" (click)="categoria = 'Pelicula'">Película</label>
+
+                <input type="radio" name="categoria" id="serie" [checked]="categoria === 'Serie'" hidden>
+                <label for="serie" class="contenedorTiposEstados" (click)="categoria = 'Serie'">Serie</label>
+            </div>
+
+            <!-- Máximo -->
+            <div class="nombre"><p>Máximo</p></div>
+            <div class="contenedorDatos">
+                <input
+                    type="text"
+                    [placeholder]="maximoPlaceholder"
+                    class="input-form"
+                    [(ngModel)]="maximo"
+                    maxlength="50"
+                />
+            </div>
+
+            <!-- Actual / Mínimo -->
+            <div class="nombre"><p>Actual</p></div>
+            <div class="contenedorDatos">
+                <input
+                    type="text"
+                    [placeholder]="minimoPlaceholder"
+                    class="input-form"
+                    [(ngModel)]="minimo"
+                    maxlength="50"
+                />
+            </div>
+
+            <!-- Género (select poblado desde Firestore) -->
+            <div class="horizontal">
+                <div class="titulo"><p>Género</p></div>
+                <div class="contenedorDatos custom-select-container">
+                    <select class="input-form" [(ngModel)]="genero">
+                        <option value="" disabled>Selecciona...</option>
+                        @for (g of generosService.genres(); track g.nombre) {
+                            <option [value]="g.nombre">{{ g.nombre }}</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+        </div><!-- /cuerpo -->
+
+        <div class="pie">
+            <div class="decoracionPie">
+                <div class="inferior">
+                    <span class="material-symbols-outlined icono">favorite</span>
+                    <span class="material-symbols-outlined icono invertir">skip_previous</span>
+                    <span class="material-symbols-outlined icono invertir">pause</span>
+                    <span class="material-symbols-outlined icono invertir">skip_next</span>
+                </div>
+                <div class="superior">
+                    <div class="barra"><div class="cantidad"></div></div>
+                </div>
+            </div>
+            <div class="contenedorBoton contenedorBotonDelgado">
+                <button
+                    class="botonPulsar"
+                    (click)="guardar()"
+                    [disabled]="loading()">
+                    {{ loading() ? 'Guardando...' : btnLabel }}
+                </button>
+            </div>
+        </div>
+
+    </div><!-- /contenedor -->
+</div>

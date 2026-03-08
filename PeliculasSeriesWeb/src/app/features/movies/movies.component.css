@@ -1,0 +1,90 @@
+/* ── Layout raíz ─────────────────────────────────────────── */
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+app-header {
+    flex-shrink: 0;
+}
+
+/* ── Layout principal: ahora es una sola columna ─────────── */
+/* El filtro vive ENCIMA del contenido, no al lado */
+.layoutPrincipal {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative; /* ancla el absolute del filtro */
+}
+
+/* ── Lateral: contiene el desplegable, posición relativa
+      para que el menú absolute salga desde aquí hacia abajo */
+.lateral {
+    width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+    border-bottom: solid 2px var(--marron);
+}
+
+/* ── Área de contenido: ocupa todo el espacio restante ───── */
+.contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--blanco);
+}
+
+/* ── Info resultados ─────────────────────────────────────── */
+.infoResultados {
+    width: 100%;
+    flex-shrink: 0;
+    padding: 6px 16px;
+    border-bottom: solid 2px var(--marron);
+}
+
+.infoResultados p {
+    font-size: 13px;
+    color: var(--marron);
+    opacity: 0.7;
+}
+
+/* ── Grid de cards ───────────────────────────────────────── */
+.gridCards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: start;
+    overflow-y: scroll;
+    background-color: var(--blanco);
+}
+
+.gridCards::-webkit-scrollbar       { width: 10px; }
+.gridCards::-webkit-scrollbar-track { background: var(--blanco); border-left: solid 2px var(--marron); }
+.gridCards::-webkit-scrollbar-thumb { background-color: var(--morado); border-radius: 20px; }
+
+/* ── Sin resultados ──────────────────────────────────────── */
+.sinResultados {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--marron);
+    opacity: 0.5;
+}
+
+.sinResultados span { font-size: 52px; }
+.sinResultados p    { font-size: 15px; }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .gridCards { grid-template-columns: 1fr; }
+}

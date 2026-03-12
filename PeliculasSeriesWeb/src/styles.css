@@ -20,3 +20,54 @@ body {
     width: 100%;
     overflow: hidden;
 }
+
+.letraPequeña {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+
+.letraGrande {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+}
+
+.margenAbajo {
+    margin-bottom: 10px;
+}
+
+/* ══════════════════════════════════════════════════════
+   ANGULAR MATERIAL — Override global del dialog
+   Debe estar en styles.css (raíz), NO en el componente
+══════════════════════════════════════════════════════ */
+
+/* ── Fondo oscuro del backdrop ───────────────────────── */
+.cdk-overlay-backdrop.cdk-overlay-dark-backdrop {
+    background: color-mix(in srgb, black, transparent 50%);
+}
+
+/* ── Contenedor externo del dialog ───────────────────── */
+/* Quitamos TODO lo que Material impone por defecto      */
+.cine-dialog .mat-mdc-dialog-container {
+    background:    transparent !important;
+    box-shadow:    none        !important;
+    border-radius: 0           !important;
+    padding:       0           !important;
+    overflow:      visible     !important; /* ← clave: permite ver las decoraciones */
+}
+
+/* ── Superficie interna (la "hoja") ──────────────────── */
+.cine-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
+    background:    transparent !important;
+    box-shadow:    none        !important;
+    border-radius: 0           !important;
+    overflow:      visible     !important; /* ← también aquí */
+}
+
+/* ── Área de contenido del dialog ────────────────────── */
+.cine-dialog .mat-mdc-dialog-content,
+.cine-dialog .mdc-dialog__content {
+    padding:    0    !important;
+    margin:     0    !important;
+    overflow:   visible !important;
+    max-height: none !important;
+}

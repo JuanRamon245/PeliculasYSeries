@@ -1,6 +1,6 @@
 <div class="contenedor">
     <div class="cabecera">
-        <div class="nombre">
+        <div class="nombre letraGrande">
             <p>{{ data.success ? 'Éxito' : 'Error' }}</p>
         </div>
         <div class="decoracion">
@@ -13,6 +13,6 @@
         <span class="material-symbols-outlined icono respuesta" [class.success]="data.success">
             {{ data.success ? 'check_circle' : 'error' }}
         </span>
-        <div class="nombre"><p>{{ data.message }}</p></div>
+        <div class="campoTexto letraPequeña"><p>{{ data.message }}</p></div>
     </div>
 </div>

@@ -39,16 +39,3 @@
     border-radius: 20px;
     z-index: 10;
 }
-
-.modales {
-    height: 100%;
-    width: 100%;
-    background-color: color-mix(in srgb, var(--marron), transparent 70%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-}

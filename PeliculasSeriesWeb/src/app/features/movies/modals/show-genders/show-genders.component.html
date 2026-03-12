@@ -2,7 +2,7 @@
     <div class="contenedorDecoracion"></div>
     <div class="contenedor">
         <div class="cabecera">
-            <div class="nombre"><p>Géneros</p></div>
+            <div class="nombre letraGrande"><p>Géneros</p></div>
             <div class="decoracion">
                 <span class="material-symbols-outlined icono">remove</span>
                 <span class="material-symbols-outlined icono">select_window</span>
@@ -14,7 +14,7 @@
             <div class="generos">
 
                 @if (generosService.genres().length === 0) {
-                    <p class="sinGeneros">No hay géneros creados todavía.</p>
+                    <p class="sinGenero letraPequeña">No hay géneros creados todavía.</p>
                 }
 
                 @for (genero of generosService.genres(); track genero.nombre; let i = $index) {

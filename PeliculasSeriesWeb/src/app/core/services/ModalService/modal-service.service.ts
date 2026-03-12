@@ -44,6 +44,7 @@ export interface ErrorSuccessData {
 const BASE_CONFIG = {
   maxWidth:   '95vw',
   panelClass: 'cine-dialog',
+  backdropClass: 'cdk-overlay-dark-backdrop',  // ← activa el fondo oscuro
 };
 
 @Injectable({ providedIn: 'root' })

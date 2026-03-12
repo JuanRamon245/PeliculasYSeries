@@ -85,3 +85,12 @@
     justify-self: center;
     margin-bottom: 40px;
 }
+
+.campoTexto {
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--marron);
+    padding-left: 20px;
+}

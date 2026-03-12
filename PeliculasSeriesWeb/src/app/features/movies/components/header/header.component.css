@@ -2,7 +2,7 @@
     height: 100%;
     height: 80px;
     background-color: var(--morado);
-    border-bottom: solid 1px var(--azul);
+    border-bottom: solid 2px var(--marron);
     display: flex;
     flex-direction: row;
 }
@@ -21,15 +21,40 @@
     background-color: var(--blanco);
     border-radius: 10px;
     margin-left: 10%;
-    border: solid 1px var(--marron);
+    border: solid 2px var(--marron);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.input-form {
+    padding-left: 5px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    padding-inline: 10px;
+    color: var(--marron);
 }
 
 .icono {
     height: 100%;
     aspect-ratio: 1/1;
     background-color: var(--azul);
-    border-right: solid 1px var(--marron);
-    border-radius: 10px;
+    color: var(--marron);
+    border-left: solid 2px var(--marron);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
 }
 
 .busqueda {

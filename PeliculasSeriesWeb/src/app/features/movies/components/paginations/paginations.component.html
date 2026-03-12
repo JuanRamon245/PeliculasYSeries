@@ -4,7 +4,7 @@
 @if (totalPages() > 1) {
     <div class="paginacion">
         <button
-            class="botonPulsar"
+            class="botonPulsar letraGrande"
             [disabled]="currentPage() === 1"
             (click)="goTo(currentPage() - 1)">
             ‹
@@ -12,7 +12,7 @@
 
         @for (page of pages; track page) {
             <button
-                class="botonPulsar"
+                class="botonPulsar letraGrande"
                 [class.activo]="page === currentPage()"
                 (click)="goTo(page)">
                 {{ page }}
@@ -20,7 +20,7 @@
         }
 
         <button
-            class="botonPulsar"
+            class="botonPulsar letraGrande"
             [disabled]="currentPage() === totalPages()"
             (click)="goTo(currentPage() + 1)">
             ›

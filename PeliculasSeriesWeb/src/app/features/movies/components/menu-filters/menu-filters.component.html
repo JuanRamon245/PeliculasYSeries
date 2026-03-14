@@ -30,22 +30,20 @@
                         </div>
                     </div>
 
-                    <div class="horizontal">
-                        <div class="titulo letraGrande"><p>Género</p></div>
-                        <div class="contenedorDatos">
-                            <div class="generosFiltro letraPequeña">
-                                @for (g of generosService.genres(); track g.nombre) {
-                                    <div
-                                        class="contenedorTiposEstados"
-                                        [class.activo]="isGeneroActive(g.nombre)"
-                                        (click)="toggleGenero(g.nombre)">
-                                        <p>{{ g.nombre }}</p>
-                                    </div>
-                                }
-                                @if (generosService.genres().length === 0) {
-                                    <p class="sinGeneros">Sin géneros</p>
-                                }
-                            </div>
+                    <div class="titulo letraGrande"><p>Género</p></div>
+                    <div class="contenedorDatosGeneros">
+                        <div class="generosFiltro letraPequeña">
+                            @for (g of generosService.genres(); track g.nombre) {
+                                <div
+                                    class="contenedorTiposEstados"
+                                    [class.activo]="isGeneroActive(g.nombre)"
+                                    (click)="toggleGenero(g.nombre)">
+                                    <p>{{ g.nombre }}</p>
+                                </div>
+                            }
+                            @if (generosService.genres().length === 0) {
+                                <p class="sinGeneros">Sin géneros</p>
+                            }
                         </div>
                     </div>
 

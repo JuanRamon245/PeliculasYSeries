@@ -3,6 +3,7 @@ import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 
 import { GenerosService } from './../../../../core/services/generos/generos-firebase.service';
 import { ModalService }   from '../../../../core/services/ModalService/modal-service.service';
+import { UsuariosService } from '../../../../core/services/usuarios/usuarios-firebase.service';
 
 @Component({
   selector: 'app-show-genders',
@@ -15,9 +16,14 @@ export class ShowGendersComponent {
   private dialogRef     = inject(MatDialogRef<ShowGendersComponent>);
   generosService        = inject(GenerosService);
   private modalService  = inject(ModalService);
+  usuariosService        = inject(UsuariosService);
 
   // Género seleccionado en el panel (radio button)
   selectedGenero = signal<string>('');
+
+  private generoSiqueExiste(): boolean {
+    return this.generosService.genres().some(g => g.nombre === this.selectedGenero());
+  }
 
   select(nombre: string): void {
     // Permitir deseleccionar clickando el mismo
@@ -45,6 +51,13 @@ export class ShowGendersComponent {
       });
       return;
     }
+
+    if (!this.generoSiqueExiste()) {
+      this.selectedGenero.set('');  // limpiamos el estado huérfano
+      this.modalService.openErrorSuccess({ success: false, message: 'El género ya no existe, elige otro genero.' });
+      return;
+    }
+
     this.modalService.openCreateUpdateGender(this.selectedGenero());
   }
 
@@ -55,6 +68,12 @@ export class ShowGendersComponent {
         success: false,
         message: 'Selecciona primero un género para eliminar.',
       });
+      return;
+    }
+
+    if (!this.generoSiqueExiste()) {
+      this.selectedGenero.set('');  // limpiamos el estado huérfano
+      this.modalService.openErrorSuccess({ success: false, message: 'El género ya no existe, elige otro genero.' });
       return;
     }
 

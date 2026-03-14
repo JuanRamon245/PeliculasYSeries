@@ -11,43 +11,45 @@
         </div>
 
         <div class="cuerpo">
-            <div class="generos">
-
-                @if (generosService.genres().length === 0) {
-                    <p class="sinGenero letraPequeña">No hay géneros creados todavía.</p>
-                }
-
-                @for (genero of generosService.genres(); track genero.nombre; let i = $index) {
-                    <!-- El id debe ser único; usamos el índice para ello -->
-                    <input
-                        type="radio"
-                        name="generoSeleccionado"
-                        [id]="'genero-' + i"
-                        [checked]="isSelected(genero.nombre)"
-                        (change)="select(genero.nombre)"
-                        hidden
-                    />
-                    <label
-                        [for]="'genero-' + i"
-                        class="contenedorGeneros"
-                        [class.seleccionado]="isSelected(genero.nombre)">
-                        {{ genero.nombre }}
-                    </label>
-                }
-
-            </div>
+            @if (generosService.genres().length === 0) {
+                <p class="sinGenero nombre letraPequeña">No hay géneros creados todavía.</p>
+            }
+            @else {
+                <div class="generos">
+                    @for (genero of generosService.genres(); track genero.nombre; let i = $index) {
+                        <!-- El id debe ser único; usamos el índice para ello -->
+                        <input
+                            type="radio"
+                            name="generoSeleccionado"
+                            [id]="'genero-' + i"
+                            [checked]="isSelected(genero.nombre)"
+                            (change)="select(genero.nombre)"
+                            hidden
+                        />
+                        <label
+                            [for]="'genero-' + i"
+                            class="contenedorGeneros letraPequeña"
+                            [class.seleccionado]="isSelected(genero.nombre)">
+                            {{ genero.nombre }}
+                        </label>
+                    }
+                </div>
+            }
+            
         </div>
 
         <div class="pie">
-            <div class="contenedorBoton" (click)="eliminar()">
-                <button class="botonPulsar">Eliminar</button>
-            </div>
-            <div class="contenedorBoton contenedorBotonAncho" (click)="actualizar()">
-                <button class="botonPulsar">Actualizar</button>
-            </div>
-            <div class="contenedorBoton contenedorBotonDelgado" (click)="crear()">
-                <button class="botonPulsar">Crear</button>
-            </div>
+            @if (usuariosService.isLoggedIn()) {
+                <div class="contenedorBoton" (click)="eliminar()">
+                    <button class="botonPulsar">Eliminar</button>
+                </div>
+                <div class="contenedorBoton contenedorBotonAncho" (click)="actualizar()">
+                    <button class="botonPulsar">Actualizar</button>
+                </div>
+                <div class="contenedorBoton contenedorBotonDelgado" (click)="crear()">
+                    <button class="botonPulsar">Crear</button>
+                </div>
+            }
         </div>
     </div>
 </div>

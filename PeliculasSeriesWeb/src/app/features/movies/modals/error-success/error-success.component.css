@@ -13,9 +13,16 @@
     height: 40px;
     width: 100%;
     border-bottom: solid 1px var(--marron);
-    background-color: var(--rojo);
     display: flex;
     flex-direction: row;
+}
+
+.cabeceraError {
+    background-color: var(--rojo);
+}
+
+.cabeceraExito {
+    background-color: var(--verde);
 }
 
 .nombre {
@@ -41,7 +48,6 @@
     height: 30px;
     aspect-ratio: 1/1;
     color: var(--marron);
-    
     margin-right: 5px;
     display: flex;
     align-items: center;
@@ -77,13 +83,20 @@
 }
 
 .respuesta {
-    color: var(--rojo);
     margin-top: 20px;
     font-size: 80px;
     display: flex;
     align-self: center;
     justify-self: center;
     margin-bottom: 40px;
+}
+
+.respuestaError {
+    color: var(--rojo);
+}
+
+.respuestaExito {
+    color: var(--verde);
 }
 
 .campoTexto {

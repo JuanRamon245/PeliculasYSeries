@@ -1,6 +1,7 @@
 <div class="contenedor">
-    <div class="cabecera">
+    <div class="cabecera" [ngClass]="data.success ? 'cabeceraExito' : 'cabeceraError'">
         <div class="nombre letraGrande">
+            <!-- Arreglar esto para que se vean bien los colores en caso de exito o error -->
             <p>{{ data.success ? 'Éxito' : 'Error' }}</p>
         </div>
         <div class="decoracion">
@@ -10,7 +11,7 @@
         </div>
     </div>
     <div class="cuerpo">
-        <span class="material-symbols-outlined icono respuesta" [class.success]="data.success">
+        <span class="material-symbols-outlined icono respuesta" [ngClass]="data.success ? 'respuestaExito' : 'respuestaError'">
             {{ data.success ? 'check_circle' : 'error' }}
         </span>
         <div class="campoTexto letraPequeña"><p>{{ data.message }}</p></div>

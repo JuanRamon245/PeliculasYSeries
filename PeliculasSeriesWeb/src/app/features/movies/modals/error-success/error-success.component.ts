@@ -1,4 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 
 import { ErrorSuccessData } from '../../../../core/services/ModalService/modal-service.service';
@@ -6,7 +7,7 @@ import { ErrorSuccessData } from '../../../../core/services/ModalService/modal-s
 @Component({
   selector: 'app-error-success',
   standalone: true,
-  imports: [MatDialogModule],
+  imports: [MatDialogModule, CommonModule],
   templateUrl: './error-success.component.html',
   styleUrl: './error-success.component.css'
 })

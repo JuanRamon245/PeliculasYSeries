@@ -10,16 +10,21 @@
             </div>
         </div>
         <div class="pie">
-            <div class="nombre letraGrande"><p>Nombre</p></div>
+            <div class="nombre letraGrande"><p>Correo</p></div>
             <div class="contenedorDatos">
-                <input type="text" placeholder="Escribe el nombre..." class="input-form letraPequeño">
+                <input type="email" placeholder="Escribe el correo..." class="input-form letraPequeño" [(ngModel)]="email" (keydown.enter)="acceder()">
             </div>
             <div class="nombre letraGrande"><p>Contraseña</p></div>
             <div class="contenedorDatos">
-                <input type="text" placeholder="Escribe la contraseña..." class="input-form letraPequeño">
+                <input type="text" placeholder="Escribe la contraseña..." class="input-form letraPequeño" [(ngModel)]="password" (keydown.enter)="acceder()">
             </div>
             <div class="contenedorBoton">
-                <button class="botonPulsar">Acceder</button>
+                 <button
+                    class="botonPulsar"
+                    (click)="acceder()"
+                    [disabled]="loading()">
+                    Acceder
+                </button>
             </div>
         </div>
     </div>

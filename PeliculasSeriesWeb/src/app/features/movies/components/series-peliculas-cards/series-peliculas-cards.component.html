@@ -4,12 +4,8 @@
         <div class="decoracion">
             <!-- Iconos de acción — solo visibles si hay sesión iniciada -->
             @if (usuariosService.isLoggedIn()) {
-                <div class="icono" (click)="editar()" title="Editar">
-                    <span class="material-symbols-outlined">edit</span>
-                </div>
-                <div class="icono eliminar" (click)="eliminar()" title="Eliminar">
-                    <span class="material-symbols-outlined">delete</span>
-                </div>
+                <span class="material-symbols-outlined icono eliminar" (click)="editar()" title="Editar">edit</span>
+                <span class="material-symbols-outlined icono eliminar" (click)="eliminar()" title="Eliminar">delete</span>
             }
         </div>
     </div>
@@ -40,13 +36,4 @@
             </div>
         </div>
     </div>
-
-    <!-- Botón actualizar solo con sesión -->
-    @if (usuariosService.isLoggedIn()) {
-        <div class="pie">
-            <div class="contenedorBoton">
-                <button class="botonPulsar" (click)="editar()">Actualizar</button>
-            </div>
-        </div>
-    }
 </div>

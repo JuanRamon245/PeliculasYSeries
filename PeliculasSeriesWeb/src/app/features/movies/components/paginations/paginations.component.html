@@ -1,10 +1,7 @@
-<!-- Pendiente de diseño según la maqueta final -->
-<!-- Por ahora se muestra una paginación funcional básica -->
-
 @if (totalPages() > 1) {
     <div class="paginacion">
         <button
-            class="botonPulsar letraGrande"
+            class="botonPaginacion letraGrande"
             [disabled]="currentPage() === 1"
             (click)="goTo(currentPage() - 1)">
             ‹
@@ -12,7 +9,7 @@
 
         @for (page of pages; track page) {
             <button
-                class="botonPulsar letraGrande"
+                class="botonPaginacion letraGrande"
                 [class.activo]="page === currentPage()"
                 (click)="goTo(page)">
                 {{ page }}
@@ -20,7 +17,7 @@
         }
 
         <button
-            class="botonPulsar letraGrande"
+            class="botonPaginacion letraGrande"
             [disabled]="currentPage() === totalPages()"
             (click)="goTo(currentPage() + 1)">
             ›

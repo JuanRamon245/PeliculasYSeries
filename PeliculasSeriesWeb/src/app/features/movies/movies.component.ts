@@ -14,7 +14,7 @@ import { PaginationsComponent }          from './components/paginations/paginati
 type Breakpoint = 'desktop' | 'tablet' | 'mobile';
 
 const PAGE_SIZES: Record<Breakpoint, number> = {
-  desktop: 40,
+  desktop: 30,
   tablet:  15,
   mobile:  10,
 };

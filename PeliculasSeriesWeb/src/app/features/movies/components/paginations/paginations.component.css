@@ -1,0 +1,35 @@
+.paginacion {
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.botonPaginacion {
+    height: auto;
+    width: auto;
+    border: solid 3px var(--marron);
+    background-color: var(--blanco);
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: var(--marron);
+    transition: all ease-in-out 0.14s;
+    font-weight: 700;
+}
+
+.botonPaginacion.activo {
+    background-color: var(--morado);
+    border-color: var(--marron);
+    color: var(--marron);
+}
+
+/* ── Deshabilitado ─────────────────────────────────── */
+.botonPaginacion:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

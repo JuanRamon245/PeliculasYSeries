@@ -12,7 +12,7 @@
 .cabecera {
     height: 40px;
     width: 100%;
-    border-bottom: solid 1px var(--marron);
+    border-bottom: solid 2px var(--marron);
     background-color: var(--morado);
     display: flex;
     flex-direction: row;
@@ -104,10 +104,6 @@
     background-position: center;
 }
 
-.sinGenero {
-    margin-top: 10px;
-}
-
 .generos::-webkit-scrollbar-button:single-button:vertical:decrement {
     border-bottom: solid 2px var(--marron);
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><polygon points='50,20 90,80 10,80' fill='%23635444'/></svg>");
@@ -116,6 +112,10 @@
 .generos::-webkit-scrollbar-button:single-button:vertical:increment {
     border-top: solid 2px var(--marron);
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><polygon points='50,80 90,20 10,20' fill='%23635444'/></svg>");
+}
+
+.sinGenero {
+    margin-top: 10px;
 }
 
 .contenedorGeneros {
@@ -151,7 +151,7 @@ input[type="radio"]:checked + .contenedorGeneros {
 .pie {
     height: auto;
     width: 100%;
-    border-top: solid 1px var(--marron);
+    border-top: solid 2px var(--marron);
     display: flex;
     flex-direction: row;
     justify-content: space-around;

@@ -76,6 +76,23 @@
     padding-left: 20px;
 }
 
+.nombreHorizontal {
+    width: 20%;
+}
+
+.nombreArriba {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--marron);
+    padding-left: 20px;
+    align-self: flex-start;
+    align-items: center;
+    margin-top: 20px;
+}
+
 .decoracion {
     height: 100%;
     width: 30%;
@@ -191,7 +208,7 @@
     border-radius: 8px 0 0 8px;
     margin: 10px 20px;
     padding: 10px;
-    max-height: 180px;
+    max-height: 120px;
 
     overflow-y: scroll; 
     overflow-x: hidden;
@@ -240,6 +257,10 @@
     padding: 0 20px 10px;
     gap: 10px;
     margin: 0 auto;
+}
+
+.tipoHorizontal {
+    width: 80%;
 }
 
 .estado {

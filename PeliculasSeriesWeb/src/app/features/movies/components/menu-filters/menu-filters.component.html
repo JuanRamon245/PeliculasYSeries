@@ -47,21 +47,24 @@
                         </div>
                     </div>
 
-                    <div class="nombre letraGrande margenAbajo"><p>Tipo</p></div>
-                    <div class="tipo">
-                        <div class="contenedorTiposEstados letraPequeña" [class.activo]="isAnimacionActive('Normal')" (click)="toggleAnimacion('Normal')"><p>Normal</p></div>
-                        <div class="contenedorTiposEstados letraPequeña" [class.activo]="isAnimacionActive('Anime')"  (click)="toggleAnimacion('Anime')"><p>Anime</p></div>
-                        <div class="contenedorTiposEstados letraPequeña" [class.activo]="isFormatoActive('Pelicula')" (click)="toggleFormato('Pelicula')"><p>Película</p></div>
-                        <div class="contenedorTiposEstados letraPequeña" [class.activo]="isFormatoActive('Serie')"    (click)="toggleFormato('Serie')"><p>Serie</p></div>
+                    <div class="horizontal">
+                        <div class="letraGrande nombreArriba"><p>Tipo</p></div>
+                        <div class="tipo tipoHorizontal">
+                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isAnimacionActive('Normal')" (click)="toggleAnimacion('Normal')"><p>Normal</p></div>
+                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isAnimacionActive('Anime')"  (click)="toggleAnimacion('Anime')"><p>Anime</p></div>
+                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isFormatoActive('Pelicula')" (click)="toggleFormato('Pelicula')"><p>Película</p></div>
+                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isFormatoActive('Serie')"    (click)="toggleFormato('Serie')"><p>Serie</p></div>
+                        </div>
                     </div>
 
-                    <div class="nombre letraGrande margenAbajo"><p>Estado</p></div>
-                    <div class="tipo estado">
-                        <div class="contenedorTiposEstados letraPequeña" [class.activo]="isEstadoActive('No visto')"   (click)="toggleEstado('No visto')"><p>No visto</p></div>
-                        <div class="contenedorTiposEstados letraPequeña" [class.activo]="isEstadoActive('En proceso')" (click)="toggleEstado('En proceso')"><p>En proceso</p></div>
-                        <div class="contenedorTiposEstados letraPequeña" [class.activo]="isEstadoActive('Visto')"      (click)="toggleEstado('Visto')"><p>Visto</p></div>
+                    <div class="horizontal">
+                        <div class="nombre nombreHorizontal letraGrande"><p>Estado</p></div>
+                        <div class="tipo estado tipoHorizontal">
+                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isEstadoActive('No visto')"   (click)="toggleEstado('No visto')"><p>No visto</p></div>
+                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isEstadoActive('En proceso')" (click)="toggleEstado('En proceso')"><p>En proceso</p></div>
+                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isEstadoActive('Visto')"      (click)="toggleEstado('Visto')"><p>Visto</p></div>
+                        </div>
                     </div>
-
                     <div class="contenedorBoton">
                         <button class="botonPulsar" (click)="aplicar()">Buscar</button>
                     </div>

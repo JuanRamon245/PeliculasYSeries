@@ -6,7 +6,7 @@
 
             <!-- Cabecera toggle -->
             <div class="cabecera" [class.expandida]="abierto()" (click)="toggleMenu()">
-                <div class="nombre letraGrande"><p>Filtros</p></div>
+                <div class="nombre letraGrande kosugiMPr"><p>Filtros</p></div>
                 <div class="decoracion">
                     <div class="icono" [class.abierto]="abierto()">
                         <span class="material-symbols-outlined">expand_more</span>
@@ -19,9 +19,9 @@
                 <div class="cuerpo">
 
                     <div class="horizontal margenArriba">
-                        <div class="titulo letraGrande"><p>Ordenar</p></div>
+                        <div class="titulo letraGrande kosugiMPr"><p>Ordenar</p></div>
                         <div class="contenedorDatos">
-                            <select [(ngModel)]="orden" class="input-form letraPequeña">
+                            <select [(ngModel)]="orden" class="input-form letraPequeña gaeguPr">
                                 <option value="az">Nombre A–Z</option>
                                 <option value="za">Nombre Z–A</option>
                                 <option value="fecha_ultima">Más reciente</option>
@@ -30,12 +30,12 @@
                         </div>
                     </div>
 
-                    <div class="titulo letraGrande"><p>Género</p></div>
+                    <div class="titulo letraGrande kosugiMPr"><p>Genero</p></div>
                     <div class="contenedorDatosGeneros">
                         <div class="generosFiltro letraPequeña">
                             @for (g of generosService.genres(); track g.nombre) {
                                 <div
-                                    class="contenedorTiposEstados"
+                                    class="contenedorTiposEstados gaeguPr"
                                     [class.activo]="isGeneroActive(g.nombre)"
                                     (click)="toggleGenero(g.nombre)">
                                     <p>{{ g.nombre }}</p>
@@ -48,25 +48,25 @@
                     </div>
 
                     <div class="horizontal">
-                        <div class="letraGrande nombreArriba"><p>Tipo</p></div>
+                        <div class="letraGrande nombreArriba kosugiMPr"><p>Tipo</p></div>
                         <div class="tipo tipoHorizontal">
-                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isAnimacionActive('Normal')" (click)="toggleAnimacion('Normal')"><p>Normal</p></div>
-                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isAnimacionActive('Anime')"  (click)="toggleAnimacion('Anime')"><p>Anime</p></div>
-                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isFormatoActive('Pelicula')" (click)="toggleFormato('Pelicula')"><p>Película</p></div>
-                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isFormatoActive('Serie')"    (click)="toggleFormato('Serie')"><p>Serie</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isAnimacionActive('Normal')" (click)="toggleAnimacion('Normal')"><p>Normal</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isAnimacionActive('Anime')"  (click)="toggleAnimacion('Anime')"><p>Anime</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isFormatoActive('Pelicula')" (click)="toggleFormato('Pelicula')"><p>Pelicula</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isFormatoActive('Serie')"    (click)="toggleFormato('Serie')"><p>Serie</p></div>
                         </div>
                     </div>
 
                     <div class="horizontal">
-                        <div class="nombre nombreHorizontal letraGrande"><p>Estado</p></div>
+                        <div class="nombre nombreHorizontal letraGrande kosugiMPr"><p>Estado</p></div>
                         <div class="tipo estado tipoHorizontal">
-                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isEstadoActive('No visto')"   (click)="toggleEstado('No visto')"><p>No visto</p></div>
-                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isEstadoActive('En proceso')" (click)="toggleEstado('En proceso')"><p>En proceso</p></div>
-                            <div class="contenedorTiposEstados letraPequeña" [class.activo]="isEstadoActive('Visto')"      (click)="toggleEstado('Visto')"><p>Visto</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('No visto')"   (click)="toggleEstado('No visto')"><p>No visto</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('En proceso')" (click)="toggleEstado('En proceso')"><p>En proceso</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('Visto')"      (click)="toggleEstado('Visto')"><p>Visto</p></div>
                         </div>
                     </div>
                     <div class="contenedorBoton">
-                        <button class="botonPulsar" (click)="aplicar()">Buscar</button>
+                        <button class="botonPulsar latoPr" (click)="aplicar()">Buscar</button>
                     </div>
 
                 </div>

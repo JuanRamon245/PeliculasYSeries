@@ -35,7 +35,7 @@ export class CreateUpdateFilmsComponent implements OnInit {
 
   // ── Computed ──────────────────────────────────────────────────
   get isEdit(): boolean  { return this.data.movie !== null; }
-  get titulo(): string   { return this.isEdit ? 'Editar Película / Serie' : 'Crear Película / Serie'; }
+  get titulo(): string   { return this.isEdit ? 'Editar Pelicula / Serie' : 'Crear Pelicula / Serie'; }
   get btnLabel(): string { return this.isEdit ? 'Actualizar' : 'Crear'; }
 
   get maximoPlaceholder(): string {

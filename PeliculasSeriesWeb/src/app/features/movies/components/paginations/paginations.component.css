@@ -3,23 +3,32 @@
     width: 100%;
     padding: 10px;
     display: flex;
+    user-select: none;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 5px;
+    
 }
 
 .botonPaginacion {
     height: auto;
     width: auto;
-    border: solid 3px var(--marron);
+    border: solid 2px var(--marron);
     background-color: var(--blanco);
     border-radius: 8px;
-    padding: 5px 10px;
+    padding: 3px 10px;
     cursor: pointer;
     color: var(--marron);
     transition: all ease-in-out 0.14s;
     font-weight: 700;
+}
+
+.puntosSuspensivos {
+    align-items: flex-end;
+    font-size: 12px;
+    padding: 7px 9px;
+    cursor: default;
 }
 
 .botonPaginacion.activo {

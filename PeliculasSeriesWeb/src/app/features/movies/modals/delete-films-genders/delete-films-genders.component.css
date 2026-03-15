@@ -62,14 +62,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: var(--amarillo);
+    background-color: var(--blanco);
     padding-top: 20px;
 }
 
 .contenedorBoton {
     height: 50px;
     width: 80px;
-    border: solid 3px var(--marron);
+    border: solid 2px var(--marron);
     background-color: var(--gris);
     border-radius: 8px;
     margin: 10px;

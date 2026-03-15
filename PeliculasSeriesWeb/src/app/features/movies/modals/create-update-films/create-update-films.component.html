@@ -34,17 +34,17 @@
                 </g>
             </defs>
 
-            <use href="#hojaUnica" x="0" y="-15" />
+            <use href="#hojaUnica" x="7.5" y="-7.5" />
         
-            <use href="#hojaUnica" x="-7.5" y="-7.5" />
+            <use href="#hojaUnica" x="0" y="0" />
             
-            <use href="#hojaUnica" x="-15" y="0" />
+            <use href="#hojaUnica" x="-7.5" y="7.5" />
 
         </svg>
     </div>
     <div class="contenedor">
         <div class="cabecera">
-            <div class="nombre letraGrande"><p>{{ titulo }}</p></div>
+            <div class="nombre letraGrande kosugiMPr"><p>{{ titulo }}</p></div>
             <div class="decoracion">
                 <span class="material-symbols-outlined icono">remove</span>
                 <span class="material-symbols-outlined icono">select_window</span>
@@ -53,56 +53,54 @@
         </div>
 
         <div class="cuerpo">
-
-            <!-- Nombre -->
-            <div class="nombre letraGrande"><p>Nombre</p></div>
+            <div class="nombre letraGrande kosugiMPr"><p>Nombre</p></div>
             <div class="contenedorDatos">
                 <input
                     type="text"
                     placeholder="Escribe el nombre..."
-                    class="input-form letraPequeña"
+                    class="input-form letraPequeña gaeguPr"
                     [(ngModel)]="nombre"
                     maxlength="40"
                 />
             </div>
 
             <!-- Tipo (Animación y Formato) -->
-            <div class="nombre letraGrande"><p>Tipo</p></div>
+            <div class="nombre letraGrande kosugiMPr"><p>Tipo</p></div>
             <div class="tipo">
                 <!-- Animación -->
                 <input type="radio" name="formato" id="normal" [checked]="formato === 'Normal'" hidden>
-                <label for="normal" class="contenedorTiposEstados letraPequeña" (click)="formato = 'Normal'">Normal</label>
+                <label for="normal" class="contenedorTiposEstados letraPequeña gaeguPr" (click)="formato = 'Normal'">Normal</label>
 
                 <input type="radio" name="formato" id="anime" [checked]="formato === 'Anime'" hidden>
-                <label for="anime" class="contenedorTiposEstados letraPequeña" (click)="formato = 'Anime'">Anime</label>
+                <label for="anime" class="contenedorTiposEstados letraPequeña gaeguPr" (click)="formato = 'Anime'">Anime</label>
 
                 <!-- Categoría -->
                 <input type="radio" name="categoria" id="pelicula" [checked]="categoria === 'Pelicula'" hidden>
-                <label for="pelicula" class="contenedorTiposEstados letraPequeña" (click)="categoria = 'Pelicula'">Película</label>
+                <label for="pelicula" class="contenedorTiposEstados letraPequeña gaeguPr" (click)="categoria = 'Pelicula'">Pelicula</label>
 
                 <input type="radio" name="categoria" id="serie" [checked]="categoria === 'Serie'" hidden>
-                <label for="serie" class="contenedorTiposEstados letraPequeña" (click)="categoria = 'Serie'">Serie</label>
+                <label for="serie" class="contenedorTiposEstados letraPequeña gaeguPr" (click)="categoria = 'Serie'">Serie</label>
             </div>
 
             <!-- Máximo -->
-            <div class="nombre letraGrande"><p>Máximo</p></div>
+            <div class="nombre letraGrande kosugiMPr"><p>Maximo</p></div>
             <div class="contenedorDatos">
                 <input
                     type="text"
                     [placeholder]="maximoPlaceholder"
-                    class="input-form letraPequeña"
+                    class="input-form letraPequeña gaeguPr"
                     [(ngModel)]="maximo"
                     maxlength="50"
                 />
             </div>
 
             <!-- Actual / Mínimo -->
-            <div class="nombre letraGrande"><p>Actual</p></div>
+            <div class="nombre letraGrande kosugiMPr"><p>Actual</p></div>
             <div class="contenedorDatos">
                 <input
                     type="text"
                     [placeholder]="minimoPlaceholder"
-                    class="input-form letraPequeña"
+                    class="input-form letraPequeña gaeguPr"
                     [(ngModel)]="minimo"
                     maxlength="50"
                 />
@@ -110,9 +108,9 @@
 
             <!-- Género (select poblado desde Firestore) -->
             <div class="horizontal">
-                <div class="titulo letraGrande"><p>Género</p></div>
+                <div class="titulo letraGrande kosugiMPr"><p>Genero</p></div>
                 <div class="contenedorDatos custom-select-container">
-                    <select class="input-form letraPequeña" [(ngModel)]="genero">
+                    <select class="input-form letraPequeña gaeguPr" [(ngModel)]="genero">
                         @for (g of generosService.genres(); track g.nombre) {
                             <option [value]="g.nombre">{{ g.nombre }}</option>
                         }
@@ -136,7 +134,7 @@
             </div>
             <div class="contenedorBoton">
                 <button
-                    class="botonPulsar"
+                    class="botonPulsar latoPr"
                     (click)="guardar()"
                     [disabled]="loading()">
                     Guardar

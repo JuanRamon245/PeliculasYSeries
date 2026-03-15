@@ -71,7 +71,7 @@
     display: flex;
     align-items: center;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 300;
     color: var(--marron);
     padding-left: 20px;
 }

@@ -23,7 +23,7 @@ export class CreateUpdateGendersComponent implements OnInit {
   loading = signal(false);
 
   get isEdit(): boolean { return this.data.genero !== null; }
-  get titulo(): string  { return this.isEdit ? 'Editar Género' : 'Crear Género'; }
+  get titulo(): string  { return this.isEdit ? 'Editar Genero' : 'Crear Genero'; }
   get btnLabel(): string { return this.isEdit ? 'Actualizar' : 'Crear'; }
 
   ngOnInit(): void {

@@ -71,3 +71,82 @@ body {
     overflow:   visible !important;
     max-height: none !important;
 }
+
+/* ══════════════════════════════════════════════════════
+   Tipografias
+══════════════════════════════════════════════════════ */
+
+.latoPr {
+    font-family: 'Lato' !important;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/tipography/Lato/Lato-thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/tipography/Lato/Lato-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/tipography/Lato/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/tipography/Lato/Lato-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/tipography/Lato/Lato-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+.gaeguPr {
+    font-family: 'Gaegu' !important;
+}
+
+@font-face {
+  font-family: 'Gaegu';
+  src: url('/tipography/Gaegu/Gaegu-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gaegu';
+  src: url('/tipography/Gaegu/Gaegu-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gaegu';
+  src: url('/tipography/Gaegu/Gaegu-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.kosugiMPr {
+    font-family: 'Kosugi_Maru' !important;
+}
+
+@font-face {
+  font-family: 'Kosugi_Maru';
+  src: url('/tipography/Kosugi_Maru/KosugiMaru-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}

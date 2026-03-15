@@ -34,6 +34,7 @@ app-header {
     position: relative;
     z-index: 10;
     border-bottom: solid 2px var(--marron);
+    background-color: var(--rosa);
 }
 
 /* ── Área de contenido: ocupa todo el espacio restante ───── */

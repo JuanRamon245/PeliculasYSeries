@@ -1,26 +1,35 @@
 @if (totalPages() > 1) {
     <div class="paginacion">
+
+        <!-- Flecha anterior -->
         <button
-            class="botonPaginacion letraGrande"
+            class="botonPaginacion letraGrande latoPr"
             [disabled]="currentPage() === 1"
             (click)="goTo(currentPage() - 1)">
             ‹
         </button>
 
-        @for (page of pages; track page) {
-            <button
-                class="botonPaginacion letraGrande"
-                [class.activo]="page === currentPage()"
-                (click)="goTo(page)">
-                {{ page }}
-            </button>
+        <!-- Páginas visibles (números y separadores) -->
+        @for (page of visiblePages; track $index) {
+            @if (isNumber(page)) {
+                <button
+                    class="botonPaginacion letraGrande gaeguPr"
+                    [class.activo]="page === currentPage()"
+                    (click)="goTo(page)">
+                    {{ page }}
+                </button>
+            } @else {
+                <span class="botonPaginacion puntosSuspensivos gaeguPr">···</span>
+            }
         }
 
+        <!-- Flecha siguiente -->
         <button
-            class="botonPaginacion letraGrande"
+            class="botonPaginacion letraGrande latoPr"
             [disabled]="currentPage() === totalPages()"
             (click)="goTo(currentPage() + 1)">
             ›
         </button>
+
     </div>
 }

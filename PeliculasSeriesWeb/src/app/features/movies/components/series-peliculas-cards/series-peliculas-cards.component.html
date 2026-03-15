@@ -1,6 +1,6 @@
 <div class="contenedor">
     <div class="cabecera">
-        <div class="nombre"><p>{{ movie().nombre }}</p></div>
+        <div class="nombre kosugiMPr"><p>{{ movie().nombre }}</p></div>
         <div class="decoracion">
             <!-- Iconos de acción — solo visibles si hay sesión iniciada -->
             @if (usuariosService.isLoggedIn()) {
@@ -13,25 +13,25 @@
     <div class="cuerpo">
         <div class="datos">
             <div class="contenedorDatos">
-                <div class="titulo letraGrande"><p>Género:</p></div>
-                <div class="texto letraPequeña"><p>{{ movie().genero }}</p></div>
+                <div class="titulo letraGrande kosugiMPr"><p>Genero:</p></div>
+                <div class="texto letraPequeña gaeguPr"><p>{{ movie().genero }}</p></div>
             </div>
             <div class="contenedorDatos">
-                <div class="titulo letraGrande"><p>Fecha:</p></div>
-                <div class="texto letraPequeña"><p>{{ fechaFormateada }}</p></div>
+                <div class="titulo letraGrande kosugiMPr"><p>Fecha:</p></div>
+                <div class="texto letraPequeña gaeguPr"><p>{{ fechaFormateada }}</p></div>
             </div>
             <div class="contenedorDatos">
-                <div class="titulo letraGrande"><p>Estado:</p></div>
-                <div class="texto letraPequeña"><p>{{ movie().estado }}</p></div>
+                <div class="titulo letraGrande kosugiMPr"><p>Estado:</p></div>
+                <div class="texto letraPequeña gaeguPr"><p>{{ movie().estado }}</p></div>
             </div>
             <div class="contenedorDatos">
-                <div class="titulo letraGrande"><p>Visto:</p></div>
-                <div class="texto letraPequeña"><p>{{ vistoTexto }}</p></div>
+                <div class="titulo letraGrande kosugiMPr"><p>Visto:</p></div>
+                <div class="texto letraPequeña gaeguPr"><p>{{ vistoTexto }}</p></div>
             </div>
         </div>
 
         <div class="clasificacion">
-            <div class="contenedorClasificacion letraGrande">
+            <div class="contenedorClasificacion letraGrande kosugiMPr">
                 <p>{{ tipoTexto }}</p>
             </div>
         </div>

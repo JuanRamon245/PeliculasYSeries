@@ -1,7 +1,7 @@
 <div class="margen">
     <div class="contenedor">
         <div class="cabecera">
-            <div class="nombre letraGrande"><p>{{ titulo }}</p></div>
+            <div class="nombre letraGrande kosugiMPr"><p>{{ titulo }}</p></div>
             <div class="decoracion">
                 <span class="material-symbols-outlined icono">remove</span>
                 <span class="material-symbols-outlined icono">select_window</span>
@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="pie">
-            <div class="nombre letraGrande"><p>Nombre</p></div>
+            <div class="nombre letraGrande kosugiMPr"><p>Nombre del genero</p></div>
             <div class="contenedorDatos">
                 <input
                     type="text"
@@ -17,12 +17,12 @@
                     [(ngModel)]="nombre"
                     (keydown.enter)="guardar()"
                     maxlength="50"
-                    class="input-form letraPequeña"
+                    class="input-form letraPequeña gaeguPr"
                 />
             </div>
             <div class="contenedorBoton">
                 <button
-                    class="botonPulsar"
+                    class="botonPulsar latoPr"
                     (click)="guardar()"
                     [disabled]="loading() || !nombre.trim()">
                     Guardar

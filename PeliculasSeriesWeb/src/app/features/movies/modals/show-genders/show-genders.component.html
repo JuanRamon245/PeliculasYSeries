@@ -17,7 +17,7 @@
     </div>
     <div class="contenedor">
         <div class="cabecera">
-            <div class="nombre letraGrande"><p>Géneros</p></div>
+            <div class="nombre letraGrande kosugiMPr"><p>Generos</p></div>
             <div class="decoracion">
                 <span class="material-symbols-outlined icono">remove</span>
                 <span class="material-symbols-outlined icono">select_window</span>
@@ -27,7 +27,7 @@
 
         <div class="cuerpo">
             @if (generosService.genres().length === 0) {
-                <p class="sinGenero nombre letraPequeña">No hay géneros creados todavía.</p>
+                <p class="sinGenero nombre letraPequeña gaeguPr">No hay géneros creados todavía.</p>
             }
             @else {
                 <div class="generos">
@@ -43,7 +43,7 @@
                         />
                         <label
                             [for]="'genero-' + i"
-                            class="contenedorGeneros letraPequeña"
+                            class="contenedorGeneros letraPequeña gaeguPr"
                             [class.seleccionado]="isSelected(genero.nombre)">
                             {{ genero.nombre }}
                         </label>
@@ -56,13 +56,13 @@
         <div class="pie">
             @if (usuariosService.isLoggedIn()) {
                 <div class="contenedorBoton" (click)="eliminar()">
-                    <button class="botonPulsar">Eliminar</button>
+                    <button class="botonPulsar latoPr">Eliminar</button>
                 </div>
                 <div class="contenedorBoton contenedorBotonAncho" (click)="actualizar()">
-                    <button class="botonPulsar">Actualizar</button>
+                    <button class="botonPulsar latoPr">Actualizar</button>
                 </div>
                 <div class="contenedorBoton contenedorBotonDelgado" (click)="crear()">
-                    <button class="botonPulsar">Crear</button>
+                    <button class="botonPulsar latoPr">Crear</button>
                 </div>
             }
         </div>

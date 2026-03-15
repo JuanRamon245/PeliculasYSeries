@@ -22,7 +22,7 @@ export class DeleteFilmsGendersComponent {
   loading = signal(false);
 
   get titulo(): string {
-    return this.data.tipo === 'pelicula' ? 'Eliminar Película / Serie' : 'Eliminar Género';
+    return this.data.tipo === 'pelicula' ? 'Eliminar Pelicula / Serie' : 'Eliminar Genero';
   }
 
   async eliminar(): Promise<void> {

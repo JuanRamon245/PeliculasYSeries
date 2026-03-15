@@ -139,9 +139,9 @@
 }
 
 input[type="radio"]:checked + .contenedorGeneros {
-    background-color: var(--morado);
+    background-color: var(--marron);
     color: var(--blanco);
-    border-color: var(--marron);
+    box-shadow: 0 0 0 var(--morado);
 }
 
 .contenedorGeneros:hover {
@@ -161,7 +161,7 @@ input[type="radio"]:checked + .contenedorGeneros {
 .contenedorBoton {
     height: 50px;
     width: 80px;
-    border: solid 3px var(--marron);
+    border: solid 2px var(--marron);
     background-color: var(--gris);
     border-radius: 8px;
     margin: 10px;

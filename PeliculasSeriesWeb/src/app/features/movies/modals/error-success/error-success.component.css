@@ -1,12 +1,12 @@
 .contenedor {
     height: auto;
     width: 400px;
-    margin: 20px;
     border: solid 2px var(--marron);
     box-shadow: 0.4rem 0.4rem 0 var(--marron);
     border-radius: 10px;
     overflow: hidden;
     z-index: 1;
+    margin-left: -32px;
 }
 
 .cabecera {

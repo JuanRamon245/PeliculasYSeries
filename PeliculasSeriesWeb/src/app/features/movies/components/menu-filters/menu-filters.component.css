@@ -28,9 +28,9 @@
    mismo estilo que los modales
 ══════════════════════════════════════════ */
 .contenedor {
-    width: 100%;
     border: solid 2px var(--marron);
     border-radius: 10px;
+    width: 500px;
     overflow: visible;   /* necesario para que el .cuerpo absolute se vea */
     position: relative;
     z-index: 10;
@@ -48,7 +48,7 @@
 .cabecera {
     position: relative;
     height: 40px;
-    width: 500px;
+    width: 100%;
     background-color: var(--morado);
     border-radius: 9px;
     display: flex;
@@ -110,19 +110,27 @@
 ══════════════════════════════════════════ */
 .cuerpo {
     position: absolute;
+    left: 0;          /* alinea con el padding-box del contenedor, igual que la cabecera */
+    right: 0;         /* mismo resultado en ambas direcciones */
     top: calc(100% - 20px);
-    left: -2px;     /* Anclado 2px a la izquierda (cubre el borde izquierdo del padre) */
-    right: -2px;    /* Anclado 2px a la derecha (cubre el borde derecho del padre) */
-    width: 500px;
+
     display: flex;
     flex-direction: column;
     background-color: var(--amarillo);
-    border: solid 2px var(--marron);
+
+    /* El borde inferior sí ocupa espacio, pero es el único */
+    border-bottom: solid 2px var(--marron);
     border-top: none;
+
+    /* outline NO afecta al layout ni al tamaño del elemento */
+    /* simula los bordes laterales sin añadir ni un pixel al ancho */
+    outline: solid 2px var(--marron);
+
     border-radius: 0 0 10px 10px;
     z-index: 50;
     padding-top: 10px;
     animation: desplegar 0.2s ease-out both;
+    box-sizing: border-box;
 }
 
 .margenArriba {

@@ -1,7 +1,7 @@
 .contenedorCabecera {
     height: 100%;
     height: 80px;
-    background-color: var(--morado);
+    background-color: var(--azul);
     border-bottom: solid 2px var(--marron);
     display: flex;
     flex-direction: row;
@@ -44,7 +44,7 @@
 .icono {
     height: 100%;
     aspect-ratio: 1/1;
-    background-color: var(--azul);
+    background-color: var(--morado);
     color: var(--marron);
     border-left: solid 2px var(--marron);
     

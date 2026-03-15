@@ -34,7 +34,7 @@ app-header {
     position: relative;
     z-index: 10;
     border-bottom: solid 2px var(--marron);
-    background-color: var(--rosa);
+    background: linear-gradient(to right, var(--morado), var(--rosa));
 }
 
 /* ── Área de contenido: ocupa todo el espacio restante ───── */
@@ -43,7 +43,7 @@ app-header {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: var(--blanco);
+    position: relative; /* ← CLAVE para anclar la capa líquida */
 }
 
 /* ── Info resultados ─────────────────────────────────────── */
@@ -53,6 +53,7 @@ app-header {
     padding: 6px 16px;
     border-bottom: solid 2px var(--marron);
     color: var(--marron);
+    background-color: var(--blanco);
 }
 
 /* ── Grid de cards ───────────────────────────────────────── */
@@ -62,6 +63,55 @@ app-header {
     overflow-x: hidden; /* Prohíbe explícitamente el scroll horizontal */
     display: flex;
     flex-direction: column;
+}
+
+.infoResultados, .zonaScroll {
+    position: relative;
+    z-index: 1; 
+}
+
+/* El contenedor padre (.contenido) sigue necesitando position: relative; */
+
+.fondo-liquido {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none; /* No bloquea los clicks */
+    opacity: 0.5; /* Ajusta a tu gusto */
+
+    /* Hacemos las bandas un poco más gruesas */
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--rosa) 0%, var(--rosa) 10%,
+        var(--azul) 10%, var(--azul) 20%,
+        var(--morado) 20%, var(--morado) 30%,
+        var(--amarillo) 30%, var(--amarillo) 40%
+    );
+
+    /* Hacemos el fondo el doble de grande para poder deslizarlo */
+    background-size: 200% 200%;
+
+    /* Aplicamos el nuevo filtro */
+    filter: url(#liquido-fluyendo);
+
+    /* Animación lineal infinita */
+    animation: corrienteLiquida 50s linear infinite;
+    
+    /* Optimización de rendimiento para animaciones continuas */
+    will-change: background-position;
+}
+
+/* Al deslizar el fondo a través del SVG estático, los colores se "derriten" de forma dinámica */
+@keyframes corrienteLiquida {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
 }
 
 .zonaScroll::-webkit-scrollbar {
@@ -107,7 +157,6 @@ app-header {
     gap: 16px;   /* Es mejor usar gap que márgenes en las cards */
     padding: 16px; /* Da aire a los lados sin romper el ancho */
     align-content: start;
-    background-color: var(--blanco);
 }
 
 /* ── Sin resultados ──────────────────────────────────────── */

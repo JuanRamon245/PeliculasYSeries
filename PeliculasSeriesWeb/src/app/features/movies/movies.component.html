@@ -1,3 +1,10 @@
+<svg style="width:0; height:0; position:absolute;" aria-hidden="true" focusable="false">
+  <filter id="liquido-fluyendo">
+    <feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="3" result="noise" />
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="120" xChannelSelector="R" yChannelSelector="G" />
+  </filter>
+</svg>
+
 <app-header (searchChange)="onSearch($event)" />
 
 <div class="layoutPrincipal">
@@ -6,6 +13,8 @@
     </aside>
 
     <main class="contenido">
+
+        <div class="fondo-liquido"></div>
 
         <div class="infoResultados letraGrande kosugiMPr">
             <p>{{ filteredMovies().length }} titulo(s) encontrado(s)</p>

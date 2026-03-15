@@ -5,6 +5,7 @@
     border: solid 2px var(--marron);
     border-radius: 10px;
     overflow: hidden;
+    background-color: var(--blanco);
 }
 
 .contenedor:hover {

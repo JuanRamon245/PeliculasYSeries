@@ -1,8 +1,50 @@
 <div class="margen">
-    <div class="contenedorDecoracionArriba"></div>
+    <div class="contenedorDecoracionArriba">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <linearGradient id="sombraPliegue" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--marron)" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="var(--marron)" stop-opacity="0" />
+                </linearGradient>
+                <g id="hojaUnica">
+                    <path d="M 10 10 
+                            L 80 10 
+                            L 90 20 
+                            L 90 110 
+                            L 10 110 
+                            Z" 
+                        fill="var(--blanco)" 
+                        stroke="var(--marron)" 
+                        stroke-width="3" 
+                        stroke-linejoin="round" />
+
+                    <path d="M 80 10 
+                            L 90 20 
+                            L 80 20 
+                            Z" 
+                        fill="var(--blanco)" 
+                        stroke="var(--marron)" 
+                        stroke-width="3" 
+                        stroke-linejoin="round" />
+                    
+                    <line x1="80" y1="20" x2="80" y2="10" stroke="var(--marron)" stroke-width="3" />
+                    <line x1="80" y1="20" x2="90" y2="20" stroke="var(--marron)" stroke-width="3" />
+                    
+                    <path d="M 80 20 L 90 20 L 80 10 Z" fill="url(#sombraPliegue)" stroke="none" transform="translate(1, 1)"/>
+                </g>
+            </defs>
+
+            <use href="#hojaUnica" x="0" y="-15" />
+        
+            <use href="#hojaUnica" x="-7.5" y="-7.5" />
+            
+            <use href="#hojaUnica" x="-15" y="0" />
+
+        </svg>
+    </div>
     <div class="contenedor">
         <div class="cabecera">
-            <div class="nombre"><p>{{ titulo }}</p></div>
+            <div class="nombre letraGrande"><p>{{ titulo }}</p></div>
             <div class="decoracion">
                 <span class="material-symbols-outlined icono">remove</span>
                 <span class="material-symbols-outlined icono">select_window</span>
@@ -13,54 +55,54 @@
         <div class="cuerpo">
 
             <!-- Nombre -->
-            <div class="nombre"><p>Nombre</p></div>
+            <div class="nombre letraGrande"><p>Nombre</p></div>
             <div class="contenedorDatos">
                 <input
                     type="text"
                     placeholder="Escribe el nombre..."
-                    class="input-form"
+                    class="input-form letraPequeña"
                     [(ngModel)]="nombre"
                     maxlength="40"
                 />
             </div>
 
             <!-- Tipo (Animación y Formato) -->
-            <div class="nombre"><p>Tipo</p></div>
+            <div class="nombre letraGrande"><p>Tipo</p></div>
             <div class="tipo">
                 <!-- Animación -->
                 <input type="radio" name="formato" id="normal" [checked]="formato === 'Normal'" hidden>
-                <label for="normal" class="contenedorTiposEstados" (click)="formato = 'Normal'">Normal</label>
+                <label for="normal" class="contenedorTiposEstados letraPequeña" (click)="formato = 'Normal'">Normal</label>
 
                 <input type="radio" name="formato" id="anime" [checked]="formato === 'Anime'" hidden>
-                <label for="anime" class="contenedorTiposEstados" (click)="formato = 'Anime'">Anime</label>
+                <label for="anime" class="contenedorTiposEstados letraPequeña" (click)="formato = 'Anime'">Anime</label>
 
                 <!-- Categoría -->
                 <input type="radio" name="categoria" id="pelicula" [checked]="categoria === 'Pelicula'" hidden>
-                <label for="pelicula" class="contenedorTiposEstados" (click)="categoria = 'Pelicula'">Película</label>
+                <label for="pelicula" class="contenedorTiposEstados letraPequeña" (click)="categoria = 'Pelicula'">Película</label>
 
                 <input type="radio" name="categoria" id="serie" [checked]="categoria === 'Serie'" hidden>
-                <label for="serie" class="contenedorTiposEstados" (click)="categoria = 'Serie'">Serie</label>
+                <label for="serie" class="contenedorTiposEstados letraPequeña" (click)="categoria = 'Serie'">Serie</label>
             </div>
 
             <!-- Máximo -->
-            <div class="nombre"><p>Máximo</p></div>
+            <div class="nombre letraGrande"><p>Máximo</p></div>
             <div class="contenedorDatos">
                 <input
                     type="text"
                     [placeholder]="maximoPlaceholder"
-                    class="input-form"
+                    class="input-form letraPequeña"
                     [(ngModel)]="maximo"
                     maxlength="50"
                 />
             </div>
 
             <!-- Actual / Mínimo -->
-            <div class="nombre"><p>Actual</p></div>
+            <div class="nombre letraGrande"><p>Actual</p></div>
             <div class="contenedorDatos">
                 <input
                     type="text"
                     [placeholder]="minimoPlaceholder"
-                    class="input-form"
+                    class="input-form letraPequeña"
                     [(ngModel)]="minimo"
                     maxlength="50"
                 />
@@ -68,10 +110,9 @@
 
             <!-- Género (select poblado desde Firestore) -->
             <div class="horizontal">
-                <div class="titulo"><p>Género</p></div>
+                <div class="titulo letraGrande"><p>Género</p></div>
                 <div class="contenedorDatos custom-select-container">
-                    <select class="input-form" [(ngModel)]="genero">
-                        <option value="" disabled>Selecciona...</option>
+                    <select class="input-form letraPequeña" [(ngModel)]="genero">
                         @for (g of generosService.genres(); track g.nombre) {
                             <option [value]="g.nombre">{{ g.nombre }}</option>
                         }

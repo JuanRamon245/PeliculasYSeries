@@ -116,10 +116,15 @@
     justify-self: start;
     width: 80px;
     height: 80px;
-    background-color: var(--azul);
     border-radius: 10px;
     left: -10px;
     bottom: -10px;
+    animation: floteSuave 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes floteSuave {
+    0% { transform: translateY(0px) translateX(0px); }
+    100% { transform: translateY(10px) translateX(-10px); }
 }
 
 .margen {

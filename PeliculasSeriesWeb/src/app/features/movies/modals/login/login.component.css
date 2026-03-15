@@ -119,11 +119,16 @@
     justify-self: start;
     width: 80px;
     height: 80px;
-    background-color: var(--azul);
     border-radius: 10px;
     right: -10px;
-    top: -10px;
+    top: -30px;
+    animation: floteSuaveArriba 1.5s ease-in-out infinite alternate;
     z-index: 0;
+}
+
+@keyframes floteSuaveArriba {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(10px); }
 }
 
 .contenedorDecoracionAbajo {
@@ -133,12 +138,38 @@
     justify-self: start;
     width: 80px;
     height: 80px;
-    background-color: var(--azul);
     border-radius: 10px;
     left: -10px;
     bottom: -10px;
+    animation: floteSuaveAbajo 1.5s ease-in-out infinite alternate;
     z-index: 2;
 }
+
+@keyframes floteSuaveAbajo {
+    0% { transform: translateX(0px); }
+    100% { transform: translateX(-10px); }
+}
+
+/* .contenedorDecoracionArriba {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-self: start;
+    width: 80px;
+    height: 120px;
+    background-color: var(--azul);
+    border-radius: 10px;
+    right: -10px;
+    top: -40px;
+    margin-right: 30px;
+    animation: floteSuave 1.5s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+@keyframes floteSuave {
+    0% { transform: translateY(0px) translateX(0px); }
+    100% { transform: translateY(10px) translateX(-10px); }
+} */
 
 .margen {
     display: flex;

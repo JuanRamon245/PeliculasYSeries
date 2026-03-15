@@ -199,23 +199,22 @@ input[type="radio"]:checked + .contenedorGeneros {
     justify-self: start;
     width: 120px;
     height: 80px;
-    background-color: var(--azul);
     border-radius: 10px;
-    right: -10px;
-    top: -100px;
-    margin-right: 30px;
+    right: 40px;
+    top: -80px;
+    margin-right: 10px;
     animation: floteSuave 1.5s ease-in-out infinite alternate;
     z-index: 0;
 }
 
-/*Mejorar la animacion para que sea más fluida */
 @keyframes floteSuave {
     0% { transform: translateY(0px); }
-    100% { transform: translateY(30px); }
+    100% { transform: translateY(10px); }
 }
 
 .margen {
     display: flex;
     position: relative;
     margin-bottom: 20px;
+    margin-left: 37.5px;
 }

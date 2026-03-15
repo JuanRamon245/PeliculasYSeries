@@ -1,5 +1,24 @@
 <div class="margen">
-    <div class="contenedorDecoracionArriba"></div>
+    <div class="contenedorDecoracionArriba">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+            <path d="M10,20 H30 L35,15 H85 A5,5 0 0,1 90,20 V85 A5,5 0 0,1 85,90 H10 A5,5 0 0,1 5,85 V25 A5,5 0 0,1 10,20 Z" 
+                fill="var(--amarillo)" 
+                stroke="var(--marron)"
+                stroke-width="3" 
+                stroke-linejoin="round"/>
+
+            <rect x="15" y="25" width="70" height="60" rx="3" 
+                fill="var(--blanco)" 
+                stroke="var(--marron)"
+                stroke-width="3"/>
+
+            <path d="M10,40 H85 A5,5 0 0,1 90,45 V85 A5,5 0 0,1 85,90 H10 A5,5 0 0,1 5,85 V45 A5,5 0 0,1 10,40 Z" 
+                fill="var(--amarillo)" 
+                stroke="var(--marron)"
+                stroke-width="3" 
+                stroke-linejoin="round"/>
+        </svg>
+    </div>
     <div class="contenedor">
         <div class="cabecera">
             <div class="nombre letraGrande"><p>Acceder a la web</p></div>
@@ -12,11 +31,11 @@
         <div class="pie">
             <div class="nombre letraGrande"><p>Correo</p></div>
             <div class="contenedorDatos">
-                <input type="email" placeholder="Escribe el correo..." class="input-form letraPequeño" [(ngModel)]="email" (keydown.enter)="acceder()">
+                <input type="email" placeholder="Escribe el correo..." class="input-form letraPequeña" [(ngModel)]="email" (keydown.enter)="acceder()">
             </div>
             <div class="nombre letraGrande"><p>Contraseña</p></div>
             <div class="contenedorDatos">
-                <input type="text" placeholder="Escribe la contraseña..." class="input-form letraPequeño" [(ngModel)]="password" (keydown.enter)="acceder()">
+                <input type="text" placeholder="Escribe la contraseña..." class="input-form letraPequeña" [(ngModel)]="password" (keydown.enter)="acceder()">
             </div>
             <div class="contenedorBoton">
                  <button
@@ -28,5 +47,33 @@
             </div>
         </div>
     </div>
-    <div class="contenedorDecoracionAbajo"></div>
+    <div class="contenedorDecoracionAbajo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <path d="M 30,45 
+                    V 25 
+                    A 20,20 0 0 1 70,25 
+                    V 45 
+                    H 60 
+                    V 25 
+                    A 10,10 0 0 0 40,25 
+                    V 45 
+                    Z" 
+                fill="var(--amarillo)" 
+                stroke="var(--marron)" 
+                stroke-width="3" 
+                stroke-linejoin="round" />
+
+            <rect x="20" y="42" 
+                width="60" height="46" 
+                rx="10" ry="10" 
+                fill="var(--amarillo)" 
+                stroke="var(--marron)" 
+                stroke-width="3" />
+
+            <g fill="var(--marron)">
+                <circle cx="50" cy="58" r="5" />
+                <path d="M 47,60 L 53,60 L 55,75 L 45,75 Z" />
+            </g>
+        </svg>
+    </div>
 </div>

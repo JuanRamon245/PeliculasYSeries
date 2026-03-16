@@ -4,7 +4,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 // Firebase
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { provideFirestore, getFirestore }     from '@angular/fire/firestore';
+import { provideFirestore, getFirestore, initializeFirestore, persistentLocalCache, persistentMultipleTabManager} from '@angular/fire/firestore';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 
 import { environment } from '../enviroments/enviroment';
@@ -19,7 +19,19 @@ export const appConfig: ApplicationConfig = {
 
     // ── Firebase ──────────────────────────────────────────────
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
+    // provideFirestore(() => getFirestore()),
+    provideFirestore(() =>
+      initializeFirestore(
+        // Necesita la app ya inicializada — getApp() la recupera
+        // (viene del initializeApp de arriba)
+        initializeApp(environment.firebase),
+        {
+          localCache: persistentLocalCache({
+            tabManager: persistentMultipleTabManager(), // varias pestañas comparten caché
+          }),
+        },
+      )
+    ),
   ]
 };

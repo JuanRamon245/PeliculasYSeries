@@ -1,39 +1,50 @@
-<div class="contenedor">
+<article class="contenedor" [class]="'cabecera-' + movie().tipo[1].toLowerCase()">
+    
     <div class="cabecera">
-        <div class="nombre kosugiMPr"><p>{{ movie().nombre }}</p></div>
+        <div class="nombre kosugiMPr">
+            <p>{{ movie().tipo[1] }} · {{ movie().tipo[0] }}</p>
+        </div>
+        
         <div class="decoracion">
-            <!-- Iconos de acción — solo visibles si hay sesión iniciada -->
             @if (usuariosService.isLoggedIn()) {
-                <span class="material-symbols-outlined icono eliminar" appClickEffectSimple (click)="editar()" title="Editar">edit</span>
+                <span class="material-symbols-outlined icono editar" appClickEffectSimple (click)="editar()" title="Editar">edit</span>
                 <span class="material-symbols-outlined icono eliminar" appClickEffectSimple (click)="eliminar()" title="Eliminar">delete</span>
             }
         </div>
     </div>
 
     <div class="cuerpo">
-        <div class="datos">
-            <div class="contenedorDatos">
-                <div class="titulo letraGrande kosugiMPr"><p>Genero:</p></div>
-                <div class="texto letraPequeña gaeguPr"><p>{{ movie().genero }}</p></div>
+        <h2 class="tituloPelicula gaeguPr">{{ movie().nombre }}</h2>
+
+        <div class="datosGrid">
+            <div class="datoBloque">
+                <p class="tituloDato kosugiMPr">Genero</p>
+                <span class="tagGenero gaeguPr">{{ movie().genero }}</span>
             </div>
-            <div class="contenedorDatos">
-                <div class="titulo letraGrande kosugiMPr"><p>Fecha:</p></div>
-                <div class="texto letraPequeña gaeguPr"><p>{{ fechaFormateada }}</p></div>
+            
+            <div class="datoBloque">
+                <p class="tituloDato kosugiMPr">Visto</p>
+                <p class="textoDatoDestacado gaeguPr">{{ vistoTexto }}</p>
             </div>
-            <div class="contenedorDatos">
-                <div class="titulo letraGrande kosugiMPr"><p>Estado:</p></div>
-                <div class="texto letraPequeña gaeguPr"><p>{{ movie().estado }}</p></div>
-            </div>
-            <div class="contenedorDatos">
-                <div class="titulo letraGrande kosugiMPr"><p>Visto:</p></div>
-                <div class="texto letraPequeña gaeguPr"><p>{{ vistoTexto }}</p></div>
-            </div>
+            
         </div>
 
-        <div class="clasificacion">
-            <div class="contenedorClasificacion letraGrande kosugiMPr">
-                <p>{{ tipoTexto }}</p>
+        <div class="separador"></div>
+
+        <div class="estadoGrid">
+            <div class="datoBloque">
+                <p class="tituloDato kosugiMPr">Estado</p>
+                <div class="estadoBadge">
+                    <span class="puntoEstado" [class]="'punto-' + movie().estado.replace(' ', '-').toLowerCase()"></span>
+                    <span class="textoDato gaeguPr">{{ movie().estado }}</span>
+                </div>
+            </div>
+            
+            <div class="datoBloque  text-right">
+                <p class="tituloDato kosugiMPr">Fecha de creacion</p>
+                <p class="textoDato gaeguPr">{{ fechaFormateada }}</p>
             </div>
         </div>
     </div>
-</div>
+
+</article>

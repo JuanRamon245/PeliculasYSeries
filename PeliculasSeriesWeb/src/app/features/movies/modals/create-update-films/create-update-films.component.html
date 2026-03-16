@@ -118,6 +118,26 @@
                 </div>
             </div>
 
+            <!-- Estado -->
+            <div class="nombre letraGrande kosugiMPr"><p>Estado</p></div>
+            <div class="tipo estado">
+                @for (e of estadosDisponibles; track e) {
+                    <input
+                        type="radio"
+                        name="estado"
+                        [id]="'estado-' + e"
+                        [checked]="estado === e"
+                        hidden
+                    />
+                    <label
+                        [for]="'estado-' + e"
+                        class="contenedorTiposEstados letraPequeña gaeguPr"
+                        (click)="estado = e">
+                        {{ e }}
+                    </label>
+                }
+            </div>
+
         </div><!-- /cuerpo -->
 
         <div class="pie">

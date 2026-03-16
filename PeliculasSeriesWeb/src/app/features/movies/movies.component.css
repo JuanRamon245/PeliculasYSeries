@@ -48,10 +48,14 @@ app-header {
 
 /* ── Info resultados ─────────────────────────────────────── */
 .infoResultados {
-    width: 100%;
+    width: 400px;
+    box-shadow: 4px 4px 0 var(--marron);
+    margin-top: 10px;
+    margin-left: 40px;
     flex-shrink: 0;
-    padding: 6px 16px;
-    border-bottom: solid 2px var(--marron);
+    padding: 10px 16px;
+    border: solid 2px var(--marron);
+    border-radius: 10px;
     color: var(--marron);
     background-color: var(--blanco);
 }
@@ -153,7 +157,7 @@ app-header {
 .gridCards {
     width: 100%; /* Cambia ese 98% por 100% */
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     gap: 16px;   /* Es mejor usar gap que márgenes en las cards */
     padding: 16px; /* Da aire a los lados sin romper el ancho */
     align-content: start;
@@ -174,8 +178,3 @@ app-header {
 
 .sinResultados span { font-size: 52px; }
 .sinResultados p    { font-size: 15px; }
-
-/* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 768px) {
-    .gridCards { grid-template-columns: 1fr; }
-}

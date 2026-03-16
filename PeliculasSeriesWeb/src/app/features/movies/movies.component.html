@@ -16,12 +16,12 @@
 
         <div class="fondo-liquido"></div>
 
-        <div class="infoResultados letraGrande kosugiMPr">
-            <p>{{ filteredMovies().length }} titulo(s) encontrado(s)</p>
-        </div>
-
         <!-- ── Zona con scroll único: cards + paginación ── -->
         <div class="zonaScroll">
+
+            <div class="infoResultados letraGrande kosugiMPr">
+                <p>{{ filteredMovies().length }} titulo(s) encontrado(s)</p>
+            </div>
 
             @if (pagedMovies().length > 0) {
                 <div class="gridCards">

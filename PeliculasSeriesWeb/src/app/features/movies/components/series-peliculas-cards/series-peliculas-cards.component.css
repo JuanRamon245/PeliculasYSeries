@@ -1,25 +1,35 @@
+/* ══════════════════════════════════════════
+   Card principal (Híbrido)
+══════════════════════════════════════════ */
 .contenedor {
-    height: auto;
     width: calc(100% - 40px);
     margin: 20px;
-    border: solid 2px var(--marron);
-    border-radius: 10px;
-    overflow: hidden;
     background-color: var(--blanco);
+    border: solid 3px var(--marron);
+    border-radius: 10px;
+    box-shadow: 6px 6px 0 var(--marron); /* Sombra dura del nuevo diseño */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform ease-in-out 0.15s;
 }
 
 .contenedor:hover {
-    transition: all ease-in-out 0.3s;
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
+/* Colores condicionales anclados al contenedor pero afectan a la cabecera */
+.cabecera-serie .cabecera { background-color: var(--azul); }
+.cabecera-pelicula .cabecera { background-color: var(--morado); }
+
+/* ── Cabecera ─────────────────── */
 .cabecera {
-    height: 40px;
+    height: 50px;
     width: 100%;
     border-bottom: solid 2px var(--marron);
-    background-color: var(--azul);
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .nombre {
@@ -27,8 +37,10 @@
     width: 70%;
     display: flex;
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--marron);
     padding-left: 20px;
 }
@@ -38,129 +50,124 @@
     width: 30%;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
+    padding-right: 15px;
 }
 
 .icono {
-    height: 30px;
-    aspect-ratio: 1/1;
+    font-size: 22px; 
     color: var(--marron);
-    margin-right: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px; 
+    margin-left: 10px;
     cursor: pointer;
     user-select: none;
-    transition: all ease-in-out 0.2s;
+    transition: transform ease-in-out 0.15s;
 }
 
-.eliminar:hover {
-    transition: all ease-in-out 0.3s;
-    color: var(--rojo);
-}
+.icono:hover { transform: scale(1.15); }
+.eliminar:hover { color: var(--rojo); }
 
+/* ── Cuerpo ─────────────────────────────── */
 .cuerpo {
-    height: auto;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-}
-
-.datos {
-    height: auto;
-    width: 75%;
-    display: flex;
     padding: 20px;
-    gap: 20px;
-    flex-direction: column;
-}
-
-.contenedorDatos {
-    height: auto;
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    border: solid 2px var(--marron);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.titulo {
-    height: auto;
-    width: 25%;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--marron);
-    background-color: var(--rosa);
-    border-right: solid 1.5px var(--marron);
-}
-
-.texto {
-    height: auto;
-    width: 60%;
-    padding: 10px;
-    font-size: 20px;
-    color: var(--marron);
-    background-color: var(--blanco);
-}
-
-.clasificacion {
-    height: auto;
-    width: 40%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 16px; /* Espaciado interno del nuevo diseño */
 }
 
-.contenedorClasificacion {
-    height: auto;
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    font-size: 20px;
+.tituloPelicula {
+    font-size: 26px;
     font-weight: 700;
     color: var(--marron);
-    background-color: var(--morado);
-    border: solid 2px var(--marron);
-    border-radius: 15px;
-    margin-top: 20px;
-    padding: 5px 10px;
+    margin: 0;
+    line-height: 1.2;
 }
 
-.pie {
-    height: auto;
-    width: 100%;
-    border-top: solid 2px var(--marron);
+/* ── Grids de Datos ─────────────────────── */
+.datosGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.estadoGrid {
     display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.datoBloque {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.text-right {
+    text-align: right;
+    align-items: flex-end;
+}
+
+/* ── Textos y Etiquetas ─────────────────── */
+.tituloDato {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--marron);
+    opacity: 0.7;
+    margin: 0;
+}
+
+.textoDato {
+    font-size: 16px;
+    color: var(--marron);
+    margin: 0;
+}
+
+.textoDatoDestacado {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--marron);
+    margin: 0;
+}
+
+.tagGenero {
+    display: inline-block;
     background-color: var(--amarillo);
-    justify-content: end;
-}
-
-.contenedorBoton {
-    height: 50px;
-    width: 80px;
     border: solid 2px var(--marron);
-    background-color: var(--gris);
-    border-radius: 8px;
-    margin: 10px;
-    margin-left: 20px;
-}
-
-.botonPaginacion {
-    height: 100%;
-    width: 100%;
-    padding: 5px 10px;
-    border: solid 0.5px var(--marron);
-    background-color: var(--blanco);
-    color: var(--marron);
-    border-radius: 5px;
-    transform: translateY(-10px);
-    transition: all ease-in-out 0.14s;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 14px;
     font-weight: 700;
+    color: var(--marron);
+    width: fit-content;
 }
 
-.botonPulsar:active {
-    transform: translateY(0px);
+/* ── Separador ──────────────────────────── */
+.separador {
+    width: 100%;
+    border-top: 2px dashed var(--marron);
+    opacity: 0.4;
+}
+
+/* ── Puntos de Estado ───────────────────── */
+.estadoBadge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.puntoEstado {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: solid 2px var(--marron);
+    flex-shrink: 0;
+}
+
+/* Clases de estado dinámicas */
+.punto-visto      { background-color: var(--verde); }
+.punto-no-visto   { background-color: var(--amarillo); }
+.punto-en-proceso { background-color: var(--azul); animation: parpadeo 2s ease-in-out infinite; }
+
+@keyframes parpadeo {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.5; }
 }

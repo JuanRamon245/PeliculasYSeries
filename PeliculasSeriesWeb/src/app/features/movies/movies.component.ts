@@ -15,7 +15,7 @@ type Breakpoint = 'desktop' | 'tablet' | 'mobile';
 
 const PAGE_SIZES: Record<Breakpoint, number> = {
   desktop: 30,
-  tablet:  15,
+  tablet:  16,
   mobile:  10,
 };
 

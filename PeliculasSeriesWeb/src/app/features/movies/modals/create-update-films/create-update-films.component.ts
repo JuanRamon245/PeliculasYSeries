@@ -31,6 +31,9 @@ export class CreateUpdateFilmsComponent implements OnInit {
   maximo   = '';
   minimo   = '';
   genero   = '';
+  estado:  Estado = 'No visto';
+
+  readonly estadosDisponibles = ESTADOS
 
   loading = signal(false);
 
@@ -47,19 +50,19 @@ export class CreateUpdateFilmsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Modo edición: precargamos todos los campos con los datos de la película
     if (this.data.movie) {
-      const m       = this.data.movie;
-      this.nombre   = m.nombre;
-      this.formato  = m.tipo[0];
+      const m        = this.data.movie;
+      this.nombre    = m.nombre;
+      this.formato   = m.tipo[0];
       this.categoria = m.tipo[1];
-      this.maximo   = m.maximo;
-      this.minimo   = m.minimo;
-      this.genero   = m.genero;
+      this.maximo    = m.maximo;
+      this.minimo    = m.minimo;
+      this.genero    = m.genero;
+      this.estado    = m.estado;   // ← precarga el estado real al editar
     } else {
-      // Modo creación: seleccionamos el primer género disponible como predeterminado
       const nombres = this.generosService.genreNames();
       if (nombres.length) this.genero = nombres[0];
+      // this.estado ya es 'No visto' por defecto en creación
     }
   }
 
@@ -87,15 +90,10 @@ export class CreateUpdateFilmsComponent implements OnInit {
       nombre:  this.nombre.trim(),
       tipo:    [this.formato, this.categoria],
       genero:  this.genero,
-      estado:  'No visto',   // Estado por defecto; se actualiza en edición
+      estado:  this.estado,   // ← siempre viene del formulario, tanto en crear como editar
       maximo:  this.maximo.trim(),
       minimo:  this.minimo.trim(),
     };
-
-    // En edición conservamos el estado original si no se ha cambiado
-    if (this.isEdit && this.data.movie) {
-      movieData.estado = this.data.movie.estado;
-    }
 
     const res = this.isEdit
       ? await this.pelisService.update(this.data.movie!.nombre, movieData)

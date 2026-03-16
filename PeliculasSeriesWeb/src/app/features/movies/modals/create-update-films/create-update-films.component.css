@@ -374,3 +374,7 @@ select.input-form {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.estado {
+    grid-template-columns: 1fr 1fr 1fr;
+}

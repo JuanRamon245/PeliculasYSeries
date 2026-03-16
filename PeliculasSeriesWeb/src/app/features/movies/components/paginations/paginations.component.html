@@ -7,7 +7,7 @@
             [disabled]="currentPage() === 1"
             appClickEffectSimple
             (click)="goTo(currentPage() - 1)">
-            ‹
+            ‹ anterior
         </button>
 
         <!-- Páginas visibles (números y separadores) -->
@@ -31,7 +31,7 @@
             [disabled]="currentPage() === totalPages()"
             appClickEffectSimple
             (click)="goTo(currentPage() + 1)">
-            ›
+            siguiente ›
         </button>
 
     </div>

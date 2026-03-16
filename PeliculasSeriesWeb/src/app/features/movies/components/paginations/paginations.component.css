@@ -14,7 +14,7 @@
 .botonPaginacion {
     height: auto;
     width: auto;
-    border: solid 2px var(--marron);
+    border: solid 3px var(--marron);
     background-color: var(--blanco);
     border-radius: 8px;
     padding: 3px 10px;

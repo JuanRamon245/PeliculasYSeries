@@ -3,11 +3,12 @@ import { Component, input, inject } from '@angular/core';
 import { Movie } from '../../../../core/models/Movie.model';
 import { ModalService }    from '../../../../core/services/ModalService/modal-service.service';
 import { UsuariosService } from './../../../../core/services/usuarios/usuarios-firebase.service';
+import { ClickEffectDirective } from '../../../shared/directives/click-efect.directives';
 
 @Component({
   selector: 'app-series-peliculas-cards',
   standalone: true,
-  imports: [],
+  imports: [ClickEffectDirective],
   templateUrl: './series-peliculas-cards.component.html',
   styleUrl: './series-peliculas-cards.component.css'
 })

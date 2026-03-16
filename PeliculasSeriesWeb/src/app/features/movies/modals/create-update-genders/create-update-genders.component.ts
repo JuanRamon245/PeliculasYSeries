@@ -4,11 +4,12 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/materia
 
 import { GenerosService } from './../../../../core/services/generos/generos-firebase.service';
 import { ModalService, GenderModalData } from '../../../../core/services/ModalService/modal-service.service';
+import { ClickEffectDirective } from '../../../shared/directives/click-efect.directives';
 
 @Component({
   selector: 'app-create-update-genders',
   standalone: true,
-  imports: [FormsModule, MatDialogModule],
+  imports: [FormsModule, MatDialogModule, ClickEffectDirective],
   templateUrl: './create-update-genders.component.html',
   styleUrl: './create-update-genders.component.css',
 })

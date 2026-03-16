@@ -5,6 +5,7 @@
         <button
             class="botonPaginacion letraGrande latoPr"
             [disabled]="currentPage() === 1"
+            appClickEffectSimple
             (click)="goTo(currentPage() - 1)">
             ‹
         </button>
@@ -15,6 +16,7 @@
                 <button
                     class="botonPaginacion letraGrande gaeguPr"
                     [class.activo]="page === currentPage()"
+                    appClickEffectSimple
                     (click)="goTo(page)">
                     {{ page }}
                 </button>
@@ -27,6 +29,7 @@
         <button
             class="botonPaginacion letraGrande latoPr"
             [disabled]="currentPage() === totalPages()"
+            appClickEffectSimple
             (click)="goTo(currentPage() + 1)">
             ›
         </button>

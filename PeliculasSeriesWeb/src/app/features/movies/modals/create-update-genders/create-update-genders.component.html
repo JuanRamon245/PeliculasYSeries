@@ -24,6 +24,7 @@
                 <button
                     class="botonPulsar latoPr"
                     (click)="guardar()"
+                    appClickEffect
                     [disabled]="loading() || !nombre.trim()">
                     Guardar
                 </button>

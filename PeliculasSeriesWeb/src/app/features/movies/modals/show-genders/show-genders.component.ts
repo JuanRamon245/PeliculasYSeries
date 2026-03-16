@@ -4,11 +4,12 @@ import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { GenerosService } from './../../../../core/services/generos/generos-firebase.service';
 import { ModalService }   from '../../../../core/services/ModalService/modal-service.service';
 import { UsuariosService } from '../../../../core/services/usuarios/usuarios-firebase.service';
+import { ClickEffectDirective } from '../../../shared/directives/click-efect.directives';
 
 @Component({
   selector: 'app-show-genders',
   standalone: true,
-  imports: [MatDialogModule],
+  imports: [MatDialogModule, ClickEffectDirective],
   templateUrl: './show-genders.component.html',
   styleUrl: './show-genders.component.css'
 })

@@ -4,8 +4,8 @@
         <div class="decoracion">
             <!-- Iconos de acción — solo visibles si hay sesión iniciada -->
             @if (usuariosService.isLoggedIn()) {
-                <span class="material-symbols-outlined icono eliminar" (click)="editar()" title="Editar">edit</span>
-                <span class="material-symbols-outlined icono eliminar" (click)="eliminar()" title="Eliminar">delete</span>
+                <span class="material-symbols-outlined icono eliminar" appClickEffectSimple (click)="editar()" title="Editar">edit</span>
+                <span class="material-symbols-outlined icono eliminar" appClickEffectSimple (click)="eliminar()" title="Eliminar">delete</span>
             }
         </div>
     </div>

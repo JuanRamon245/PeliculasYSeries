@@ -69,17 +69,17 @@
             <div class="tipo">
                 <!-- Animación -->
                 <input type="radio" name="formato" id="normal" [checked]="formato === 'Normal'" hidden>
-                <label for="normal" class="contenedorTiposEstados letraPequeña gaeguPr" (click)="formato = 'Normal'">Normal</label>
+                <label for="normal" class="contenedorTiposEstados letraPequeña gaeguPr" appClickEffectSimple (click)="formato = 'Normal'">Normal</label>
 
                 <input type="radio" name="formato" id="anime" [checked]="formato === 'Anime'" hidden>
-                <label for="anime" class="contenedorTiposEstados letraPequeña gaeguPr" (click)="formato = 'Anime'">Anime</label>
+                <label for="anime" class="contenedorTiposEstados letraPequeña gaeguPr" appClickEffectSimple (click)="formato = 'Anime'">Anime</label>
 
                 <!-- Categoría -->
                 <input type="radio" name="categoria" id="pelicula" [checked]="categoria === 'Pelicula'" hidden>
-                <label for="pelicula" class="contenedorTiposEstados letraPequeña gaeguPr" (click)="categoria = 'Pelicula'">Pelicula</label>
+                <label for="pelicula" class="contenedorTiposEstados letraPequeña gaeguPr" appClickEffectSimple (click)="categoria = 'Pelicula'">Pelicula</label>
 
                 <input type="radio" name="categoria" id="serie" [checked]="categoria === 'Serie'" hidden>
-                <label for="serie" class="contenedorTiposEstados letraPequeña gaeguPr" (click)="categoria = 'Serie'">Serie</label>
+                <label for="serie" class="contenedorTiposEstados letraPequeña gaeguPr" appClickEffectSimple (click)="categoria = 'Serie'">Serie</label>
             </div>
 
             <!-- Máximo -->
@@ -112,7 +112,7 @@
                 <div class="contenedorDatos custom-select-container">
                     <select class="input-form letraPequeña gaeguPr" [(ngModel)]="genero">
                         @for (g of generosService.genres(); track g.nombre) {
-                            <option [value]="g.nombre">{{ g.nombre }}</option>
+                            <option [value]="g.nombre" appClickEffectSimple>{{ g.nombre }}</option>
                         }
                     </select>
                 </div>
@@ -136,6 +136,7 @@
                 <button
                     class="botonPulsar latoPr"
                     (click)="guardar()"
+                    appClickEffect
                     [disabled]="loading()">
                     Guardar
                 </button>

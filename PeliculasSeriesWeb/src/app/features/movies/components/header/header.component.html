@@ -22,21 +22,21 @@
     <div class="botones">
 
         <div class="contenedorBoton">
-            <button class="botonPulsar latoPr" (click)="abrirGeneros()">Géneros</button>
+            <button class="botonPulsar latoPr" appClickEffect (click)="abrirGeneros()">Géneros</button>
         </div>
 
         @if (!usuariosService.isLoggedIn()) {
             <div class="contenedorBoton">
-                <button class="botonPulsar latoPr" (click)="abrirLogin()">Acceder</button>
+                <button class="botonPulsar latoPr" appClickEffect (click)="abrirLogin()">Acceder</button>
             </div>
         }
 
         @if (usuariosService.isLoggedIn()) {
             <div class="contenedorBoton">
-                <button class="botonPulsar latoPr" (click)="abrirCrearPelicula()">Añadir</button>
+                <button class="botonPulsar latoPr" appClickEffect (click)="abrirCrearPelicula()">Añadir</button>
             </div>
             <div class="contenedorBoton">
-                <button class="botonPulsar latoPr" (click)="cerrarSesion()">Salir</button>
+                <button class="botonPulsar latoPr" appClickEffect (click)="cerrarSesion()">Salir</button>
             </div>
         }
 

@@ -4,11 +4,12 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/materia
 import { PeliculasSeriesService } from './../../../../core/services/peliculasSeries/pelicula-serie-firebase.service';
 import { GenerosService } from './../../../../core/services/generos/generos-firebase.service';
 import { ModalService, DeleteModalData } from '../../../../core/services/ModalService/modal-service.service';
+import { ClickEffectDirective } from '../../../shared/directives/click-efect.directives';
 
 @Component({
   selector: 'app-delete-films-genders',
   standalone: true,
-  imports: [MatDialogModule],
+  imports: [MatDialogModule, ClickEffectDirective],
   templateUrl: './delete-films-genders.component.html',
   styleUrl: './delete-films-genders.component.css',
 })

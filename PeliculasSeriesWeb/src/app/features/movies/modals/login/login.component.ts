@@ -4,11 +4,12 @@ import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 
 import { UsuariosService } from './../../../../core/services/usuarios/usuarios-firebase.service';
 import { ModalService }    from '../../../../core/services/ModalService/modal-service.service';
+import { ClickEffectDirective } from '../../../shared/directives/click-efect.directives';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, MatDialogModule],
+  imports: [FormsModule, MatDialogModule, ClickEffectDirective],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

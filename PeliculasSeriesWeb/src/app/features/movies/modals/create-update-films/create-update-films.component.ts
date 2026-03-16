@@ -8,11 +8,12 @@ import { ModalService, FilmModalData } from './../../../../core/services/ModalSe
 import {
   Movie, Animacion, Formato, Estado, ESTADOS
 } from '../../../../core/models/Movie.model';
+import { ClickEffectDirective } from '../../../shared/directives/click-efect.directives';
 
 @Component({
   selector: 'app-create-update-films',
   standalone: true,
-  imports: [FormsModule, MatDialogModule],
+  imports: [FormsModule, MatDialogModule, ClickEffectDirective],
   templateUrl: './create-update-films.component.html',
   styleUrl: './create-update-films.component.css'
 })

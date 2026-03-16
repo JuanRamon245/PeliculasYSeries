@@ -1,9 +1,10 @@
 import { Component, input, output } from '@angular/core';
+import { ClickEffectDirective } from '../../../shared/directives/click-efect.directives';
 
 @Component({
   selector: 'app-paginations',
   standalone: true,
-  imports: [],
+  imports: [ClickEffectDirective],
   templateUrl: './paginations.component.html',
   styleUrl: './paginations.component.css'
 })

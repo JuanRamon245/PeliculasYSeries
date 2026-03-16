@@ -44,6 +44,7 @@
                         <label
                             [for]="'genero-' + i"
                             class="contenedorGeneros letraPequeña gaeguPr"
+                            appClickEffectSimple
                             [class.seleccionado]="isSelected(genero.nombre)">
                             {{ genero.nombre }}
                         </label>
@@ -55,13 +56,13 @@
 
         <div class="pie">
             @if (usuariosService.isLoggedIn()) {
-                <div class="contenedorBoton" (click)="eliminar()">
+                <div class="contenedorBoton" appClickEffect (click)="eliminar()">
                     <button class="botonPulsar latoPr">Eliminar</button>
                 </div>
-                <div class="contenedorBoton contenedorBotonAncho" (click)="actualizar()">
+                <div class="contenedorBoton contenedorBotonAncho" appClickEffect (click)="actualizar()">
                     <button class="botonPulsar latoPr">Actualizar</button>
                 </div>
-                <div class="contenedorBoton contenedorBotonDelgado" (click)="crear()">
+                <div class="contenedorBoton contenedorBotonDelgado" appClickEffect (click)="crear()">
                     <button class="botonPulsar latoPr">Crear</button>
                 </div>
             }

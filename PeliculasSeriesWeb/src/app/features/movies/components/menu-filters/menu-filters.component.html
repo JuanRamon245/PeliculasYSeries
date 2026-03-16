@@ -5,7 +5,7 @@
         <div class="contenedor">
 
             <!-- Cabecera toggle -->
-            <div class="cabecera" [class.expandida]="abierto()" (click)="toggleMenu()">
+            <div class="cabecera" [class.expandida]="abierto()" appClickEffectSimple (click)="toggleMenu()">
                 <div class="nombre letraGrande kosugiMPr"><p>Filtros</p></div>
                 <div class="decoracion">
                     <div class="icono" [class.abierto]="abierto()">
@@ -37,6 +37,7 @@
                                 <div
                                     class="contenedorTiposEstados gaeguPr"
                                     [class.activo]="isGeneroActive(g.nombre)"
+                                    appClickEffectSimple
                                     (click)="toggleGenero(g.nombre)">
                                     <p>{{ g.nombre }}</p>
                                 </div>
@@ -50,23 +51,23 @@
                     <div class="horizontal">
                         <div class="letraGrande nombreArriba kosugiMPr"><p>Tipo</p></div>
                         <div class="tipo tipoHorizontal">
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isAnimacionActive('Normal')" (click)="toggleAnimacion('Normal')"><p>Normal</p></div>
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isAnimacionActive('Anime')"  (click)="toggleAnimacion('Anime')"><p>Anime</p></div>
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isFormatoActive('Pelicula')" (click)="toggleFormato('Pelicula')"><p>Pelicula</p></div>
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isFormatoActive('Serie')"    (click)="toggleFormato('Serie')"><p>Serie</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isAnimacionActive('Normal')" appClickEffectSimple  (click)="toggleAnimacion('Normal')"><p>Normal</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isAnimacionActive('Anime')"  appClickEffectSimple  (click)="toggleAnimacion('Anime')"><p>Anime</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isFormatoActive('Pelicula')" appClickEffectSimple  (click)="toggleFormato('Pelicula')"><p>Pelicula</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isFormatoActive('Serie')" appClickEffectSimple  (click)="toggleFormato('Serie')"><p>Serie</p></div>
                         </div>
                     </div>
 
                     <div class="horizontal">
                         <div class="nombre nombreHorizontal letraGrande kosugiMPr"><p>Estado</p></div>
                         <div class="tipo estado tipoHorizontal">
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('No visto')"   (click)="toggleEstado('No visto')"><p>No visto</p></div>
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('En proceso')" (click)="toggleEstado('En proceso')"><p>En proceso</p></div>
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('Visto')"      (click)="toggleEstado('Visto')"><p>Visto</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('No visto')" appClickEffectSimple  (click)="toggleEstado('No visto')"><p>No visto</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('En proceso')" appClickEffectSimple  (click)="toggleEstado('En proceso')"><p>En proceso</p></div>
+                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('Visto')" appClickEffectSimple  (click)="toggleEstado('Visto')"><p>Visto</p></div>
                         </div>
                     </div>
                     <div class="contenedorBoton">
-                        <button class="botonPulsar latoPr" (click)="aplicar()">Buscar</button>
+                        <button class="botonPulsar latoPr" appClickEffect (click)="aplicar()">Buscar</button>
                     </div>
 
                 </div>

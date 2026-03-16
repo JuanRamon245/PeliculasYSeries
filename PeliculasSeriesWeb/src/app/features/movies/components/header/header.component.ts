@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 
 import { ModalService }    from '../../../../core/services/ModalService/modal-service.service';
 import { UsuariosService } from '../../../../core/services/usuarios/usuarios-firebase.service';
+import { ClickEffectDirective } from '../../../shared/directives/click-efect.directives';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ClickEffectDirective],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

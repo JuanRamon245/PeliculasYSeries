@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import {
   FilterState, DEFAULT_FILTERS, Animacion, Formato, Estado, ESTADOS
 } from '../../../../core/models/Movie.model';
+import { ClickEffectDirective } from '../../../shared/directives/click-efect.directives';
 
 @Component({
   selector: 'app-menu-filters',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ClickEffectDirective],
   templateUrl: './menu-filters.component.html',
   styleUrl: './menu-filters.component.css',
 })

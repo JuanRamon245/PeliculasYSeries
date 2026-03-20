@@ -15,8 +15,13 @@
     transform: translateY(-3px);
 }
 
-.cabecera-serie .cabecera { background-color: var(--azul); }
-.cabecera-pelicula .cabecera { background-color: var(--morado); }
+.cabecera-serie .cabecera {
+    background-color: var(--azul);
+}
+
+.cabecera-pelicula .cabecera {
+    background-color: var(--morado);
+}
 
 .cabecera {
     height: 50px;
@@ -148,4 +153,103 @@
 @keyframes parpadeo {
     0%, 100% { opacity: 1; }
     50%      { opacity: 0.5; }
+}
+
+@media (max-width: 1024px) {
+    .contenedor  {
+        margin: 14px;
+        box-shadow: 4px 4px 0 var(--marron);
+    }
+
+    .cabecera    {
+        height: 42px;
+    }
+
+    .nombre      {
+        padding-left: 16px;
+    }
+
+    .decoracion {
+        padding-right: 12px;
+    }
+
+    .icono {
+        font-size: 20px;
+        margin-left: 8px;
+    }
+
+    .cuerpo {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .datosGrid {
+        gap: 10px;
+    }
+
+    .datoBloque {
+        gap: 3px;
+    }
+
+    .tagGenero {
+        padding: 2px 6px;
+    }
+
+    .estadoBadge {
+        gap: 6px;
+    }
+
+    .puntoEstado {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .contenedor {
+        margin: 10px;
+        box-shadow: 3px 3px 0 var(--marron);
+    }
+
+    .cabecera {
+        height: 36px;
+    }
+
+    .nombre {
+        padding-left: 12px;
+    }
+
+    .decoracion {
+        padding-right: 10px;
+    }
+
+    .icono {
+        font-size: 18px;
+        margin-left: 6px;
+    }
+
+    .cuerpo {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .datosGrid {
+        gap: 8px;
+    }
+
+    .datoBloque {
+        gap: 2px;
+    }
+
+    .tagGenero {
+        padding: 1px 5px;
+    }
+
+    .estadoBadge {
+        gap: 5px;
+    }
+
+    .puntoEstado {
+        width: 9px; height: 9px;
+    }
 }

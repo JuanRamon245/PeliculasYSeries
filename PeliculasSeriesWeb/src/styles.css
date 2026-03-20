@@ -33,14 +33,12 @@ body {
 .txBold    { font-weight: 700 !important; }
 
 @media (max-width: 1024px) {
-    .txSmall   { font-size: 12px !important; }
     .txBase    { font-size: 14px !important; }
     .txMedium  { font-size: 17px !important; }
     .txLarge   { font-size: 22px !important; }
 }
 
 @media (max-width: 768px) {
-    .txSmall   { font-size: 11px !important; }
     .txBase    { font-size: 13px !important; }
     .txMedium  { font-size: 15px !important; }
     .txLarge   { font-size: 19px !important; }

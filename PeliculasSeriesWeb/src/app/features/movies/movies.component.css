@@ -140,7 +140,7 @@ app-header {
 .gridCards {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(500px, 100%), 1fr));
     gap: 16px;
     padding: 16px;
     align-content: start;
@@ -160,3 +160,36 @@ app-header {
 
 .sinResultados span { font-size: 52px; }
 .sinResultados p { font-size: 15px; }
+
+@media (max-width: 1024px) {
+    .infoResultados {
+        width: 320px;
+        margin-top: 8px;
+        margin-left: 24px;
+        padding: 8px 14px;
+        box-shadow: 3px 3px 0 var(--marron);
+    }
+
+    .gridCards {
+        gap: 12px;
+        padding: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .infoResultados {
+        width: calc(100% - 24px);
+        margin-top: 6px;
+        margin-left: 12px;
+        padding: 6px 12px;
+        box-shadow: 2px 2px 0 var(--marron);
+    }
+
+    .gridCards {
+        gap: 10px;
+        padding: 10px;
+        grid-template-columns: 100%;
+        justify-content: center;
+    }
+}

@@ -40,22 +40,15 @@ function getBreakpoint(w: number): Breakpoint {
 export class MoviesComponent {
   pelisService = inject(PeliculasSeriesService);
 
-  // ── Estado de la página ───────────────────────────────────────
+  // ── Estado de la página ──
   currentPage   = signal(1);
   searchQuery   = signal('');
   activeFilters = signal<FilterState>({ ...DEFAULT_FILTERS });
   breakpoint    = signal<Breakpoint>(getBreakpoint(window.innerWidth));
 
-  // ── Derivados con computed ────────────────────────────────────
-
-  /** Tamaño de página según el dispositivo */
   pageSize = computed(() => PAGE_SIZES[this.breakpoint()]);
 
-  /**
-   * Aplica búsqueda + filtros sobre el array que ya viene de Firestore.
-   * La búsqueda por texto se maneja por separado (viene del header)
-   * y se combina aquí con el FilterState del menú lateral.
-   */
+  // ── Metodo para palicar los filtros a las series y peliculas obtenidas de firebase ──
   filteredMovies = computed(() => {
     const filtersWithSearch: FilterState = {
       ...this.activeFilters(),
@@ -71,7 +64,7 @@ export class MoviesComponent {
     Math.max(1, Math.ceil(this.filteredMovies().length / this.pageSize())),
   );
 
-  /** Página actual recortada para evitar páginas vacías */
+  // ── Recortar la paginas para obtener el numero limitado de objjetos en ellas ──
   pagedMovies = computed(() => {
     const page  = Math.min(this.currentPage(), this.totalPages());
     const size  = this.pageSize();
@@ -80,9 +73,8 @@ export class MoviesComponent {
   });
 
   constructor() {
-    // Volver a la página 1 cada vez que cambian los datos filtrados
     effect(() => {
-      this.filteredMovies();      // traquear la dependencia
+      this.filteredMovies();
       this.currentPage.set(1);
     });
   }
@@ -92,19 +84,16 @@ export class MoviesComponent {
     this.breakpoint.set(getBreakpoint((e.target as Window).innerWidth));
   }
 
-  // ── Handlers de eventos hijo ──────────────────────────────────
+  // ── Manjejadores de los eventos de los hijos ──
 
-  /** Recibe el texto del buscador (header) */
   onSearch(query: string): void {
     this.searchQuery.set(query);
   }
 
-  /** Recibe el FilterState del panel de filtros */
   onFiltersApplied(filters: FilterState): void {
     this.activeFilters.set(filters);
   }
 
-  /** Navega a la página indicada */
   onPageChange(page: number): void {
     this.currentPage.set(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });

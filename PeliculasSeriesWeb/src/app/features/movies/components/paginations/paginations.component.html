@@ -1,38 +1,33 @@
 @if (totalPages() > 1) {
     <div class="paginacion">
-
-        <!-- Flecha anterior -->
         <button
-            class="botonPaginacion txBold latoPr"
+            class="botonPaginacion txRegular txBold latoPr"
             [disabled]="currentPage() === 1"
             appClickEffectSimple
             (click)="goTo(currentPage() - 1)">
             ‹ anterior
         </button>
 
-        <!-- Páginas visibles (números y separadores) -->
         @for (page of visiblePages; track $index) {
             @if (isNumber(page)) {
                 <button
-                    class="botonPaginacion txBold gaeguPr"
+                    class="botonPaginacion txRegular txBold gaeguPr"
                     [class.activo]="page === currentPage()"
                     appClickEffectSimple
                     (click)="goTo(page)">
                     {{ page }}
                 </button>
             } @else {
-                <span class="botonPaginacion puntosSuspensivos txRegular gaeguPr">···</span>
+                <span class="botonPaginacion puntosSuspensivos txRegular txBold gaeguPr">···</span>
             }
         }
 
-        <!-- Flecha siguiente -->
         <button
-            class="botonPaginacion txBold latoPr"
+            class="botonPaginacion txRegular txBold latoPr"
             [disabled]="currentPage() === totalPages()"
             appClickEffectSimple
             (click)="goTo(currentPage() + 1)">
             siguiente ›
         </button>
-
     </div>
 }

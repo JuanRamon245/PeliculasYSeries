@@ -124,9 +124,52 @@
     border-radius: 5px;
     transform: translateY(-10px);
     transition: all ease-in-out 0.14s;
-    font-weight: 700;
 }
 
 .botonPulsar:active {
     transform: translateY(0px);
+}
+
+@media (max-width: 1024px) {
+    .buscador {
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    .contenedorBoton {
+        height: 40px;
+        width: 70px;
+        margin: 5px;
+    }
+
+    .botonPulsar {
+        padding: 4px 8px;
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 767px) {
+    .buscador {
+        margin-left: 0;
+    }
+
+    .contenedorCabecera {
+        height: auto; 
+        padding: 15px 5%;
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
+
+    .barraBusqueda {
+        width: 100%;
+        height: auto;
+        justify-content: start;
+    }
+
+    .botones {
+        width: 100%;
+        height: auto;
+        justify-content: end;
+        gap: 10px;
+    }
 }

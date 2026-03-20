@@ -15,31 +15,32 @@ import { ClickEffectDirective } from '../../../shared/directives/click-efect.dir
   styleUrl: './menu-filters.component.css',
 })
 export class MenuFiltersComponent implements OnInit {
+
+  // ── Servicios para las distintas funcionalidades ──
+
   generosService = inject(GenerosService);
 
-  /** Emite el FilterState al componente padre cuando el usuario pulsa "Buscar" */
+  // ── Emitir la busqueda en base a los filtros elegidos por el usuario ──
   filtersApplied = output<FilterState>();
 
-  // ── Estado local (pendiente de aplicar) ───────────────────────
+  // ── Orden del filtro de busqueda ──
   orden:     FilterState['orden'] = 'az';
 
-  // Tipo: animación y formato se pueden combinar independientemente
+  // ── Metodos recoger los datos de cada filtro ──
   selectedAnimacion = signal<Set<Animacion>>(new Set(['Anime', 'Normal']));
-  selectedFormato   = signal<Set<Formato>>(new Set(['Pelicula', 'Serie']));
-  selectedGeneros   = signal<Set<string>>(new Set());   // vacío = todos
-  selectedEstados   = signal<Set<Estado>>(new Set(ESTADOS));
+  selectedFormato = signal<Set<Formato>>(new Set(['Pelicula', 'Serie']));
+  selectedGeneros = signal<Set<string>>(new Set());
+  selectedEstados = signal<Set<Estado>>(new Set(ESTADOS));
 
   ngOnInit(): void {
-    // Emitir los filtros por defecto en cuanto se monta el componente
     this.aplicar();
   }
 
-  // ── Toggles ───────────────────────────────────────────────────
+  // ── Metodo para realizar los distintos cambios en el componente al tocar el radiobutton ──
 
   toggleAnimacion(value: Animacion): void {
     this.selectedAnimacion.update(s => {
       const next = new Set(s);
-      // Al menos uno debe quedar activo
       if (next.has(value) && next.size > 1) next.delete(value);
       else next.add(value);
       return next;
@@ -55,6 +56,8 @@ export class MenuFiltersComponent implements OnInit {
     });
   }
 
+  // ── Metodo para realizar los distintos cambios en el componente al seleccionar los generos ──
+
   toggleGenero(nombre: string): void {
     this.selectedGeneros.update(s => {
       const next = new Set(s);
@@ -63,6 +66,8 @@ export class MenuFiltersComponent implements OnInit {
       return next;
     });
   }
+
+  // ── Metodo para realizar los distintos cambios en el componente al variar entre el estado de visualización ──
 
   toggleEstado(estado: Estado): void {
     this.selectedEstados.update(s => {
@@ -73,15 +78,21 @@ export class MenuFiltersComponent implements OnInit {
     });
   }
 
-  // ── Helpers para la plantilla ─────────────────────────────────
+  // ── Metodo para realizar los distintos cambios en el componente para abrir el menú con los distintas funciones de la sección ──
+
+  toggleMenu(): void {
+    this.abierto.update(v => !v);
+  }
+
+  // ── Helpers para seleccionar la información en cada campo cuando se pulse ──
+
   isAnimacionActive(v: Animacion): boolean { return this.selectedAnimacion().has(v); }
   isFormatoActive(v: Formato): boolean     { return this.selectedFormato().has(v); }
   isGeneroActive(v: string): boolean        { return this.selectedGeneros().size === 0 || this.selectedGeneros().has(v); }
   isEstadoActive(v: Estado): boolean        { return this.selectedEstados().has(v); }
 
-  // ── Aplicar filtros ───────────────────────────────────────────
+  // ── Sobreescribe aplicar para que cierre el panel al buscar ──
 
-  // Sobreescribe aplicar para que cierre el panel al buscar
   aplicar(): void {
       const anim = [...this.selectedAnimacion()];
       const fmt  = [...this.selectedFormato()];
@@ -96,12 +107,8 @@ export class MenuFiltersComponent implements OnInit {
       };
 
       this.filtersApplied.emit(filters);
-      this.abierto.set(false); // ← cierra al pulsar Buscar
+      this.abierto.set(false);
   }
 
   abierto = signal(false);
-
-  toggleMenu(): void {
-      this.abierto.update(v => !v);
-  }
 }

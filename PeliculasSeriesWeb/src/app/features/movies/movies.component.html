@@ -11,12 +11,8 @@
     <aside class="lateral">
         <app-menu-filters (filtersApplied)="onFiltersApplied($event)" />
     </aside>
-
     <main class="contenido">
-
         <div class="fondo-liquido"></div>
-
-        <!-- ── Zona con scroll único: cards + paginación ── -->
         <div class="zonaScroll">
 
             <div class="infoResultados txMedium txBold kosugiMPr">
@@ -41,8 +37,6 @@
                 [totalPages]="totalPages()"
                 (pageChange)="onPageChange($event)"
             />
-
         </div>
-
     </main>
 </div>

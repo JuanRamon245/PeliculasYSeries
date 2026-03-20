@@ -56,17 +56,15 @@
                         <div class="nombre txMedium nombreHorizontal kosugiMPr"><p>Estado</p></div>
                         <div class="tipo estado tipoHorizontal">
                             <div class="contenedorTiposEstados txSmall txBold txRegular gaeguPr" [class.activo]="isEstadoActive('No visto')" appClickEffectSimple  (click)="toggleEstado('No visto')"><p>No visto</p></div>
-                            <div class="contenedorTiposEstados txSmall txBold txRegular gaeguPr" [class.activo]="isEstadoActive('En proceso')" appClickEffectSimple  (click)="toggleEstado('En proceso')"><p>En proceso</p></div>
+                            <div class="contenedorTiposEstados txSmall txBold txRegular gaeguPr" [class.activo]="isEstadoActive('En proceso')" appClickEffectSimple  (click)="toggleEstado('En proceso')"><p>Viendo</p></div>
                             <div class="contenedorTiposEstados txSmall txBold txRegular gaeguPr" [class.activo]="isEstadoActive('Visto')" appClickEffectSimple  (click)="toggleEstado('Visto')"><p>Visto</p></div>
                         </div>
                     </div>
                     <div class="contenedorBoton">
                         <button class="botonPulsar txBase txBold latoPr" appClickEffect (click)="aplicar()">Buscar</button>
                     </div>
-
                 </div>
             }
-
         </div>
     </div>
 </div>

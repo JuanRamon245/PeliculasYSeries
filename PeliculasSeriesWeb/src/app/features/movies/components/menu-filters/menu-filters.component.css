@@ -136,10 +136,10 @@
 }
 
 .titulo {
-    width: 30%;
     display: flex;
     align-items: center;
     color: var(--marron);
+    width: 20%;
     padding-left: 20px;
     flex-shrink: 0;
 }
@@ -170,7 +170,6 @@
     margin: 10px 20px;
     padding: 10px;
     max-height: 120px;
-
     overflow-y: scroll; 
     overflow-x: hidden;
 }
@@ -299,4 +298,137 @@
     color: var(--marron);
     opacity: 0.5;
     padding: 4px 8px;
+}
+
+@media (max-width: 1024px) {
+    .wrapperFiltro {
+        height: 64px;
+    }
+
+    .contenedor {
+        width: 325px;
+    }
+
+    .cabecera {
+        height: 36px;
+    }
+
+    .nombre {
+        padding-left: 14px;
+    }
+    .decoracion {
+        padding-right: 6px;
+        gap: 3px;
+    }
+
+    .contenedorDatos {
+        height: 34px;
+        margin: 0 12px;
+    }
+
+    .contenedorDatosGeneros {
+        max-height: 100px;
+        margin: 8px 12px;
+        padding: 8px;
+    }
+
+    .tipo {
+        width: calc(100% - 24px);
+        padding: 0 12px 8px;
+        gap: 8px;
+    }
+
+    .contenedorTiposEstados {
+        padding: 9px 8px;
+    }
+
+    .titulo {
+        width: 22%;
+        padding-left: 14px;
+    }
+
+    .horizontal {
+        margin-bottom: 8px;
+    }
+    
+    .contenedorBoton {
+        height: 40px;
+        width: 70px;
+        margin: 5px;
+    }
+
+    .botonPulsar {
+        padding: 4px 8px;
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 767px) {
+    .wrapperFiltro  {
+        height: 52px;
+    }
+
+    .margen {
+        margin-right: 10px;
+    }
+
+    .contenedor {
+        width: 250px;
+    }
+
+    .cabecera {
+        height: 32px;
+    }
+
+    .nombre {
+        padding-left: 10px;
+    }
+
+    .decoracion { 
+        padding-right: 4px;
+        gap: 2px;
+    }
+
+    .contenedorDatos {
+        height: 30px;
+        margin: 0 8px;
+    }
+
+    .contenedorDatosGeneros {
+        max-height: 80px;
+        margin: 6px 8px;
+        padding: 6px;
+    }
+
+    .tipo {
+        width: calc(100% - 16px);
+        padding: 0 8px 6px;
+        gap: 6px;
+    }
+
+    .contenedorTiposEstados {
+        padding: 7px 6px;
+    }
+
+    .contenedorBoton {
+        height: 34px;
+        width: 60px;
+        margin: 6px 8px 10px;
+    }
+
+    .titulo { 
+        width: 26%;
+        padding-left: 10px;
+    }
+
+    .horizontal {
+        margin-bottom: 6px;
+    }
+
+    .botones {
+        width: 100%;
+        height: auto;
+        justify-content: end;
+        gap: 10px;
+    }
 }

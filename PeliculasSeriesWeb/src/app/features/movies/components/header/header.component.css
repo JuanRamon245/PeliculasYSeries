@@ -5,10 +5,8 @@
     border-bottom: solid 2px var(--marron);
     display: flex;
     flex-direction: row;
-    
-    /* ── NUEVO: Necesario para que las estrellas se queden dentro ── */
     position: relative; 
-    z-index: 1; /* Crea un contexto de apilamiento */
+    z-index: 1;
 }
 
 .contenedorCabecera::before {
@@ -21,8 +19,6 @@
     z-index: -1;
     pointer-events: none;
     opacity: 0.3;
-
-    /* 1. EL BRILLO (La Ola) */
     background-image: linear-gradient(
         to right, 
         rgba(255, 255, 255, 0.3) 0%, 
@@ -31,20 +27,13 @@
     );
     background-size: 200% 100%;
     
-    /* 2. LAS ESTRELLAS (Forma fija con más espacio) */
-    /* He cambiado el viewBox de '0 0 24 24' a '-20 -20 64 64' */
-    /* Esto añade 20 unidades de "aire" alrededor de la estrella */
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 34 34' fill='black'><path d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 34 34' fill='black'><path d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/></svg>");
-    
-    /* Aumentamos el mask-size para que la cuadrícula sea más amplia */
-    /* Al tener más margen en el SVG, la estrella se verá del mismo tamaño que antes */
     -webkit-mask-size: 20px 20px; 
     mask-size: 20px 20px;
     -webkit-mask-repeat: repeat;
     mask-repeat: repeat;
     
-    /* 3. ANIMACIÓN */
     animation: brilloOla 5s linear infinite;
 }
 
@@ -85,8 +74,6 @@
     outline: none;
     background: transparent;
     border-radius: 50px;
-    font-size: 16px;
-    font-weight: 700;
     padding-inline: 10px;
     color: var(--marron);
 }
@@ -97,7 +84,6 @@
     background-color: var(--morado);
     color: var(--marron);
     border-left: solid 2px var(--marron);
-    
     display: flex;
     align-items: center;
     justify-content: center;

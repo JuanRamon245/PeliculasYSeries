@@ -17,7 +17,7 @@
     </div>
     <div class="contenedor">
         <div class="cabecera">
-            <div class="nombre letraGrande kosugiMPr"><p>Generos</p></div>
+            <div class="nombre txLarge txBold kosugiMPr"><p>Generos</p></div>
             <div class="decoracion">
                 <span class="material-symbols-outlined icono">remove</span>
                 <span class="material-symbols-outlined icono">select_window</span>
@@ -27,7 +27,7 @@
 
         <div class="cuerpo">
             @if (generosService.genres().length === 0) {
-                <p class="sinGenero nombre letraPequeña gaeguPr">No hay géneros creados todavía.</p>
+                <p class="sinGenero nombre txSmall txRegular gaeguPr">No hay géneros creados todavía.</p>
             }
             @else {
                 <div class="generos">
@@ -43,7 +43,7 @@
                         />
                         <label
                             [for]="'genero-' + i"
-                            class="contenedorGeneros letraPequeña gaeguPr"
+                            class="contenedorGeneros txBase txRegular gaeguPr"
                             appClickEffectSimple
                             [class.seleccionado]="isSelected(genero.nombre)">
                             {{ genero.nombre }}
@@ -57,13 +57,13 @@
         <div class="pie">
             @if (usuariosService.isLoggedIn()) {
                 <div class="contenedorBoton" appClickEffect (click)="eliminar()">
-                    <button class="botonPulsar latoPr">Eliminar</button>
+                    <button class="botonPulsar txBase txBold latoPr">Eliminar</button>
                 </div>
                 <div class="contenedorBoton contenedorBotonAncho" appClickEffect (click)="actualizar()">
-                    <button class="botonPulsar latoPr">Actualizar</button>
+                    <button class="botonPulsar txBase txBold latoPr">Actualizar</button>
                 </div>
                 <div class="contenedorBoton contenedorBotonDelgado" appClickEffect (click)="crear()">
-                    <button class="botonPulsar latoPr">Crear</button>
+                    <button class="botonPulsar txBase txBold latoPr">Crear</button>
                 </div>
             }
         </div>

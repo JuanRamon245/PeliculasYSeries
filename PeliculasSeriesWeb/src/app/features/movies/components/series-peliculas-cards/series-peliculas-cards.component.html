@@ -1,7 +1,7 @@
 <article class="contenedor" [class]="'cabecera-' + movie().tipo[1].toLowerCase()">
     
     <div class="cabecera">
-        <div class="nombre kosugiMPr">
+        <div class="nombre txLarge txBold kosugiMPr">
             <p>{{ movie().tipo[1] }} · {{ movie().tipo[0] }}</p>
         </div>
         
@@ -14,17 +14,17 @@
     </div>
 
     <div class="cuerpo">
-        <h2 class="tituloPelicula gaeguPr">{{ movie().nombre }}</h2>
+        <h2 class="tituloPelicula txRegular txBold gaeguPr">{{ movie().nombre }}</h2>
 
         <div class="datosGrid">
             <div class="datoBloque">
-                <p class="tituloDato kosugiMPr">Genero</p>
-                <span class="tagGenero gaeguPr">{{ movie().genero }}</span>
+                <p class="tituloDato txBase txBold kosugiMPr">Genero</p>
+                <span class="tagGenero txSmall txBold gaeguPr">{{ movie().genero }}</span>
             </div>
             
             <div class="datoBloque">
-                <p class="tituloDato kosugiMPr">Visto</p>
-                <p class="textoDatoDestacado gaeguPr">{{ vistoTexto }}</p>
+                <p class="tituloDato txBase txBold kosugiMPr">Visto</p>
+                <p class="textoDatoDestacado txSmall txBold gaeguPr">{{ vistoTexto }}</p>
             </div>
             
         </div>
@@ -33,16 +33,16 @@
 
         <div class="estadoGrid">
             <div class="datoBloque">
-                <p class="tituloDato kosugiMPr">Estado</p>
+                <p class="tituloDato txBase txBold kosugiMPr">Estado</p>
                 <div class="estadoBadge">
                     <span class="puntoEstado" [class]="'punto-' + movie().estado.replace(' ', '-').toLowerCase()"></span>
-                    <span class="textoDato gaeguPr">{{ movie().estado }}</span>
+                    <span class="textoDato txSmall gaeguPr">{{ movie().estado }}</span>
                 </div>
             </div>
             
             <div class="datoBloque  text-right">
-                <p class="tituloDato kosugiMPr">Fecha de creacion</p>
-                <p class="textoDato gaeguPr">{{ fechaFormateada }}</p>
+                <p class="tituloDato txBase txBold kosugiMPr">Fecha de creacion</p>
+                <p class="textoDato txSmall gaeguPr">{{ fechaFormateada }}</p>
             </div>
         </div>
     </div>

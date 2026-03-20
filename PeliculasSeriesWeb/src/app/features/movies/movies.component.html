@@ -19,7 +19,7 @@
         <!-- ── Zona con scroll único: cards + paginación ── -->
         <div class="zonaScroll">
 
-            <div class="infoResultados letraGrande kosugiMPr">
+            <div class="infoResultados txMedium txBold kosugiMPr">
                 <p>{{ filteredMovies().length }} titulo(s) encontrado(s)</p>
             </div>
 
@@ -30,13 +30,12 @@
                     }
                 </div>
             } @else {
-                <div class="sinResultados letraPequeña gaeguPr">
+                <div class="sinResultados txMedium txRegular gaeguPr">
                     <span class="material-symbols-outlined">movie_filter</span>
                     <p>No se encontraron resultados.</p>
                 </div>
             }
 
-            <!-- La paginación vive aquí dentro, al final del scroll -->
             <app-paginations
                 [currentPage]="currentPage()"
                 [totalPages]="totalPages()"

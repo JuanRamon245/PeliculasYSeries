@@ -23,8 +23,6 @@
     width: 70%;
     display: flex;
     align-items: center;
-    font-size: 20px;
-    font-weight: 500;
     color: var(--marron);
     padding-left: 20px;
 }
@@ -62,8 +60,6 @@
     width: calc(100% - 40px);
     display: flex;
     flex-direction: row;
-    font-size: 20px;
-    font-weight: 700;
     color: var(--marron);
     background-color: var(--blanco);
     border: solid 2px var(--marron);
@@ -163,8 +159,6 @@
     outline: none;
     background: transparent;
     font-family: inherit;
-    font-size: 18px;
-    font-weight: 700;
     color: var(--marron);
     display: flex;
     align-items: center;

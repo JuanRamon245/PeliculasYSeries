@@ -24,7 +24,6 @@ export class PeliculasSeriesService {
     ) as Observable<Movie[]>,
     { initialValue: [] as Movie[] },
   );
-
   // ── CRUD ──────────────────────────────────────────────────────
 
   async create(data: Omit<Movie, 'fecha'>): Promise<{ success: boolean; message: string }> {

@@ -21,7 +21,7 @@
     </div>
     <div class="contenedor">
         <div class="cabecera">
-            <div class="nombre letraGrande kosugiMPr"><p>Acceder a la web</p></div>
+            <div class="nombre txLarge txBold kosugiMPr"><p>Acceder a la web</p></div>
             <div class="decoracion">
                 <span class="material-symbols-outlined icono">remove</span>
                 <span class="material-symbols-outlined icono">select_window</span>
@@ -29,17 +29,17 @@
             </div>
         </div>
         <div class="pie">
-            <div class="nombre letraGrande kosugiMPr"><p>Correo</p></div>
+            <div class="nombre txMedium txBold kosugiMPr"><p>Correo</p></div>
             <div class="contenedorDatos">
-                <input type="email" placeholder="Escribe el correo..." class="input-form letraPequeña gaeguPr" [(ngModel)]="email" (keydown.enter)="acceder()">
+                <input type="email" placeholder="Escribe el correo..." class="input-form txBase txRegular gaeguPr" [(ngModel)]="email" (keydown.enter)="acceder()">
             </div>
-            <div class="nombre letraGrande kosugiMPr"><p>Contraseña</p></div>
+            <div class="nombre txMedium txBold kosugiMPr"><p>Contraseña</p></div>
             <div class="contenedorDatos">
-                <input type="text" placeholder="Escribe la contraseña..." class="input-form letraPequeña gaeguPr" [(ngModel)]="password" (keydown.enter)="acceder()">
+                <input type="text" placeholder="Escribe la contraseña..." class="input-form txBase txRegular gaeguPr" [(ngModel)]="password" (keydown.enter)="acceder()">
             </div>
             <div class="contenedorBoton">
                  <button
-                    class="botonPulsar latoPr"
+                    class="botonPulsar txBase txBold latoPr"
                     (click)="acceder()"
                     appClickEffect
                     [disabled]="loading()">

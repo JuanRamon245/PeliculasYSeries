@@ -3,7 +3,7 @@
 
         <!-- Flecha anterior -->
         <button
-            class="botonPaginacion letraGrande latoPr"
+            class="botonPaginacion txBold latoPr"
             [disabled]="currentPage() === 1"
             appClickEffectSimple
             (click)="goTo(currentPage() - 1)">
@@ -14,20 +14,20 @@
         @for (page of visiblePages; track $index) {
             @if (isNumber(page)) {
                 <button
-                    class="botonPaginacion letraGrande gaeguPr"
+                    class="botonPaginacion txBold gaeguPr"
                     [class.activo]="page === currentPage()"
                     appClickEffectSimple
                     (click)="goTo(page)">
                     {{ page }}
                 </button>
             } @else {
-                <span class="botonPaginacion puntosSuspensivos gaeguPr">···</span>
+                <span class="botonPaginacion puntosSuspensivos txRegular gaeguPr">···</span>
             }
         }
 
         <!-- Flecha siguiente -->
         <button
-            class="botonPaginacion letraGrande latoPr"
+            class="botonPaginacion txBold latoPr"
             [disabled]="currentPage() === totalPages()"
             appClickEffectSimple
             (click)="goTo(currentPage() + 1)">

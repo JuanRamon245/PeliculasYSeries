@@ -26,7 +26,6 @@
 
 .puntosSuspensivos {
     align-items: flex-end;
-    font-size: 12px;
     padding: 7px 9px;
     cursor: default;
 }
@@ -37,7 +36,6 @@
     color: var(--marron);
 }
 
-/* ── Deshabilitado ─────────────────────────────────── */
 .botonPaginacion:disabled {
     cursor: not-allowed;
     opacity: 0.5;

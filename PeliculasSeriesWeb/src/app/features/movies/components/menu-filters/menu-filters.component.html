@@ -1,27 +1,21 @@
-<!-- Wrapper full-width que centra el menú -->
 <div class="wrapperFiltro">
     <div class="margen">
-
         <div class="contenedor">
-
-            <!-- Cabecera toggle -->
             <div class="cabecera" [class.expandida]="abierto()" appClickEffectSimple (click)="toggleMenu()">
-                <div class="nombre letraGrande kosugiMPr"><p>Filtros</p></div>
+                <div class="nombre txLarge txBold kosugiMPr"><p>Filtros</p></div>
                 <div class="decoracion">
                     <div class="icono" [class.abierto]="abierto()">
                         <span class="material-symbols-outlined">expand_more</span>
                     </div>
                 </div>
             </div>
-
-            <!-- Cuerpo absolute desplegable -->
             @if (abierto()) {
                 <div class="cuerpo">
 
                     <div class="horizontal margenArriba">
-                        <div class="titulo letraGrande kosugiMPr"><p>Ordenar</p></div>
-                        <div class="contenedorDatos">
-                            <select [(ngModel)]="orden" class="input-form letraPequeña gaeguPr">
+                        <div class="titulo txMedium kosugiMPr"><p>Ordenar</p></div>
+                        <div class="contenedorDatos txMedium">
+                            <select [(ngModel)]="orden" class="input-form txRegular gaeguPr">
                                 <option value="az">Nombre A–Z</option>
                                 <option value="za">Nombre Z–A</option>
                                 <option value="fecha_ultima">Más reciente</option>
@@ -30,12 +24,12 @@
                         </div>
                     </div>
 
-                    <div class="titulo letraGrande kosugiMPr"><p>Genero</p></div>
-                    <div class="contenedorDatosGeneros">
-                        <div class="generosFiltro letraPequeña">
+                    <div class="titulo txMedium kosugiMPr"><p>Genero</p></div>
+                    <div class="contenedorDatosGeneros txMedium">
+                        <div class="generosFiltro txRegular">
                             @for (g of generosService.genres(); track g.nombre) {
                                 <div
-                                    class="contenedorTiposEstados gaeguPr"
+                                    class="contenedorTiposEstados txSmall txBold gaeguPr"
                                     [class.activo]="isGeneroActive(g.nombre)"
                                     appClickEffectSimple
                                     (click)="toggleGenero(g.nombre)">
@@ -43,36 +37,36 @@
                                 </div>
                             }
                             @if (generosService.genres().length === 0) {
-                                <p class="sinGeneros">Sin géneros</p>
+                                <p class="sinGeneros txSmall">Sin géneros</p>
                             }
                         </div>
                     </div>
 
                     <div class="horizontal">
-                        <div class="letraGrande nombreArriba kosugiMPr"><p>Tipo</p></div>
+                        <div class="txMedium nombreArriba kosugiMPr"><p>Tipo</p></div>
                         <div class="tipo tipoHorizontal">
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isAnimacionActive('Normal')" appClickEffectSimple  (click)="toggleAnimacion('Normal')"><p>Normal</p></div>
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isAnimacionActive('Anime')"  appClickEffectSimple  (click)="toggleAnimacion('Anime')"><p>Anime</p></div>
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isFormatoActive('Pelicula')" appClickEffectSimple  (click)="toggleFormato('Pelicula')"><p>Pelicula</p></div>
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isFormatoActive('Serie')" appClickEffectSimple  (click)="toggleFormato('Serie')"><p>Serie</p></div>
+                            <div class="contenedorTiposEstados txSmall txBold gaeguPr" [class.activo]="isAnimacionActive('Normal')" appClickEffectSimple  (click)="toggleAnimacion('Normal')"><p>Normal</p></div>
+                            <div class="contenedorTiposEstados txSmall txBold gaeguPr" [class.activo]="isAnimacionActive('Anime')"  appClickEffectSimple  (click)="toggleAnimacion('Anime')"><p>Anime</p></div>
+                            <div class="contenedorTiposEstados txSmall txBold gaeguPr" [class.activo]="isFormatoActive('Pelicula')" appClickEffectSimple  (click)="toggleFormato('Pelicula')"><p>Pelicula</p></div>
+                            <div class="contenedorTiposEstados txSmall txBold gaeguPr" [class.activo]="isFormatoActive('Serie')" appClickEffectSimple  (click)="toggleFormato('Serie')"><p>Serie</p></div>
                         </div>
                     </div>
 
                     <div class="horizontal">
-                        <div class="nombre nombreHorizontal letraGrande kosugiMPr"><p>Estado</p></div>
+                        <div class="nombre txMedium nombreHorizontal kosugiMPr"><p>Estado</p></div>
                         <div class="tipo estado tipoHorizontal">
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('No visto')" appClickEffectSimple  (click)="toggleEstado('No visto')"><p>No visto</p></div>
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('En proceso')" appClickEffectSimple  (click)="toggleEstado('En proceso')"><p>En proceso</p></div>
-                            <div class="contenedorTiposEstados letraPequeña gaeguPr" [class.activo]="isEstadoActive('Visto')" appClickEffectSimple  (click)="toggleEstado('Visto')"><p>Visto</p></div>
+                            <div class="contenedorTiposEstados txSmall txBold txRegular gaeguPr" [class.activo]="isEstadoActive('No visto')" appClickEffectSimple  (click)="toggleEstado('No visto')"><p>No visto</p></div>
+                            <div class="contenedorTiposEstados txSmall txBold txRegular gaeguPr" [class.activo]="isEstadoActive('En proceso')" appClickEffectSimple  (click)="toggleEstado('En proceso')"><p>En proceso</p></div>
+                            <div class="contenedorTiposEstados txSmall txBold txRegular gaeguPr" [class.activo]="isEstadoActive('Visto')" appClickEffectSimple  (click)="toggleEstado('Visto')"><p>Visto</p></div>
                         </div>
                     </div>
                     <div class="contenedorBoton">
-                        <button class="botonPulsar latoPr" appClickEffect (click)="aplicar()">Buscar</button>
+                        <button class="botonPulsar txBase txBold latoPr" appClickEffect (click)="aplicar()">Buscar</button>
                     </div>
 
                 </div>
             }
 
-        </div><!-- /.contenedor -->
-    </div><!-- /.margen -->
-</div><!-- /.wrapperFiltro -->
+        </div>
+    </div>
+</div>

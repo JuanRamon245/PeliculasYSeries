@@ -44,7 +44,7 @@
     </div>
     <div class="contenedor">
         <div class="cabecera">
-            <div class="nombre letraGrande kosugiMPr"><p>{{ titulo }}</p></div>
+            <div class="nombre txLarge txBold kosugiMPr"><p>{{ titulo }}</p></div>
             <div class="decoracion">
                 <span class="material-symbols-outlined icono">remove</span>
                 <span class="material-symbols-outlined icono">select_window</span>
@@ -53,64 +53,58 @@
         </div>
 
         <div class="cuerpo">
-            <div class="nombre letraGrande kosugiMPr"><p>Nombre</p></div>
+            <div class="nombre txMedium txBold kosugiMPr"><p>Nombre</p></div>
             <div class="contenedorDatos">
                 <input
                     type="text"
                     placeholder="Escribe el nombre..."
-                    class="input-form letraPequeña gaeguPr"
+                    class="input-form txBase txRegular gaeguPr"
                     [(ngModel)]="nombre"
                     maxlength="40"
                 />
             </div>
 
-            <!-- Tipo (Animación y Formato) -->
-            <div class="nombre letraGrande kosugiMPr"><p>Tipo</p></div>
+            <div class="nombre txMedium txBold kosugiMPr"><p>Tipo</p></div>
             <div class="tipo">
-                <!-- Animación -->
                 <input type="radio" name="formato" id="normal" [checked]="formato === 'Normal'" hidden>
-                <label for="normal" class="contenedorTiposEstados letraPequeña gaeguPr" appClickEffectSimple (click)="formato = 'Normal'">Normal</label>
+                <label for="normal" class="contenedorTiposEstados txBase txRegular gaeguPr" appClickEffectSimple (click)="formato = 'Normal'">Normal</label>
 
                 <input type="radio" name="formato" id="anime" [checked]="formato === 'Anime'" hidden>
-                <label for="anime" class="contenedorTiposEstados letraPequeña gaeguPr" appClickEffectSimple (click)="formato = 'Anime'">Anime</label>
+                <label for="anime" class="contenedorTiposEstados txBase txRegular gaeguPr" appClickEffectSimple (click)="formato = 'Anime'">Anime</label>
 
-                <!-- Categoría -->
                 <input type="radio" name="categoria" id="pelicula" [checked]="categoria === 'Pelicula'" hidden>
-                <label for="pelicula" class="contenedorTiposEstados letraPequeña gaeguPr" appClickEffectSimple (click)="categoria = 'Pelicula'">Pelicula</label>
+                <label for="pelicula" class="contenedorTiposEstados txBase txRegular gaeguPr" appClickEffectSimple (click)="categoria = 'Pelicula'">Pelicula</label>
 
                 <input type="radio" name="categoria" id="serie" [checked]="categoria === 'Serie'" hidden>
-                <label for="serie" class="contenedorTiposEstados letraPequeña gaeguPr" appClickEffectSimple (click)="categoria = 'Serie'">Serie</label>
+                <label for="serie" class="contenedorTiposEstados txBase txRegular gaeguPr" appClickEffectSimple (click)="categoria = 'Serie'">Serie</label>
             </div>
 
-            <!-- Máximo -->
-            <div class="nombre letraGrande kosugiMPr"><p>Maximo</p></div>
+            <div class="nombre txMedium txBold kosugiMPr"><p>Maximo</p></div>
             <div class="contenedorDatos">
                 <input
                     type="text"
                     [placeholder]="maximoPlaceholder"
-                    class="input-form letraPequeña gaeguPr"
+                    class="input-form txBaset xRegular gaeguPr"
                     [(ngModel)]="maximo"
                     maxlength="50"
                 />
             </div>
 
-            <!-- Actual / Mínimo -->
-            <div class="nombre letraGrande kosugiMPr"><p>Actual</p></div>
+            <div class="nombre txMedium txBold kosugiMPr"><p>Actual</p></div>
             <div class="contenedorDatos">
                 <input
                     type="text"
                     [placeholder]="minimoPlaceholder"
-                    class="input-form letraPequeña gaeguPr"
+                    class="input-form txBase txRegular gaeguPr"
                     [(ngModel)]="minimo"
                     maxlength="50"
                 />
             </div>
 
-            <!-- Género (select poblado desde Firestore) -->
             <div class="horizontal">
-                <div class="titulo letraGrande kosugiMPr"><p>Genero</p></div>
-                <div class="contenedorDatos custom-select-container">
-                    <select class="input-form letraPequeña gaeguPr" [(ngModel)]="genero">
+                <div class="titulo txMedium txBold kosugiMPr"><p>Genero</p></div>
+                <div class="contenedorDatos txMedium custom-select-container">
+                    <select class="input-form txBase txRegular gaeguPr" [(ngModel)]="genero">
                         @for (g of generosService.genres(); track g.nombre) {
                             <option [value]="g.nombre" appClickEffectSimple>{{ g.nombre }}</option>
                         }
@@ -118,8 +112,7 @@
                 </div>
             </div>
 
-            <!-- Estado -->
-            <div class="nombre letraGrande kosugiMPr"><p>Estado</p></div>
+            <div class="nombre txMedium txBold kosugiMPr"><p>Estado</p></div>
             <div class="tipo estado">
                 @for (e of estadosDisponibles; track e) {
                     <input
@@ -131,14 +124,14 @@
                     />
                     <label
                         [for]="'estado-' + e"
-                        class="contenedorTiposEstados letraPequeña gaeguPr"
+                        class="contenedorTiposEstados txBase txRegular gaeguPr"
                         (click)="estado = e">
                         {{ e }}
                     </label>
                 }
             </div>
 
-        </div><!-- /cuerpo -->
+        </div>
 
         <div class="pie">
             <div class="decoracionPie">
@@ -154,7 +147,7 @@
             </div>
             <div class="contenedorBoton">
                 <button
-                    class="botonPulsar latoPr"
+                    class="botonPulsar txBase txBold latoPr"
                     (click)="guardar()"
                     appClickEffect
                     [disabled]="loading()">

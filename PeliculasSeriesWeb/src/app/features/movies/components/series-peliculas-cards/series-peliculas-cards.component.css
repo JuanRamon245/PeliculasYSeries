@@ -1,13 +1,10 @@
-/* ══════════════════════════════════════════
-   Card principal (Híbrido)
-══════════════════════════════════════════ */
 .contenedor {
     width: calc(100% - 40px);
     margin: 20px;
     background-color: var(--blanco);
     border: solid 3px var(--marron);
     border-radius: 10px;
-    box-shadow: 6px 6px 0 var(--marron); /* Sombra dura del nuevo diseño */
+    box-shadow: 6px 6px 0 var(--marron);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -18,11 +15,9 @@
     transform: translateY(-3px);
 }
 
-/* Colores condicionales anclados al contenedor pero afectan a la cabecera */
 .cabecera-serie .cabecera { background-color: var(--azul); }
 .cabecera-pelicula .cabecera { background-color: var(--morado); }
 
-/* ── Cabecera ─────────────────── */
 .cabecera {
     height: 50px;
     width: 100%;
@@ -37,8 +32,6 @@
     width: 70%;
     display: flex;
     align-items: center;
-    font-size: 18px;
-    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--marron);
@@ -66,23 +59,19 @@
 .icono:hover { transform: scale(1.15); }
 .eliminar:hover { color: var(--rojo); }
 
-/* ── Cuerpo ─────────────────────────────── */
 .cuerpo {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px; /* Espaciado interno del nuevo diseño */
+    gap: 16px;
 }
 
 .tituloPelicula {
-    font-size: 26px;
-    font-weight: 700;
     color: var(--marron);
     margin: 0;
     line-height: 1.2;
 }
 
-/* ── Grids de Datos ─────────────────────── */
 .datosGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -106,24 +95,18 @@
     align-items: flex-end;
 }
 
-/* ── Textos y Etiquetas ─────────────────── */
 .tituloDato {
-    font-size: 14px;
-    font-weight: 700;
     color: var(--marron);
     opacity: 0.7;
     margin: 0;
 }
 
 .textoDato {
-    font-size: 16px;
     color: var(--marron);
     margin: 0;
 }
 
 .textoDatoDestacado {
-    font-size: 18px;
-    font-weight: 700;
     color: var(--marron);
     margin: 0;
 }
@@ -134,20 +117,16 @@
     border: solid 2px var(--marron);
     border-radius: 4px;
     padding: 2px 8px;
-    font-size: 14px;
-    font-weight: 700;
     color: var(--marron);
     width: fit-content;
 }
 
-/* ── Separador ──────────────────────────── */
 .separador {
     width: 100%;
     border-top: 2px dashed var(--marron);
     opacity: 0.4;
 }
 
-/* ── Puntos de Estado ───────────────────── */
 .estadoBadge {
     display: flex;
     align-items: center;
@@ -162,7 +141,6 @@
     flex-shrink: 0;
 }
 
-/* Clases de estado dinámicas */
 .punto-visto      { background-color: var(--verde); }
 .punto-no-visto   { background-color: var(--amarillo); }
 .punto-en-proceso { background-color: var(--azul); animation: parpadeo 2s ease-in-out infinite; }

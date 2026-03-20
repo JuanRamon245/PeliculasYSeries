@@ -22,8 +22,6 @@
     width: 70%;
     display: flex;
     align-items: center;
-    font-size: 20px;
-    font-weight: 500;
     color: var(--marron);
     padding-left: 20px;
 }
@@ -40,7 +38,6 @@
     height: 30px;
     aspect-ratio: 1/1;
     color: var(--marron);
-    
     margin-right: 5px;
     display: flex;
     align-items: center;

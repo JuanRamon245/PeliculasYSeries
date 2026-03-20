@@ -21,49 +21,51 @@ body {
     overflow: hidden;
 }
 
-.letraPequeña {
-    font-size: 16px !important;
-    font-weight: 700 !important;
+/* ── CLASES GLOBALES ── */
+
+.txSmall   { font-size: 13px !important; }
+.txBase    { font-size: 16px !important; }
+.txMedium  { font-size: 20px !important; }
+.txLarge   { font-size: 26px !important; }
+
+.txLight   { font-weight: 400 !important; }
+.txRegular { font-weight: 500 !important; }
+.txBold    { font-weight: 700 !important; }
+
+@media (max-width: 1024px) {
+    .txSmall   { font-size: 12px !important; }
+    .txBase    { font-size: 14px !important; }
+    .txMedium  { font-size: 17px !important; }
+    .txLarge   { font-size: 22px !important; }
 }
 
-.letraGrande {
-    font-size: 20px !important;
-    font-weight: 700 !important;
+@media (max-width: 768px) {
+    .txSmall   { font-size: 11px !important; }
+    .txBase    { font-size: 13px !important; }
+    .txMedium  { font-size: 15px !important; }
+    .txLarge   { font-size: 19px !important; }
 }
 
-.margenAbajo {
-    margin-bottom: 10px;
-}
-
-/* ══════════════════════════════════════════════════════
-   ANGULAR MATERIAL — Override global del dialog
-   Debe estar en styles.css (raíz), NO en el componente
-══════════════════════════════════════════════════════ */
-
-/* ── Fondo oscuro del backdrop ───────────────────────── */
+/* ── MOSTRAR DIALOGOS ── */
 .cdk-overlay-backdrop.cdk-overlay-dark-backdrop {
     background: color-mix(in srgb, black, transparent 50%);
 }
 
-/* ── Contenedor externo del dialog ───────────────────── */
-/* Quitamos TODO lo que Material impone por defecto      */
 .cine-dialog .mat-mdc-dialog-container {
-    background:    transparent !important;
-    box-shadow:    none        !important;
-    border-radius: 0           !important;
-    padding:       0           !important;
-    overflow:      visible     !important; /* ← clave: permite ver las decoraciones */
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
 }
 
-/* ── Superficie interna (la "hoja") ──────────────────── */
 .cine-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
-    background:    transparent !important;
-    box-shadow:    none        !important;
-    border-radius: 0           !important;
-    overflow:      visible     !important; /* ← también aquí */
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
 }
 
-/* ── Área de contenido del dialog ────────────────────── */
 .cine-dialog .mat-mdc-dialog-content,
 .cine-dialog .mdc-dialog__content {
     padding:    0    !important;
@@ -72,9 +74,7 @@ body {
     max-height: none !important;
 }
 
-/* ══════════════════════════════════════════════════════
-   Tipografias
-══════════════════════════════════════════════════════ */
+/* ── FUENTES DESCARGADAS ── */
 
 .latoPr {
     font-family: 'Lato' !important;

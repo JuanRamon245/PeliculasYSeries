@@ -1,6 +1,6 @@
 <div class="contenedor">
     <div class="cabecera" [ngClass]="data.success ? 'cabeceraExito' : 'cabeceraError'">
-        <div class="nombre letraGrande kosugiMPr">
+        <div class="nombre txLarge txBold kosugiMPr">
             <p>{{ data.success ? 'Exito' : 'Error' }}</p>
         </div>
         <div class="decoracion">
@@ -13,6 +13,6 @@
         <span class="material-symbols-outlined icono respuesta" [ngClass]="data.success ? 'respuestaExito' : 'respuestaError'">
             {{ data.success ? 'check_circle' : 'error' }}
         </span>
-        <div class="campoTexto letraPequeña gaeguPr"><p>{{ data.message }}</p></div>
+        <div class="campoTexto txBase txRegular gaeguPr"><p>{{ data.message }}</p></div>
     </div>
 </div>

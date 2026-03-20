@@ -18,7 +18,7 @@
     </div>
     <div class="contenedor">
         <div class="cabecera">
-            <div class="nombre letraGrande kosugiMPr"><p>{{ titulo }}</p></div>
+            <div class="nombre txLarge txBold kosugiMPr"><p>{{ titulo }}</p></div>
             <div class="decoracion">
                 <span class="material-symbols-outlined icono">remove</span>
                 <span class="material-symbols-outlined icono">select_window</span>
@@ -26,12 +26,12 @@
             </div>
         </div>
         <div class="pie">
-            <div class="nombre letraPequeña gaeguPr">
+            <div class="nombre txBase txRegular gaeguPr">
                 <p>¿Deseas eliminar <strong>{{ data.nombre }}</strong>?</p>
             </div>
             <div class="contenedorBoton">
                 <button
-                    class="botonPulsar latoPr"
+                    class="botonPulsar txBase txBold latoPr"
                     (click)="eliminar()"
                     appClickEffect
                     [disabled]="loading()">

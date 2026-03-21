@@ -14,25 +14,28 @@ import { ClickEffectDirective } from '../../../shared/directives/click-efect.dir
   styleUrl: './create-update-genders.component.css',
 })
 export class CreateUpdateGendersComponent implements OnInit {
+
+  // ── Servicios para las distintas funcionalidades ──
+
   private dialogRef      = inject(MatDialogRef<CreateUpdateGendersComponent>);
   data: GenderModalData  = inject(MAT_DIALOG_DATA);
   private generosService = inject(GenerosService);
   private modalService   = inject(ModalService);
 
-  // ── Estado ────────────────────────────────────────────────────
   nombre  = '';
   loading = signal(false);
+
+  // ── tener datso qde que acción vamos a realizar ──
 
   get isEdit(): boolean { return this.data.genero !== null; }
   get titulo(): string  { return this.isEdit ? 'Editar Genero' : 'Crear Genero'; }
   get btnLabel(): string { return this.isEdit ? 'Actualizar' : 'Crear'; }
 
   ngOnInit(): void {
-    // Si estamos editando, precargamos el nombre actual
     if (this.data.genero) this.nombre = this.data.genero;
   }
 
-  // ── Acción ────────────────────────────────────────────────────
+  // ── Eventos del modal ──
 
   async guardar(): Promise<void> {
     if (this.loading() || !this.nombre.trim()) return;
@@ -44,10 +47,8 @@ export class CreateUpdateGendersComponent implements OnInit {
 
     this.loading.set(false);
 
-    // Siempre mostramos feedback
     this.modalService.openErrorSuccess({ success: res.success, message: res.message });
 
-    // Solo cerramos si la operación fue exitosa
     if (res.success) this.dialogRef.close(true);
   }
 

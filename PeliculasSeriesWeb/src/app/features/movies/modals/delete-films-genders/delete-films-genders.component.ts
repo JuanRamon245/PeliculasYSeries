@@ -14,17 +14,24 @@ import { ClickEffectDirective } from '../../../shared/directives/click-efect.dir
   styleUrl: './delete-films-genders.component.css',
 })
 export class DeleteFilmsGendersComponent {
-  private dialogRef        = inject(MatDialogRef<DeleteFilmsGendersComponent>);
-  data: DeleteModalData    = inject(MAT_DIALOG_DATA);
-  private pelisService     = inject(PeliculasSeriesService);
-  private generosService   = inject(GenerosService);
-  private modalService     = inject(ModalService);
+
+  // ── Servicios para las distintas funcionalidades ──
+
+  private dialogRef = inject(MatDialogRef<DeleteFilmsGendersComponent>);
+  data: DeleteModalData = inject(MAT_DIALOG_DATA);
+  private pelisService = inject(PeliculasSeriesService);
+  private generosService = inject(GenerosService);
+  private modalService = inject(ModalService);
 
   loading = signal(false);
 
+  // ── Saber que vamos a eliminar ──
+
   get titulo(): string {
-    return this.data.tipo === 'pelicula' ? 'Eliminar Pelicula / Serie' : 'Eliminar Genero';
+    return this.data.tipo === 'pelicula' ? 'Eliminar titulo' : 'Eliminar Genero';
   }
+
+  // ── Eventos del modal ──
 
   async eliminar(): Promise<void> {
     if (this.loading()) return;
@@ -37,7 +44,6 @@ export class DeleteFilmsGendersComponent {
     this.loading.set(false);
     this.dialogRef.close(res.success);
 
-    // Feedback al usuario
     this.modalService.openErrorSuccess({ success: res.success, message: res.message });
   }
 

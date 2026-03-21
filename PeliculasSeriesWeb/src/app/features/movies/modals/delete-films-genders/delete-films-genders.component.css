@@ -1,6 +1,6 @@
 .contenedor {
     height: auto;
-    width: 400px;
+    width: 100%;
     border: solid 2px var(--marron);
     box-shadow: 0.4rem 0.4rem 0 var(--marron);
     border-radius: 10px;
@@ -134,4 +134,92 @@
     display: flex;
     position: relative;
     margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+    .margen {
+        margin-left: 20px;
+    }
+
+    .contenedor {
+        width: 90%;
+        margin: 10px;
+        margin-left: 3%;
+    }
+
+    .cabecera {
+        height: 50px;
+    }
+
+    .contenedorDecoracionArriba {
+        width: 60px;
+        height: 60px;
+        top: -30px;
+    }
+
+    .contenedorDecoracionAbajo {
+        width: 60px;
+        height: 60px;
+        left: -5px;
+    }
+
+    .contenedorBoton {
+        height: 40px;
+        width: 70px;
+        margin: 10px;
+    }
+
+    .botonPulsar {
+        padding: 4px 8px;
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 767px) {
+    .margen {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .contenedor {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .cabecera {
+        height: 48px;
+    }
+
+    .nombre {
+        padding-left: 15px;
+        text-align: start;
+        justify-content: start;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .pie {
+        align-items: start;
+        padding-bottom: 15px;
+    }
+
+    .contenedorBoton {
+        width: 90%;
+        align-self: center;
+        margin: 10px 0;
+    }
+
+    .contenedorDecoracionArriba {
+        width: 45px;
+        height: 45px;
+        top: -20px;
+        right: 5px;
+    }
+
+    .contenedorDecoracionAbajo {
+        width: 45px;
+        height: 45px;
+        left: 0;
+        bottom: -5px;
+    }
 }

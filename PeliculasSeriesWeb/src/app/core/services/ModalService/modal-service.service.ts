@@ -56,7 +56,7 @@ export class ModalService {
   openLogin(): MatDialogRef<LoginComponent> {
     return this.dialog.open(LoginComponent, {
       ...BASE_CONFIG,
-      width: '420px',
+      width: '700px',
     });
   }
 
@@ -67,7 +67,7 @@ export class ModalService {
   openCreateUpdateFilm(movie: Movie | null = null): MatDialogRef<CreateUpdateFilmsComponent> {
     return this.dialog.open(CreateUpdateFilmsComponent, {
       ...BASE_CONFIG,
-      width:     '520px',
+      width:     '1000px',
       data:      { movie } satisfies FilmModalData,
       // Evitar cierre accidental al hacer clic fuera
       disableClose: true,
@@ -81,7 +81,7 @@ export class ModalService {
   openCreateUpdateGender(genero: string | null = null): MatDialogRef<CreateUpdateGendersComponent> {
     return this.dialog.open(CreateUpdateGendersComponent, {
       ...BASE_CONFIG,
-      width:        '420px',
+      width:        '1000px',
       data:         { genero } satisfies GenderModalData,
       disableClose: true,
     });
@@ -93,7 +93,7 @@ export class ModalService {
   openDelete(data: DeleteModalData): MatDialogRef<DeleteFilmsGendersComponent> {
     return this.dialog.open(DeleteFilmsGendersComponent, {
       ...BASE_CONFIG,
-      width: '380px',
+      width: '500px',
       data,
     });
   }
@@ -105,7 +105,7 @@ export class ModalService {
   openErrorSuccess(data: ErrorSuccessData): MatDialogRef<ErrorSuccessComponent> {
     return this.dialog.open(ErrorSuccessComponent, {
       ...BASE_CONFIG,
-      width: '340px',
+      width: '400px',
       data,
     });
   }
@@ -114,7 +114,7 @@ export class ModalService {
   openShowGenders(): MatDialogRef<ShowGendersComponent> {
     return this.dialog.open(ShowGendersComponent, {
       ...BASE_CONFIG,
-      width: '520px',
+      width: '1000px',
     });
   }
 }

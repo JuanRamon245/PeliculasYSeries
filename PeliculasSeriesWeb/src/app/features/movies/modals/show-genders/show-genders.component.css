@@ -1,6 +1,6 @@
 .contenedor {
     height: auto;
-    width: 400px;
+    width: 100%;
     margin: 20px;
     border: solid 2px var(--marron);
     box-shadow: 0.4rem 0.4rem 0 var(--marron);
@@ -151,7 +151,7 @@ input[type="radio"]:checked + .contenedorGeneros {
     border-top: solid 2px var(--marron);
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: end;
     background-color: var(--amarillo);
 }
 
@@ -214,4 +214,116 @@ input[type="radio"]:checked + .contenedorGeneros {
     position: relative;
     margin-bottom: 20px;
     margin-left: 37.5px;
+}
+
+@media (max-width: 1024px) {
+    .margen {
+        margin-left: 20px;
+    }
+
+    .contenedor {
+        width: 90%;
+        margin: 10px;
+        margin-left: 3%;
+    }
+
+    .cabecera {
+        height: 38px;
+    }
+
+    .generos {
+        height: 180px;
+        padding: 15px;
+    }
+
+    .contenedorDecoracion {
+        width: 100px;
+        height: 65px;
+        top: -65px;
+        right: 20px;
+    }
+
+    .contenedorBoton {
+        height: 45px;
+        width: 75px;
+    }
+
+    .contenedorBotonAncho {
+        width: 95px;
+    }
+
+    .contenedorBotonDelgado {
+        width: 55px;
+    }
+
+    .botonPulsar {
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 767px) {
+    .margen {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .contenedor {
+        width: 100%;
+        margin: 5px 0;
+        margin-left: 0;
+        box-shadow: 0.2rem 0.2rem 0 var(--marron);
+    }
+
+    .cabecera {
+        height: 36px;
+    }
+
+    .nombre {
+        padding-left: 15px;
+        justify-content: flex-start;
+    }
+
+    .generos {
+        height: 160px;
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .contenedorGeneros {
+        padding: 5px 10px;
+        box-shadow: 0.2rem 0.2rem 0 var(--marron);
+    }
+
+    .pie {
+        padding: 5px 0;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-left: 0px;
+    }
+
+    .contenedorBoton {
+        height: 40px;
+        width: 70px;
+        margin: 5px;
+    }
+
+    .contenedorBotonAncho {
+        width: 85px;
+    }
+
+    .contenedorBotonDelgado {
+        width: 55px;
+    }
+
+    .botonPulsar {
+        padding: 4px 8px;
+        transform: translateY(-8px);
+    }
+
+    .contenedorDecoracion {
+        width: 85px;
+        height: 55px;
+        top: -55px;
+        right: 10px;
+    }
 }

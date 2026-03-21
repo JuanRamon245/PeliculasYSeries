@@ -14,20 +14,25 @@ import { ClickEffectDirective } from '../../../shared/directives/click-efect.dir
   styleUrl: './show-genders.component.css'
 })
 export class ShowGendersComponent {
+  
+  // ── Servicios para las distintas funcionalidades ──
+  
   private dialogRef     = inject(MatDialogRef<ShowGendersComponent>);
   generosService        = inject(GenerosService);
   private modalService  = inject(ModalService);
   usuariosService        = inject(UsuariosService);
 
-  // Género seleccionado en el panel (radio button)
   selectedGenero = signal<string>('');
+
+  // ── Comprobar si el género existe ──
 
   private generoSiqueExiste(): boolean {
     return this.generosService.genres().some(g => g.nombre === this.selectedGenero());
   }
 
+  // ── Eventos de seleccionar un genero ──
+
   select(nombre: string): void {
-    // Permitir deseleccionar clickando el mismo
     this.selectedGenero.set(this.selectedGenero() === nombre ? '' : nombre);
   }
 
@@ -35,15 +40,12 @@ export class ShowGendersComponent {
     return this.selectedGenero() === nombre;
   }
 
-  // ── Acciones del footer ───────────────────────────────────────
+  // ── Eventos del modal ──
 
-  /** Abre el modal de creación de género */
   crear(): void {
-    // No cerramos este modal — el usuario puede seguir añadiendo géneros
     this.modalService.openCreateUpdateGender(null);
   }
 
-  /** Abre el modal de edición con el género seleccionado precargado */
   actualizar(): void {
     if (!this.selectedGenero()) {
       this.modalService.openErrorSuccess({
@@ -54,7 +56,7 @@ export class ShowGendersComponent {
     }
 
     if (!this.generoSiqueExiste()) {
-      this.selectedGenero.set('');  // limpiamos el estado huérfano
+      this.selectedGenero.set('');
       this.modalService.openErrorSuccess({ success: false, message: 'El género ya no existe, elige otro genero.' });
       return;
     }
@@ -62,7 +64,6 @@ export class ShowGendersComponent {
     this.modalService.openCreateUpdateGender(this.selectedGenero());
   }
 
-  /** Abre la confirmación de borrado para el género seleccionado */
   eliminar(): void {
     if (!this.selectedGenero()) {
       this.modalService.openErrorSuccess({
@@ -73,7 +74,7 @@ export class ShowGendersComponent {
     }
 
     if (!this.generoSiqueExiste()) {
-      this.selectedGenero.set('');  // limpiamos el estado huérfano
+      this.selectedGenero.set('');
       this.modalService.openErrorSuccess({ success: false, message: 'El género ya no existe, elige otro genero.' });
       return;
     }
@@ -83,7 +84,6 @@ export class ShowGendersComponent {
       nombre: this.selectedGenero(),
     });
 
-    // Si se confirmó el borrado, deseleccionamos
     ref.afterClosed().subscribe((deleted: boolean) => {
       if (deleted) this.selectedGenero.set('');
     });

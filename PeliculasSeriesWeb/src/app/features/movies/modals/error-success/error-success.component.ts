@@ -12,13 +12,17 @@ import { ErrorSuccessData } from '../../../../core/services/ModalService/modal-s
   styleUrl: './error-success.component.css'
 })
 export class ErrorSuccessComponent implements OnInit {
+
+  // ── Servicios para las distintas funcionalidades ──
+
   private dialogRef = inject(MatDialogRef<ErrorSuccessComponent>);
   data: ErrorSuccessData = inject(MAT_DIALOG_DATA);
 
   ngOnInit(): void {
-    // Cierre automático a los 2.5 s para no interrumpir el flujo del usuario
-    setTimeout(() => this.dialogRef.close(), 2500);
+    setTimeout(() => this.dialogRef.close(), 3300);
   }
+
+  // ── Eventos del modal ──
 
   cerrar(): void {
     this.dialogRef.close();

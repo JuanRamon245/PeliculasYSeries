@@ -18,28 +18,33 @@ import { ClickEffectDirective } from '../../../shared/directives/click-efect.dir
   styleUrl: './create-update-films.component.css'
 })
 export class CreateUpdateFilmsComponent implements OnInit {
-  private dialogRef     = inject(MatDialogRef<CreateUpdateFilmsComponent>);
-  data: FilmModalData   = inject(MAT_DIALOG_DATA);
-  private pelisService  = inject(PeliculasSeriesService);
-  generosService        = inject(GenerosService);
-  private modalService  = inject(ModalService);
 
-  // ── Campos del formulario ─────────────────────────────────────
-  nombre   = '';
-  formato:   Animacion = 'Normal';   // Normal | Anime
-  categoria: Formato   = 'Pelicula'; // Pelicula | Serie
-  maximo   = '';
-  minimo   = '';
-  genero   = '';
-  estado:  Estado = 'No visto';
+  // ── Servicios para las distintas funcionalidades ──
+
+  private dialogRef = inject(MatDialogRef<CreateUpdateFilmsComponent>);
+  data: FilmModalData = inject(MAT_DIALOG_DATA);
+  private pelisService = inject(PeliculasSeriesService);
+  generosService = inject(GenerosService);
+  private modalService = inject(ModalService);
+
+  // ── Campos del formulario ──
+
+  nombre = '';
+  formato: Animacion = 'Normal';
+  categoria: Formato = 'Pelicula';
+  maximo = '';
+  minimo = '';
+  genero = '';
+  estado: Estado = 'No visto';
 
   readonly estadosDisponibles = ESTADOS
 
   loading = signal(false);
 
-  // ── Computed ──────────────────────────────────────────────────
+  // ── Saber que acción vamos a realizar ──
+
   get isEdit(): boolean  { return this.data.movie !== null; }
-  get titulo(): string   { return this.isEdit ? 'Editar Pelicula / Serie' : 'Crear Pelicula / Serie'; }
+  get titulo(): string   { return this.isEdit ? 'Editar Titulo' : 'Crear Titulo'; }
   get btnLabel(): string { return this.isEdit ? 'Actualizar' : 'Crear'; }
 
   get maximoPlaceholder(): string {
@@ -51,22 +56,21 @@ export class CreateUpdateFilmsComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.data.movie) {
-      const m        = this.data.movie;
-      this.nombre    = m.nombre;
-      this.formato   = m.tipo[0];
+      const m = this.data.movie;
+      this.nombre = m.nombre;
+      this.formato = m.tipo[0];
       this.categoria = m.tipo[1];
-      this.maximo    = m.maximo;
-      this.minimo    = m.minimo;
-      this.genero    = m.genero;
-      this.estado    = m.estado;   // ← precarga el estado real al editar
+      this.maximo = m.maximo;
+      this.minimo = m.minimo;
+      this.genero = m.genero;
+      this.estado = m.estado;
     } else {
       const nombres = this.generosService.genreNames();
       if (nombres.length) this.genero = nombres[0];
-      // this.estado ya es 'No visto' por defecto en creación
     }
   }
 
-  // ── Validación ────────────────────────────────────────────────
+  // ── Validaciones ──
 
   private validar(): string | null {
     if (!this.nombre.trim())  return 'El nombre es obligatorio.';
@@ -74,7 +78,7 @@ export class CreateUpdateFilmsComponent implements OnInit {
     return null;
   }
 
-  // ── Acción principal ──────────────────────────────────────────
+  // ── Eventos del modal ──
 
   async guardar(): Promise<void> {
     const error = this.validar();
@@ -90,7 +94,7 @@ export class CreateUpdateFilmsComponent implements OnInit {
       nombre:  this.nombre.trim(),
       tipo:    [this.formato, this.categoria],
       genero:  this.genero,
-      estado:  this.estado,   // ← siempre viene del formulario, tanto en crear como editar
+      estado:  this.estado,
       maximo:  this.maximo.trim(),
       minimo:  this.minimo.trim(),
     };

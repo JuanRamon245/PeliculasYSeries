@@ -32,7 +32,6 @@
             @else {
                 <div class="generos">
                     @for (genero of generosService.genres(); track genero.nombre; let i = $index) {
-                        <!-- El id debe ser único; usamos el índice para ello -->
                         <input
                             type="radio"
                             name="generoSeleccionado"

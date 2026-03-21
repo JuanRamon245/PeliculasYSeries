@@ -14,17 +14,21 @@ import { ClickEffectDirective } from '../../../shared/directives/click-efect.dir
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
+  // ── Servicios para las distintas funcionalidades ──
+  
   private dialogRef      = inject(MatDialogRef<LoginComponent>);
   private usuariosService = inject(UsuariosService);
   private modalService   = inject(ModalService);
 
-  // ── Estado del formulario ─────────────────────────────────────
+  // ── Campos del formulario ──
+
   email    = '';
   password = '';
   loading  = signal(false);
 
-  // ── Acción ───────────────────────────────────────────────────
-
+  // ── Eventos del modal ──
+  
   async acceder(): Promise<void> {
     if (this.loading()) return;
     this.loading.set(true);
@@ -32,11 +36,8 @@ export class LoginComponent {
     const res = await this.usuariosService.login(this.email, this.password);
 
     this.loading.set(false);
-
-    // Cerrar el modal de login independientemente del resultado
     this.dialogRef.close();
 
-    // Mostrar modal de éxito o error con el resultado
     this.modalService.openErrorSuccess({
       success: res.success,
       message: res.message,

@@ -179,7 +179,7 @@ app-header {
 
 @media (max-width: 767px) {
     .infoResultados {
-        width: calc(100% - 24px);
+         width: 260px;
         margin-top: 6px;
         margin-left: 12px;
         padding: 6px 12px;

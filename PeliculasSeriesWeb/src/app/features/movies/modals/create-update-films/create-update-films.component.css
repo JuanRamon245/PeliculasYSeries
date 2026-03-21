@@ -1,6 +1,6 @@
 .contenedor {
     height: auto;
-    width: 400px;
+    width: 100%;
     margin: 20px;
     border: solid 2px var(--marron);
     box-shadow: 0.4rem 0.4rem 0 var(--marron);
@@ -10,7 +10,7 @@
 }
 
 .cabecera {
-    height: 40px;
+    height: 80px;
     width: 100%;
     border-bottom: solid 2px var(--marron);
     background-color: var(--morado);
@@ -23,8 +23,6 @@
     width: 70%;
     display: flex;
     align-items: center;
-    font-size: 20px;
-    font-weight: 500;
     color: var(--marron);
     padding-left: 20px;
 }
@@ -114,6 +112,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .titulo {
@@ -247,6 +246,8 @@
     border-radius: 8px;
     margin: 10px;
     margin-right: 20px;
+    display: flex;
+    align-self: center;
 }
 
 .contenedorBotonAncho {
@@ -365,4 +366,139 @@ select.input-form {
 
 .estado {
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 1024px) {
+    .contenedor {
+        width: 90%;
+        margin: 10px;
+        margin-left: 3%;
+    }
+
+    .margen {
+        margin-left: 20px;
+    }
+
+    .cabecera {
+        height: 64px;
+    }
+
+    .cuerpo {
+        max-height: 450px;
+    }
+
+    .tipo {
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .contenedorDecoracionArriba {
+        width: 60px;
+        height: 90px;
+        right: -10px;
+    }
+
+    .horizontal {
+        margin-bottom: 8px;
+    }
+
+    .contenedorBoton {
+        height: 40px;
+        width: 70px;
+        margin: 5px;
+        margin-left: 50px;
+        margin-right: 30px;
+    }
+
+    .botonPulsar {
+        padding: 4px 8px;
+        transform: translateY(-8px);
+    }
+}
+
+
+@media (max-width: 767px) {
+    .margen {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .contenedor {
+        width: 100%;
+        margin: 5px 0;
+        margin-left: 0%;
+    }
+
+    .cabecera {
+        height: 56px;
+    }
+
+    .nombre {
+        padding-left: 15px;
+        font-size: 16px;
+    }
+
+    .decoracion .icono {
+        font-size: 18px;
+    }
+
+    .tipo {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 10px 15px;
+    }
+
+    .estado {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contenedorTiposEstados {
+        padding: 10px 5px;
+    }
+
+    .contenedorDatos {
+        width: calc(100% - 30px);
+        margin: 8px 15px;
+        height: 40px;
+    }
+
+    .titulo {
+        width: 35%;
+        padding-left: 15px;
+    }
+
+    .pie {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+
+    .inferior {
+        padding-left: 0;
+        justify-items: center;
+        gap: 5px;
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    .barra {
+        margin: 10px 20px;
+    }
+
+    .contenedorBoton {
+        width: 90%;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .contenedorDecoracionArriba {
+        width: 40px;
+        height: 60px;
+        top: -20px;
+        right: 0px;
+    }
+
+    .horizontal {
+        margin-bottom: 6px;
+    }
 }

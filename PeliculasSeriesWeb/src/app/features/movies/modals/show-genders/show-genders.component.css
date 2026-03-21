@@ -71,6 +71,13 @@
     flex-direction: row;
     align-content: flex-start;
     background-color: var(--blanco);
+    background-image: conic-gradient(
+        color-mix(in srgb, var(--gris) 90%, transparent) 90deg, 
+        transparent 90deg 180deg, 
+        color-mix(in srgb, var(--gris) 90%, transparent) 180deg 270deg, 
+        transparent 270deg
+    );
+    background-size: 30px 30px;
     padding: 20px;
     gap: 10px;
     overflow-y: scroll;
@@ -142,7 +149,7 @@ input[type="radio"]:checked + .contenedorGeneros {
 }
 
 .contenedorGeneros:hover {
-    background-color: rgba(0,0,0,0.05);
+    background-color: var(--azul);
 }
 
 .pie {

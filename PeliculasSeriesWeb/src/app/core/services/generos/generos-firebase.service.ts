@@ -10,8 +10,13 @@ import { Genre } from '../../models/Movie.model';
 
 @Injectable({ providedIn: 'root' })
 export class GenerosService {
+
+  // ── Servicios de firebase ──
+
   private firestore = inject(Firestore);
-  private col       = collection(this.firestore, 'generos');
+  private col = collection(this.firestore, 'generos');
+
+  // ── Sirve para reflejar los cambios de la BBDD en la interfaz ──
 
   readonly genres = toSignal(
     collectionData(
@@ -23,7 +28,7 @@ export class GenerosService {
 
   readonly genreNames = computed(() => this.genres().map(g => g.nombre));
 
-  // ── CRUD ──────────────────────────────────────────────────────
+  // ── Metodo crear generos ──
 
   async create(nombre: string): Promise<{ success: boolean; message: string }> {
     try {
@@ -40,6 +45,8 @@ export class GenerosService {
       return { success: false, message: 'Error al crear el género.' };
     }
   }
+
+  // ── Metodo actualizar generos ──
 
   async update(oldNombre: string, newNombre: string): Promise<{ success: boolean; message: string }> {
     try {
@@ -59,6 +66,8 @@ export class GenerosService {
       return { success: false, message: 'Error al actualizar el género.' };
     }
   }
+
+  // ── Metodo eliminar generos ──
 
   async delete(nombre: string): Promise<{ success: boolean; message: string }> {
     try {

@@ -10,13 +10,14 @@ import { Movie, FilterState } from '../../models/Movie.model';
 
 @Injectable({ providedIn: 'root' })
 export class PeliculasSeriesService {
+
+  // ── Servicios de firebase ──
+
   private firestore = inject(Firestore);
   private col       = collection(this.firestore, 'peliculas');
 
-  /**
-   * Signal reactivo. collectionData() abre un WebSocket con Firestore:
-   * cualquier cambio en la BD se refleja automáticamente en la UI.
-   */
+  // ── Sirve para reflejar los cambios de la BBDD en la interfaz ──
+
   readonly movies = toSignal(
     collectionData(
       query(this.col, orderBy('nombre')),
@@ -24,7 +25,8 @@ export class PeliculasSeriesService {
     ) as Observable<Movie[]>,
     { initialValue: [] as Movie[] },
   );
-  // ── CRUD ──────────────────────────────────────────────────────
+
+  // ── Metodo crear Titulos ──
 
   async create(data: Omit<Movie, 'fecha'>): Promise<{ success: boolean; message: string }> {
     try {
@@ -40,12 +42,13 @@ export class PeliculasSeriesService {
     }
   }
 
+  // ── Metodo actualizar Titulos ──
+
   async update(oldNombre: string, data: Omit<Movie, 'fecha'>): Promise<{ success: boolean; message: string }> {
     try {
       const nombre = data.nombre.trim();
       if (!nombre) return { success: false, message: 'El nombre no puede estar vacío.' };
 
-      // Si el nombre cambia, el ID del doc cambia: borrar viejo y crear nuevo
       if (oldNombre !== nombre) {
         await deleteDoc(doc(this.col, oldNombre));
       }
@@ -59,6 +62,8 @@ export class PeliculasSeriesService {
     }
   }
 
+  // ── Metodo eliminar Titulos ──
+
   async delete(nombre: string): Promise<{ success: boolean; message: string }> {
     try {
       await deleteDoc(doc(this.col, nombre));
@@ -69,8 +74,7 @@ export class PeliculasSeriesService {
     }
   }
 
-  // ── Filtrado local ────────────────────────────────────────────
-  // Opera sobre el array ya descargado en memoria, sin queries extra a Firestore.
+  // ── Metodo para realizar un filtro en el array d edatos que descargamos de firebase ──
 
   applyFilters(movies: Movie[], filters: FilterState): Movie[] {
     let result = [...movies];

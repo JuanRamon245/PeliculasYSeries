@@ -22,6 +22,7 @@ export class ClickEffectDirective {
   }
 
   // ── Escuchador para detectar el click en el objeto ──
+
   @HostListener('click')
   onClick(): void {
     const usaDestellos = (this.el.nativeElement as HTMLElement)
@@ -30,6 +31,7 @@ export class ClickEffectDirective {
   }
 
   // ── Lógica compartida para con o sin destellos ──
+
   private spawnEffect(conDestellos: boolean): void {
     const rect  = (this.el.nativeElement as HTMLElement).getBoundingClientRect();
     const cx    = rect.left + rect.width  / 2;
@@ -48,12 +50,14 @@ export class ClickEffectDirective {
     `;
 
     // ── Mostrar el mensaje del bocadillo ──
+
     const bubble = document.createElement('div');
     bubble.className   = 'ce-bubble';
     bubble.textContent = texto;
     container.appendChild(bubble);
 
     // ── Crear destellos en el modal ──
+    
     if (conDestellos) {
       const corners: { cls: string; angles: number[] }[] = [
         { cls: 'ce-corner ce-corner--tl', angles: [-135, -110, -160] },

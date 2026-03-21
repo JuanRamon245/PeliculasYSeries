@@ -11,36 +11,23 @@ import {
 export class UsuariosService {
   private auth = inject(Auth);
 
-  // ── Estado del usuario ────────────────────────────────────────
-  // Signal privado mutable; se actualiza desde el listener de Firebase Auth.
-  // Usamos `undefined` para "aún no sabemos" (carga inicial),
-  // `null` para "no autenticado" y `User` para "autenticado".
+  // ── Verificamos el estado del usuario ──
+
   private _currentUser = signal<User | null | undefined>(undefined);
 
-  /** Usuario actual. undefined = cargando, null = no autenticado, User = autenticado */
   readonly currentUser = this._currentUser.asReadonly();
 
-  /** true si el usuario ha iniciado sesión */
   readonly isLoggedIn = computed(() => this._currentUser() !== null && this._currentUser() !== undefined);
-
-  /** true mientras se resuelve el estado inicial de Auth */
   readonly isLoading = computed(() => this._currentUser() === undefined);
 
   constructor() {
-    // Firebase notifica el estado de autenticación de forma asíncrona.
-    // Este listener se activa en cuanto la app arranca y mantiene el signal
-    // actualizado para cualquier cambio (login, logout, token expirado...).
     onAuthStateChanged(this.auth, (user) => {
       this._currentUser.set(user);
     });
   }
 
-  // ── Acciones ──────────────────────────────────────────────────
+  // ── Metodo para loguearse en la web ──
 
-  /**
-   * Inicia sesión con email y contraseña.
-   * Devuelve un objeto con éxito/error para que el modal pueda reaccionar.
-   */
   async login(email: string, password: string): Promise<{ success: boolean; message: string }> {
     try {
       if (!email.trim() || !password.trim()) {
@@ -49,18 +36,18 @@ export class UsuariosService {
       await signInWithEmailAndPassword(this.auth, email.trim(), password);
       return { success: true, message: `Bienvenido.` };
     } catch (e: any) {
-      // Firebase devuelve códigos de error específicos
       const msg = this.translateError(e?.code);
       return { success: false, message: msg };
     }
   }
 
-  /** Cierra la sesión del usuario actual */
+  // ── Metodo para desloguearse en la web ──
+
   async logout(): Promise<void> {
     await signOut(this.auth);
   }
 
-  // ── Helper privado ────────────────────────────────────────────
+  // ── Metodo para traducir los distintos errores que nos puede mandar firebase ──
 
   private translateError(code: string): string {
     const map: Record<string, string> = {

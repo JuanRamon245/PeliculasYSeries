@@ -17,18 +17,19 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes), provideClientHydration(withEventReplay()),
     provideAnimationsAsync(),
 
-    // ── Firebase ──────────────────────────────────────────────
+    // ── Servicios de firebase ──
+    
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    // provideFirestore(() => getFirestore()),
     provideFirestore(() =>
       initializeFirestore(
-        // Necesita la app ya inicializada — getApp() la recupera
-        // (viene del initializeApp de arriba)
         initializeApp(environment.firebase),
+
+        // ── Guardar en local los datos ──
+
         {
           localCache: persistentLocalCache({
-            tabManager: persistentMultipleTabManager(), // varias pestañas comparten caché
+            tabManager: persistentMultipleTabManager(),
           }),
         },
       )

@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:PeliculasSeriesWeb": "node dist/peliculas-series-web/server/server.mjs"
+    "serve:ssr:PeliculasSeriesWeb": "node dist/peliculas-series-web/server/server.mjs",
+    "deploy": "ng build --configuration production --base-href /PeliculasYSeries/ && npx angular-cli-ghpages --dir=dist/cinemateca/browser"
   },
   "private": true,
   "dependencies": {
@@ -16,6 +17,7 @@
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
     "@angular/core": "^19.2.0",
+    "@angular/fire": "^19.0.0",
     "@angular/forms": "^19.2.0",
     "@angular/material": "^19.0.0",
     "@angular/platform-browser": "^19.2.0",
@@ -23,7 +25,6 @@
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.6",
-    "@angular/fire": "^19.0.0",
     "express": "^4.18.2",
     "firebase": "^12.10.0",
     "rxjs": "~7.8.0",
@@ -37,6 +38,7 @@
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
+    "angular-cli-ghpages": "^3.0.2",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

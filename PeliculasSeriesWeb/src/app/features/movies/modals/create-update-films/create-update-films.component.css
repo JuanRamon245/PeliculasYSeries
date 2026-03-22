@@ -334,7 +334,7 @@ input[type="radio"]:checked + .contenedorTiposEstados {
 }
 
 .contenedorTiposEstados:hover {
-    background-color: rgba(0,0,0,0.05);
+    background-color: var(--azul);
 }
 
 .custom-select-container {

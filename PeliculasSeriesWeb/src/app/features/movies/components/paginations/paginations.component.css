@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    
+    margin-bottom: 20px;
 }
 
 .botonPaginacion {
@@ -26,7 +26,7 @@
 
 .puntosSuspensivos {
     align-items: flex-end;
-    padding: 7px 9px;
+    padding: 1px 5px;
     cursor: default;
 }
 
@@ -39,4 +39,22 @@
 .botonPaginacion:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+}
+
+.texto-boton {
+    display: inline;
+    margin: 0 5px;
+}
+
+@media (max-width: 1024px) {
+    .paginacion {
+        padding: 8px;
+        gap: 5px;
+        margin-bottom: 60px;
+    }
+
+    .texto-boton {
+        display: none;
+        margin: 0;
+    }
 }

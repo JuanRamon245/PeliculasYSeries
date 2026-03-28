@@ -5,7 +5,7 @@
             [disabled]="currentPage() === 1"
             appClickEffectSimple
             (click)="goTo(currentPage() - 1)">
-            ‹ anterior
+            ‹ <span class="texto-boton">anterior</span>
         </button>
 
         @for (page of visiblePages; track $index) {
@@ -27,7 +27,7 @@
             [disabled]="currentPage() === totalPages()"
             appClickEffectSimple
             (click)="goTo(currentPage() + 1)">
-            siguiente ›
+            <span class="texto-boton">siguiente</span> ›
         </button>
     </div>
 }

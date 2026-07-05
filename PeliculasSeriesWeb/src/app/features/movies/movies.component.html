@@ -5,19 +5,44 @@
   </filter>
 </svg>
 
-<app-header (searchChange)="onSearch($event)" />
+<app-header/>
 
 <div class="layoutPrincipal">
     <aside class="lateral">
+        <div class="barraBusqueda">
+            <div class="buscador">
+                <div class="icono" (click)="txtBuscar.focus()">
+                    <span class="material-symbols-outlined">search</span>
+                </div>
+                <div class="busqueda">
+                    <input
+                        #txtBuscar
+                        type="text"
+                        placeholder="Buscar..."
+                        [(ngModel)]="searchValue"
+                        (ngModelChange)="onSearch($event)"
+                        aria-label="Buscar película o serie"
+                        class="input-form txRegular txBold gaeguPr"
+                        maxlength="30"
+                    />
+                </div>
+                @if (searchValue) {
+                    <div class="icono-clear" (click)="limpiarBusqueda(); $event.stopPropagation()">
+                        <span class="material-symbols-outlined">close</span>
+                    </div>
+                }
+            </div>
+
+            <span class="contadorLateral txSmall txBold kosugiMPr">
+                ({{ filteredMovies().length }} resultados)
+            </span>
+        </div>
+
         <app-menu-filters (filtersApplied)="onFiltersApplied($event)" />
     </aside>
     <main class="contenido">
         <div class="fondo-liquido"></div>
         <div class="zonaScroll">
-
-            <div class="infoResultados txMedium txBold kosugiMPr">
-                <p>{{ filteredMovies().length }} titulo(s) encontrado(s)</p>
-            </div>
 
             @if (pagedMovies().length > 0) {
                 <div class="gridCards">

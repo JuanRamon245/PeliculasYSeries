@@ -9,6 +9,7 @@ import { HeaderComponent }               from './components/header/header.compon
 import { MenuFiltersComponent }          from './components/menu-filters/menu-filters.component';
 import { SeriesPeliculasCardsComponent } from './components/series-peliculas-cards/series-peliculas-cards.component';
 import { PaginationsComponent }          from './components/paginations/paginations.component';
+import { FormsModule } from '@angular/forms';
 
 // ── Lógica de paginación responsive ──────────────────────────
 type Breakpoint = 'desktop' | 'tablet' | 'mobile';
@@ -33,6 +34,7 @@ function getBreakpoint(w: number): Breakpoint {
     MenuFiltersComponent,
     SeriesPeliculasCardsComponent,
     PaginationsComponent,
+    FormsModule,
   ],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.css'
@@ -46,9 +48,12 @@ export class MoviesComponent {
   activeFilters = signal<FilterState>({ ...DEFAULT_FILTERS });
   breakpoint    = signal<Breakpoint>(getBreakpoint(window.innerWidth));
 
+  searchValue = '';
+  private debounceTimer: ReturnType<typeof setTimeout> | null = null;
+
   pageSize = computed(() => PAGE_SIZES[this.breakpoint()]);
 
-  // ── Metodo para palicar los filtros a las series y peliculas obtenidas de firebase ──
+  // ── Metodo para aplicar los filtros a las series y peliculas obtenidas de firebase ──
   filteredMovies = computed(() => {
     const filtersWithSearch: FilterState = {
       ...this.activeFilters(),
@@ -86,8 +91,16 @@ export class MoviesComponent {
 
   // ── Manjejadores de los eventos de los hijos ──
 
-  onSearch(query: string): void {
-    this.searchQuery.set(query);
+  limpiarBusqueda(): void {
+    this.searchValue = '';
+    this.searchQuery.set('');
+  }
+
+  onSearch(value: string): void {
+    if (this.debounceTimer) clearTimeout(this.debounceTimer);
+    this.debounceTimer = setTimeout(() => {
+      this.searchQuery.set(value);
+    }, 280);
   }
 
   onFiltersApplied(filters: FilterState): void {
@@ -101,5 +114,9 @@ export class MoviesComponent {
 
   trackByNombre(_: number, m: Movie): string {
     return m.nombre;
+  }
+
+  ngOnDestroy(): void {
+    if (this.debounceTimer) clearTimeout(this.debounceTimer);
   }
 }

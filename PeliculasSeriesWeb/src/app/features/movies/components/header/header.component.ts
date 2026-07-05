@@ -12,24 +12,12 @@ import { ClickEffectDirective } from '../../../shared/directives/click-efect.dir
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent {
 
   // ── Servicios para las distintas funcionalidades ──
 
   private modalService = inject(ModalService);
   usuariosService = inject(UsuariosService);
-
-  // ── Funcionalidad del filtrado y busqueda de peliculas y series ──
-
-  searchChange = output<string>();
-
-  searchValue = '';
-  private debounceTimer: ReturnType<typeof setTimeout> | null = null;
-
-  onSearch(value: string): void {
-    if (this.debounceTimer) clearTimeout(this.debounceTimer);
-    this.debounceTimer = setTimeout(() => this.searchChange.emit(value), 280);
-  }
 
   // ── Metodos para abrir los modales ──
 
@@ -47,9 +35,5 @@ export class HeaderComponent implements OnDestroy {
 
   async cerrarSesion(): Promise<void> {
     await this.usuariosService.logout();
-  }
-
-  ngOnDestroy(): void {
-    if (this.debounceTimer) clearTimeout(this.debounceTimer);
   }
 }

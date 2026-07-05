@@ -30,6 +30,86 @@ app-header {
     z-index: 10;
     border-bottom: solid 2px var(--marron);
     background: linear-gradient(to right, var(--morado), var(--rosa));
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 24px;
+    gap: 10%;
+}
+
+.barraBusqueda {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.buscador {
+    height: 45px;
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--blanco);
+    border-radius: 10px;
+    border: solid 2px var(--marron);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.buscador:focus-within {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.85), 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.icono {
+    height: 100%;
+    padding-left: 16px;
+    padding-right: 8px;
+    color: var(--marron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.busqueda {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.input-form {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-inline: 4px;
+    color: var(--marron);
+    font-size: 16px;
+}
+
+.icono-clear {
+    height: 100%;
+    padding-right: 16px;
+    padding-left: 8px;
+    color: var(--marron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icono-clear:hover {
+    color: var(--rosa);
+    transform: scale(1.15);
 }
 
 .contenido {
@@ -40,17 +120,11 @@ app-header {
     position: relative;
 }
 
-.infoResultados {
-    width: 400px;
-    box-shadow: 4px 4px 0 var(--marron);
-    margin-top: 10px;
-    margin-left: 40px;
-    flex-shrink: 0;
-    padding: 10px 16px;
-    border: solid 2px var(--marron);
-    border-radius: 10px;
+.contadorLateral {
     color: var(--marron);
-    background-color: var(--blanco);
+    padding-top: 15px;
+    margin-left: 15px;
+    white-space: nowrap;
 }
 
 .fondo-liquido {
@@ -95,9 +169,6 @@ app-header {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-}
-
-.infoResultados, .zonaScroll {
     position: relative;
     z-index: 1; 
 }
@@ -162,12 +233,12 @@ app-header {
 .sinResultados p { font-size: 15px; }
 
 @media (max-width: 1024px) {
-    .infoResultados {
-        width: 320px;
-        margin-top: 8px;
-        margin-left: 24px;
-        padding: 8px 14px;
-        box-shadow: 3px 3px 0 var(--marron);
+    .lateral {
+        padding: 10px 16px;
+        gap: 16px;
+    }
+    .buscador {
+        height: 40px;
     }
 
     .gridCards {
@@ -178,12 +249,19 @@ app-header {
 }
 
 @media (max-width: 767px) {
-    .infoResultados {
-         width: 260px;
-        margin-top: 6px;
-        margin-left: 12px;
-        padding: 6px 12px;
-        box-shadow: 2px 2px 0 var(--marron);
+    .lateral {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .barraBusqueda {
+        width: 100%;
+    }
+
+    .buscador {
+        max-width: 100%;
     }
 
     .gridCards {
